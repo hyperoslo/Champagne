@@ -1,2 +1,3 @@
 public protocol ApplicationController {
+  init()
 }
