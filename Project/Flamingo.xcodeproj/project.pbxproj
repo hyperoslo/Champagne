@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D523E90A1C8C8C440090458C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E9081C8C8C440090458C /* ApplicationController.swift */; };
+		D523E90B1C8C8C440090458C /* ResourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E9091C8C8C440090458C /* ResourceController.swift */; };
+		D523E90E1C8C8C610090458C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E90D1C8C8C610090458C /* Request.swift */; };
 		D52F2CA21C8C730F00D6C71D /* Flamingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52F2C971C8C730F00D6C71D /* Flamingo.framework */; };
-		D52F2CBC1C8C74A600D6C71D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52F2CBA1C8C74A600D6C71D /* Controller.swift */; };
-		D52F2CC41C8C795600D6C71D /* Inquiline.swiftmodule in Frameworks */ = {isa = PBXBuildFile; fileRef = D52F2CC31C8C795600D6C71D /* Inquiline.swiftmodule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,13 +24,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D523E9081C8C8C440090458C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
+		D523E9091C8C8C440090458C /* ResourceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceController.swift; sourceTree = "<group>"; };
+		D523E90D1C8C8C610090458C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D52F2C971C8C730F00D6C71D /* Flamingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flamingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52F2CA11C8C730F00D6C71D /* FlamingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlamingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52F2CB11C8C734B00D6C71D /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
-		D52F2CBA1C8C74A600D6C71D /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D52F2CBE1C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52F2CC01C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D52F2CC31C8C795600D6C71D /* Inquiline.swiftmodule */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inquiline.swiftmodule; path = ../.build/debug/Inquiline.swiftmodule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D52F2CC41C8C795600D6C71D /* Inquiline.swiftmodule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,10 +53,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D523E9071C8C8C330090458C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D523E9081C8C8C440090458C /* ApplicationController.swift */,
+				D523E9091C8C8C440090458C /* ResourceController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D523E90C1C8C8C550090458C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D523E90D1C8C8C610090458C /* Request.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		D52F2C8D1C8C730F00D6C71D = {
 			isa = PBXGroup;
 			children = (
-				D52F2CC31C8C795600D6C71D /* Inquiline.swiftmodule */,
 				D52F2CB11C8C734B00D6C71D /* Package.swift */,
 				D52F2CB41C8C744300D6C71D /* Resources */,
 				D52F2CB81C8C74A600D6C71D /* Sources */,
@@ -94,7 +111,8 @@
 		D52F2CB91C8C74A600D6C71D /* Flamingo */ = {
 			isa = PBXGroup;
 			children = (
-				D52F2CBA1C8C74A600D6C71D /* Controller.swift */,
+				D523E90C1C8C8C550090458C /* Request */,
+				D523E9071C8C8C330090458C /* Controller */,
 			);
 			path = Flamingo;
 			sourceTree = "<group>";
@@ -230,7 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D52F2CBC1C8C74A600D6C71D /* Controller.swift in Sources */,
+				D523E90A1C8C8C440090458C /* ApplicationController.swift in Sources */,
+				D523E90E1C8C8C610090458C /* Request.swift in Sources */,
+				D523E90B1C8C8C440090458C /* ResourceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

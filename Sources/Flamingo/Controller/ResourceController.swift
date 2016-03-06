@@ -1,5 +1,3 @@
-import Inquiline
-
 public protocol ResourceController: ApplicationController {
 
   func index(request: Request) throws -> Response
