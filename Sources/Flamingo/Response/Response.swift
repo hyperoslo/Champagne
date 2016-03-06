@@ -17,7 +17,6 @@ public class Response {
       headers["Content-Type"] = contentTypeValue
     }
 
-    //headers["Server"] = "Vapor \(Application.VERSION)"
+    headers["Server"] = "Flamingo \(Application.version)"
   }
-
 }
