@@ -1,6 +1,6 @@
 import Inquiline
 
-public protocol ResourceController {
+public protocol ResourceController: ApplicationController {
 
   func index(request: Request) throws -> Response
   func new(request: Request) throws -> Response
@@ -9,15 +9,3 @@ public protocol ResourceController {
   func update(request: Request) throws -> Response
   func destroy(request: Request) throws -> Response
 }
-
-//
-// public class ResourceController {
-//
-//   public init() {}
-//
-//   public typealias Action = (request: Request) -> Response
-//
-//   var actions = [String: Action]()
-//
-//
-// }
