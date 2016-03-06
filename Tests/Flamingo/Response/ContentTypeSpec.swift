@@ -31,7 +31,6 @@ class ContentTypeSpec: QuickSpec {
           it("compares for value equality") {
             expect(contentType).to(equal(ContentType.HTML))
             expect(contentType).toNot(equal(ContentType.JSON))
-            expect(contentType).toNot(equal(ContentType.FormURLEncoded))
             expect(contentType).toNot(equal(ContentType.Custom("application/custom")))
           }
         }
@@ -58,34 +57,6 @@ class ContentTypeSpec: QuickSpec {
           it("compares for value equality") {
             expect(contentType).to(equal(ContentType.JSON))
             expect(contentType).toNot(equal(ContentType.HTML))
-            expect(contentType).toNot(equal(ContentType.FormURLEncoded))
-            expect(contentType).toNot(equal(ContentType.Custom("application/custom")))
-          }
-        }
-      }
-
-      context("when it's FormURLEncoded type") {
-        beforeEach {
-          contentType = .FormURLEncoded
-        }
-
-        describe("#value") {
-          it("returns a correct string value") {
-            expect(contentType.value).to(equal("application/x-www-form-urlencoded"))
-          }
-        }
-
-        describe("#hashValue") {
-          it("returns a hash value of corresponding string value") {
-            expect(contentType.hashValue).to(equal(contentType.value.hashValue))
-          }
-        }
-
-        describe("#equal") {
-          it("compares for value equality") {
-            expect(contentType).toNot(equal(ContentType.JSON))
-            expect(contentType).toNot(equal(ContentType.HTML))
-            expect(contentType).to(equal(ContentType.FormURLEncoded))
             expect(contentType).toNot(equal(ContentType.Custom("application/custom")))
           }
         }
@@ -112,7 +83,6 @@ class ContentTypeSpec: QuickSpec {
           it("compares for value equality") {
             expect(contentType).toNot(equal(ContentType.JSON))
             expect(contentType).toNot(equal(ContentType.HTML))
-            expect(contentType).toNot(equal(ContentType.FormURLEncoded))
             expect(contentType).to(equal(ContentType.Custom("application/custom")))
           }
         }

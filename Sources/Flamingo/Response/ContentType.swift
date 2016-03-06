@@ -3,7 +3,6 @@ public extension Response {
   public enum ContentType {
     case HTML
     case JSON
-    case FormURLEncoded
     case None
     case Custom(String)
 
@@ -15,8 +14,6 @@ public extension Response {
         string = "text/html"
       case .JSON:
         string = "application/json"
-      case .FormURLEncoded:
-        string = "application/x-www-form-urlencoded"
       case .Custom(let value):
         string = value
       default:
