@@ -13,8 +13,8 @@ public class Response {
     self.data = [UInt8](data)
     self.contentType = contentType
 
-    if let contentTypeValue = contentType.value {
-      headers["Content-Type"] = contentTypeValue
+    if !contentType.value.isEmpty {
+      headers["Content-Type"] = contentType.value
     }
 
     headers["Server"] = "Flamingo \(Application.version)"

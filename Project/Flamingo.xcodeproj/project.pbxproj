@@ -18,6 +18,9 @@
 		D523E91D1C8C96E20090458C /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E91C1C8C96E20090458C /* Route.swift */; };
 		D52F2CA21C8C730F00D6C71D /* Flamingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52F2C971C8C730F00D6C71D /* Flamingo.framework */; };
 		D5E999D71C8C9B680072DEE3 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999D61C8C9B680072DEE3 /* Routing.swift */; };
+		D5E999DD1C8C9DA40072DEE3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E999DB1C8C9DA40072DEE3 /* Nimble.framework */; };
+		D5E999DE1C8C9DA40072DEE3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E999DC1C8C9DA40072DEE3 /* Quick.framework */; };
+		D5E999E41C8C9E1F0072DEE3 /* ContentTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		D52F2CBE1C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52F2CC01C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5E999D61C8C9B680072DEE3 /* Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		D5E999DB1C8C9DA40072DEE3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		D5E999DC1C8C9DA40072DEE3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypeSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E999DD1C8C9DA40072DEE3 /* Nimble.framework in Frameworks */,
+				D5E999DE1C8C9DA40072DEE3 /* Quick.framework in Frameworks */,
 				D52F2CA21C8C730F00D6C71D /* Flamingo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +119,7 @@
 				D52F2CB41C8C744300D6C71D /* Resources */,
 				D52F2CB81C8C74A600D6C71D /* Sources */,
 				D52F2CBB1C8C74A600D6C71D /* Tests */,
+				D5E999DF1C8C9DAE0072DEE3 /* Frameworks */,
 				D52F2C981C8C730F00D6C71D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 		D52F2CBB1C8C74A600D6C71D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D5E999E01C8C9DFF0072DEE3 /* Flamingo */,
 			);
 			name = Tests;
 			path = ../Tests;
@@ -176,6 +186,31 @@
 				D52F2CC01C8C74F700D6C71D /* Info.plist */,
 			);
 			path = FlamingoTests;
+			sourceTree = "<group>";
+		};
+		D5E999DF1C8C9DAE0072DEE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5E999DB1C8C9DA40072DEE3 /* Nimble.framework */,
+				D5E999DC1C8C9DA40072DEE3 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5E999E01C8C9DFF0072DEE3 /* Flamingo */ = {
+			isa = PBXGroup;
+			children = (
+				D5E999E11C8C9E100072DEE3 /* Response */,
+			);
+			path = Flamingo;
+			sourceTree = "<group>";
+		};
+		D5E999E11C8C9E100072DEE3 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +251,7 @@
 				D52F2C9D1C8C730F00D6C71D /* Sources */,
 				D52F2C9E1C8C730F00D6C71D /* Frameworks */,
 				D52F2C9F1C8C730F00D6C71D /* Resources */,
+				D5E999DA1C8C9D730072DEE3 /* Copy frameworks with Carthage */,
 			);
 			buildRules = (
 			);
@@ -280,6 +316,25 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D5E999DA1C8C9D730072DEE3 /* Copy frameworks with Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
+			);
+			name = "Copy frameworks with Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D52F2C921C8C730F00D6C71D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -302,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E999E41C8C9E1F0072DEE3 /* ContentTypeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +501,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = FlamingoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.hyper.FlamingoTests;
@@ -456,6 +516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = FlamingoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.hyper.FlamingoTests;
