@@ -14,7 +14,10 @@
 		D523E9141C8C90860090458C /* ResourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E9091C8C8C440090458C /* ResourceController.swift */; };
 		D523E9161C8C92460090458C /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E9151C8C92460090458C /* ContentType.swift */; };
 		D523E9181C8C94460090458C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E9171C8C94460090458C /* Application.swift */; };
+		D523E91B1C8C95930090458C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E91A1C8C95930090458C /* Router.swift */; };
+		D523E91D1C8C96E20090458C /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523E91C1C8C96E20090458C /* Route.swift */; };
 		D52F2CA21C8C730F00D6C71D /* Flamingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52F2C971C8C730F00D6C71D /* Flamingo.framework */; };
+		D5E999D71C8C9B680072DEE3 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999D61C8C9B680072DEE3 /* Routing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +38,14 @@
 		D523E9121C8C8FFC0090458C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D523E9151C8C92460090458C /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		D523E9171C8C94460090458C /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		D523E91A1C8C95930090458C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D523E91C1C8C96E20090458C /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		D52F2C971C8C730F00D6C71D /* Flamingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flamingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52F2CA11C8C730F00D6C71D /* FlamingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlamingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52F2CB11C8C734B00D6C71D /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		D52F2CBE1C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52F2CC01C8C74F700D6C71D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5E999D61C8C9B680072DEE3 /* Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,16 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		D523E9191C8C95790090458C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D5E999D61C8C9B680072DEE3 /* Routing.swift */,
+				D523E91A1C8C95930090458C /* Router.swift */,
+				D523E91C1C8C96E20090458C /* Route.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		D52F2C8D1C8C730F00D6C71D = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +147,7 @@
 			children = (
 				D523E90F1C8C8F6F0090458C /* Response */,
 				D523E90C1C8C8C550090458C /* Request */,
+				D523E9191C8C95790090458C /* Router */,
 				D523E9071C8C8C330090458C /* Controller */,
 				D523E9171C8C94460090458C /* Application.swift */,
 			);
@@ -268,6 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E999D71C8C9B680072DEE3 /* Routing.swift in Sources */,
+				D523E91D1C8C96E20090458C /* Route.swift in Sources */,
+				D523E91B1C8C95930090458C /* Router.swift in Sources */,
 				D523E90A1C8C8C440090458C /* ApplicationController.swift in Sources */,
 				D523E9181C8C94460090458C /* Application.swift in Sources */,
 				D523E90E1C8C8C610090458C /* Request.swift in Sources */,
