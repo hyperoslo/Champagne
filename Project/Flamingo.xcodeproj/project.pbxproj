@@ -22,6 +22,8 @@
 		D5E999DE1C8C9DA40072DEE3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E999DC1C8C9DA40072DEE3 /* Quick.framework */; };
 		D5E999E41C8C9E1F0072DEE3 /* ContentTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */; };
 		D5E999E71C8C9FE50072DEE3 /* StatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999E51C8C9FE30072DEE3 /* StatusSpec.swift */; };
+		D5E999E91C8CA1250072DEE3 /* ResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999E81C8CA1250072DEE3 /* ResponseSpec.swift */; };
+		D5E999EC1C8CA36B0072DEE3 /* RequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E999EB1C8CA36B0072DEE3 /* RequestSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		D5E999DC1C8C9DA40072DEE3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypeSpec.swift; sourceTree = "<group>"; };
 		D5E999E51C8C9FE30072DEE3 /* StatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusSpec.swift; sourceTree = "<group>"; };
+		D5E999E81C8CA1250072DEE3 /* ResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSpec.swift; sourceTree = "<group>"; };
+		D5E999EB1C8CA36B0072DEE3 /* RequestSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,7 @@
 		D5E999E01C8C9DFF0072DEE3 /* Flamingo */ = {
 			isa = PBXGroup;
 			children = (
+				D5E999EA1C8CA3650072DEE3 /* Request */,
 				D5E999E11C8C9E100072DEE3 /* Response */,
 			);
 			path = Flamingo;
@@ -212,8 +217,17 @@
 			children = (
 				D5E999E21C8C9E1D0072DEE3 /* ContentTypeSpec.swift */,
 				D5E999E51C8C9FE30072DEE3 /* StatusSpec.swift */,
+				D5E999E81C8CA1250072DEE3 /* ResponseSpec.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		D5E999EA1C8CA3650072DEE3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D5E999EB1C8CA36B0072DEE3 /* RequestSpec.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,8 +374,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E999EC1C8CA36B0072DEE3 /* RequestSpec.swift in Sources */,
 				D5E999E71C8C9FE50072DEE3 /* StatusSpec.swift in Sources */,
 				D5E999E41C8C9E1F0072DEE3 /* ContentTypeSpec.swift in Sources */,
+				D5E999E91C8CA1250072DEE3 /* ResponseSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

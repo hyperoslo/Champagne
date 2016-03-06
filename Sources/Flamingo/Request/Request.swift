@@ -22,8 +22,8 @@ public class Request {
   public init(method: Method, path: String, headers: [String: String], body: [UInt8]) {
     self.method = method
     self.path = path.componentsSeparatedByString("?").first ?? ""
-    self.headers = headers
     self.body = body
+    self.headers = headers
     self.hostname = headers["host"] ?? "*"
   }
 }

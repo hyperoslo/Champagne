@@ -7,7 +7,7 @@ class StatusSpec: QuickSpec {
   typealias Status = Response.Status
 
   override func spec() {
-    describe("ContentType") {
+    describe("Status") {
       var status: Status!
 
       describe("#description") {
