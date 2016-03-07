@@ -1,0 +1,92 @@
+@testable import Flamingo
+import Quick
+import Nimble
+
+class ContentTypeSpec: QuickSpec {
+
+  typealias ContentType = Response.ContentType
+
+  override func spec() {
+    describe("ContentType") {
+      var contentType: ContentType!
+
+      context("when it's HTML type") {
+        beforeEach {
+          contentType = .HTML
+        }
+
+        describe("#value") {
+          it("returns a correct string value") {
+            expect(contentType.value).to(equal("text/html"))
+          }
+        }
+
+        describe("#hashValue") {
+          it("returns a hash value of corresponding string value") {
+            expect(contentType.hashValue).to(equal(contentType.value.hashValue))
+          }
+        }
+
+        describe("#equal") {
+          it("compares for value equality") {
+            expect(contentType).to(equal(ContentType.HTML))
+            expect(contentType).toNot(equal(ContentType.JSON))
+            expect(contentType).toNot(equal(ContentType.Custom("application/custom")))
+          }
+        }
+      }
+
+      context("when it's JSON type") {
+        beforeEach {
+          contentType = .JSON
+        }
+
+        describe("#value") {
+          it("returns a correct string value") {
+            expect(contentType.value).to(equal("application/json"))
+          }
+        }
+
+        describe("#hashValue") {
+          it("returns a hash value of corresponding string value") {
+            expect(contentType.hashValue).to(equal(contentType.value.hashValue))
+          }
+        }
+
+        describe("#equal") {
+          it("compares for value equality") {
+            expect(contentType).to(equal(ContentType.JSON))
+            expect(contentType).toNot(equal(ContentType.HTML))
+            expect(contentType).toNot(equal(ContentType.Custom("application/custom")))
+          }
+        }
+      }
+
+      context("when it's Custom type") {
+        beforeEach {
+          contentType = .Custom("application/custom")
+        }
+
+        describe("#value") {
+          it("returns a correct string value") {
+            expect(contentType.value).to(equal("application/custom"))
+          }
+        }
+
+        describe("#hashValue") {
+          it("returns a hash value of corresponding string value") {
+            expect(contentType.hashValue).to(equal(contentType.value.hashValue))
+          }
+        }
+
+        describe("#equal") {
+          it("compares for value equality") {
+            expect(contentType).toNot(equal(ContentType.JSON))
+            expect(contentType).toNot(equal(ContentType.HTML))
+            expect(contentType).to(equal(ContentType.Custom("application/custom")))
+          }
+        }
+      }
+    }
+  }
+}
