@@ -1,6 +1,5 @@
 import S4
 import C7
-import Router
 
 // MARK: - Basic
 
@@ -9,6 +8,10 @@ public typealias Data = C7.Data
 public typealias Stream = C7.Stream
 public typealias URI = S4.URI
 public typealias DataConvertible = S4.DataConvertible
+public typealias Message = S4.Message
+public typealias Body = S4.Body
+public typealias Headers = S4.Headers
+public typealias Header = S4.Header
 
 // MARK: - Request
 
@@ -16,8 +19,6 @@ public typealias Request = S4.Request
 
 extension Request {
   public typealias Method = S4.Method
-  public typealias Body = S4.Body
-  public typealias Headers = S4.Headers
 }
 
 // MARK: - Response
@@ -28,8 +29,6 @@ public typealias BasicResponder = S4.BasicResponder
 
 extension Response {
   public typealias Status = S4.Status
-  public typealias Body = S4.Body
-  public typealias Headers = S4.Headers
 }
 
 // MARK: - Headers
@@ -42,7 +41,3 @@ extension S4.Headers {
 // MARK: - Middleware
 
 public typealias Middleware = S4.Middleware
-
-// MARK: - Router
-
-public typealias RouteMap = RouterBuilder
