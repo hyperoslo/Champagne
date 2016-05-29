@@ -1,5 +1,3 @@
-import S4
-
 public protocol ResourceController: ApplicationController {
 
   func index(request: Request) throws -> Response
