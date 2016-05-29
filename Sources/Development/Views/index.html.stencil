@@ -1,0 +1,14 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: #000;
+      color: #eee;
+    }
+  </style>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<h1>Flamingo</h1>
+</body>
+</html>

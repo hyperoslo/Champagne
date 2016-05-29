@@ -1,52 +1,60 @@
 import Foundation
+import S4
+@_exported import Router
+import PathKit
 
-public class Router: Routing {
+extension Router {
 
-  var routes = [Int: Route]()
+    public static func create(build: (route: RouterBuilder) -> Void) -> Router {
+        return self.init(middleware: ParametersMiddleware(), CookiesMiddleware()) { route in
+            route.fallback { request in
+                if let staticFile = serveStaticFile(request: request) {
+                    return staticFile
+                } else {
+                    return Response(status: .notFound, body: "Route Not Found")
+                }
+            }
 
-  public init() {}
+            build(route: route)
+        }
+    }
 
-  public func resources(name: String, controller: ResourceController) {
-    let name = "/" + name
+    static func serveStaticFile(request: Request) -> Response? {
+        guard request.uri.path != "/" else { return nil }
 
-    get(name, controller.index)
-    get(name + "/new", controller.new)
-    get(name + "/{id}", controller.show)
-    get(name + "/{id}/edit", controller.edit)
-    post(name, controller.create)
-    delete(name + "/{id}", controller.destroy)
-    patch(name + "/{id}", controller.update)
-  }
+        let publicPath = Path(Config.publicDirectory)
+        guard publicPath.exists && publicPath.isDirectory else { return nil }
 
-  public func get(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .GET, action: action))
-  }
+        let filePath = publicPath + String(request.uri.path!.characters.dropFirst())
+        guard filePath.exists else { return nil }
 
-  public func post(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .POST, action: action))
-  }
+        guard filePath.isReadable else {
+            return Response(status: .notFound, body: "Can't Open File. Permission Denied")
+        }
 
-  public func put(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .PUT, action: action))
-  }
+        do {
+            let contents = try filePath.read()
+            if let body = String(data: contents, encoding: NSUTF8StringEncoding) {
+                return Response(status: .ok, body: body)
+            }
+        } catch {
+            return Response(status: .notFound, body: "Error Reading From File")
+        }
 
-  public func patch(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .PATCH, action: action))
-  }
+        return nil
+    }
 
-  public func delete(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .DELETE, action: action))
-  }
+}
 
-  public func head(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .HEAD, action: action))
-  }
+extension RouterBuilder {
 
-  public func options(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .OPTIONS, action: action))
-  }
-
-  func add(route: Route) {
-    routes[route.hashValue] = route
+  public func resources(name: String, middleware: Middleware..., controller: ResourceController) {
+    get(name, respond: controller.index)
+    get(name + "/new", respond: controller.new)
+    get(name + "/:id", respond: controller.show)
+    get(name + "/:id/edit", respond: controller.edit)
+    post(name, respond: controller.create)
+    delete(name + "/:id", respond: controller.destroy)
+    patch(name + "/:id", respond: controller.update)
   }
 }
