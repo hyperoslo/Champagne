@@ -1,14 +1,19 @@
 import Flamingo
 
-Config.viewsDirectory = "Sources/Demo/Views"
+Config.viewsDirectory = "Sources/Development/Views"
 
 let app = Application()
+let controller = Controller()
 
-app.route { route in
-  let controller = Controller()
+app.draw { map in
+  map.root(respond: controller.index)
+  map.resources("users", controller: controller)
 
-  route.resources(name: "resource", controller: controller)
-  route.get("/", respond: controller.index)
+  map.compose("api") { map in
+    map.root(respond: controller.index)
+    map.resources("/users", controller: controller)
+    map.get("/log", respond: controller.index)
+  }
 }
 
 try app.start()
