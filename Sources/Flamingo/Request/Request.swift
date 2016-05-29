@@ -1,5 +1,3 @@
-import S4
-
 extension Request {
 
   /// URL parameters
@@ -12,6 +10,7 @@ extension Request {
     }
   }
 
+  /// Cookies
   public var cookies: [String: String] {
     get {
       return storage["fl-cookies"] as? [String: String] ?? [:]
@@ -22,10 +21,10 @@ extension Request {
   }
 }
 
-extension Message {
-  public var bodyString: String? {
-    var mutatingBody = body
-    let buffer = try? mutatingBody.becomeBuffer()
-    return buffer?.description
+public extension Message {
+
+  var bodyString: String? {
+    var bufferBody = body
+    return try? bufferBody.becomeBuffer().description
   }
 }
