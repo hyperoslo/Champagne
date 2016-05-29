@@ -1,56 +1,62 @@
-import S4
 import String
 
 public class ParametersMiddleware: Middleware {
 
-    public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
-        var newRequest = request
-        var queryString = ""
+  public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
+    var request = request
+    var queryString = ""
 
-        if request.method == .get {
-            if let elements = request.uri.path?.split(separator: "?", maxSplits: 1) {
-                if let query = elements.last {
-                    queryString = query
-                }
-            }
-        } else {
-            if let body = request.bodyString {
-                queryString = body
-            }
-        }
-
-        for keyValue in queryString.split(separator: "&") {
-            let tokens = keyValue.split(separator: "=", maxSplits: 1)
-            if let name = tokens.first, value = tokens.last {
-                if let parsedName = try? String(percentEncoded: name),
-                    let parsedValue = try? String(percentEncoded: value) {
-                    newRequest.parameters[parsedName] = parsedValue
-                }
-            }
-        }
-
-        newRequest.method = resolveMethod(request: newRequest)
-        return try next.respond(to: newRequest)
+    if request.method == .get {
+      if let elements = request.uri.path?.split(separator: "?", maxSplits: 1), query = elements.last {
+        queryString = query
+      }
+    } else if let body = request.bodyString {
+      queryString = body
     }
 
-    func resolveMethod(request: Request) -> S4.Method {
-        guard request.method == .post else { return request.method }
-        guard let paramsMethod = request.parameters["_method"] else { return request.method }
+    for parameter in queryString.split(separator: "&") {
+      let tokens = parameter.split(separator: "=", maxSplits: 1)
 
-        switch paramsMethod.uppercased() {
-        case "DELETE":
-            return .delete
-        case "HEAD":
-            return .head
-        case "PATCH":
-            return .patch
-        case "PUT":
-            return .put
-        case "OPTIONS":
-            return .options
-        default:
-            return request.method
-        }
+      guard let name = tokens.first,
+        value = tokens.last,
+        parsedName = try? String(percentEncoded: name),
+        parsedValue = try? String(percentEncoded: value)
+        else { continue }
+
+      request.parameters[parsedName] = parsedValue
     }
 
+    request.method = resolveMethod(request: request)
+
+    return try next.respond(to: request)
+  }
+
+  func resolveMethod(request: Request) -> Request.Method {
+    guard request.method == .post else {
+      return request.method
+    }
+
+    guard let methodParameter = request.parameters["_method"] else {
+      return request.method
+    }
+
+    let method: Request.Method
+
+    switch methodParameter.uppercased() {
+    case "HEAD":
+      method = .head
+    case "PATCH":
+      method = .patch
+    case "PUT":
+      method = .put
+    case "DELETE":
+      method = .delete
+    case "OPTIONS":
+      method = .options
+    default:
+      method = request.method
+    }
+
+    return method
+  }
 }
