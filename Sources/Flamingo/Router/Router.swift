@@ -1,27 +1,48 @@
-@_exported import Router
+import RegexRouteMatcher
 
-public extension RouteMap {
+public final class Router: HTTP.Router {
+  public let path: String
+  private let middleware: [Middleware]
+  private var container: RouteContainer
 
-  func root(middleware: Middleware..., responder: Responder) {
-    addRoute(method: .get, path: "", middleware: middleware, responder: responder)
+  public var fallback: Responder = BasicResponder { request in
+    try ErrorMiddleware().respond(to: request, chainingTo: FileResponder())
   }
 
-  func root(middleware: Middleware..., respond: Respond) {
-    addRoute(method: .get, path: "", middleware: middleware, responder: BasicResponder(respond))
+  public var routes: [Route] {
+    return container.routes
   }
 
-  func resources(_ name: String, middleware: Middleware..., controller: ResourceController) {
-    get(name, respond: controller.index)
-    get(name + "/new", respond: controller.new)
-    get(name + "/:id", respond: controller.show)
-    get(name + "/:id/edit", respond: controller.edit)
-    post(name, respond: controller.create)
-    delete(name + "/:id", respond: controller.destroy)
-    patch(name + "/:id", respond: controller.update)
+  // MARK: - Initialization
+
+  public init(path: String = "", middleware: [Middleware]) {
+    self.path = path
+    self.middleware = middleware
+    self.container = RouteContainer(path: path)
   }
 
-  func compose(_ path: String = "", build: (builder: RouteMap) -> Void) {
-    let router = Router(build: build)
-    compose(path, router: router)
+  public convenience init(path: String, middleware: Middleware...) {
+    self.init(path: path, middleware: middleware)
+  }
+
+  // MARK: - Routing
+
+  public func draw(build: (container: RouteContainer) -> Void) {
+    container = RouteContainer(path: path)
+    build(container: container)
+  }
+
+  public func compose(build: (container: RouteContainer) -> Void) {
+    build(container: container)
+  }
+
+  public func match(_ request: Request) -> Route? {
+    let matcher = RegexRouteMatcher(routes: routes)
+    return matcher.match(request)
+  }
+
+  public func respond(to request: Request) throws -> Response {
+    let responder = match(request) ?? fallback
+    return try middleware.chain(to: responder).respond(to: request)
   }
 }
