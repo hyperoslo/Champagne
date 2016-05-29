@@ -6,7 +6,7 @@ public class ParametersMiddleware: Middleware {
     var request = request
     var queryString = ""
 
-    if request.method == .get {
+    if request.method == Request.Method.get {
       if let elements = request.uri.path?.split(separator: "?", maxSplits: 1), query = elements.last {
         queryString = query
       }
@@ -32,7 +32,7 @@ public class ParametersMiddleware: Middleware {
   }
 
   func resolveMethod(request: Request) -> Request.Method {
-    guard request.method == .post else {
+    guard request.method == Request.Method.post else {
       return request.method
     }
 
