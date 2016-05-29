@@ -10,6 +10,12 @@ public struct StatusError: ErrorProtocol {
   }
 }
 
+extension Response.Status {
+  var error: StatusError {
+    return StatusError(self)
+  }
+}
+
 public class ErrorMiddleware: Middleware {
 
   public func respond(to request: Request, chainingTo chain: Responder) throws -> Response {
@@ -21,8 +27,7 @@ public class ErrorMiddleware: Middleware {
       response = Response(status: error.status, body: error.message)
     } catch {
       let status = Response.Status.internalServerError
-      let error = StatusError(status)
-      response = Response(status: status, body: error.message)
+      response = Response(status: status, body: status.error.message)
     }
 
     return response
