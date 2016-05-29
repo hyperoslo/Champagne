@@ -1,5 +1,3 @@
-import S4
-
 extension Response {
 
   public var cookies: [String: String] {
