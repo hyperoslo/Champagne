@@ -1,5 +1,9 @@
 import RegexRouteMatcher
 
+/**
+  Default HTTP router which provided an interface for drawing and composing
+  routes and responds to requests.
+*/
 public final class Router: HTTP.Router {
   public let path: String
   private let middleware: [Middleware]

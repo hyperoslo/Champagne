@@ -1,23 +1,14 @@
-public struct StatusError: ErrorProtocol {
-  let status: Response.Status
-
-  var message: String {
-    return "\(status.statusCode) - \(status.reasonPhrase)"
-  }
-
-  init(_ status: Response.Status) {
-    self.status = status
-  }
-}
-
-extension Response.Status {
-  var error: StatusError {
-    return StatusError(self)
-  }
-}
-
+/**
+  Middleware for internal error handling
+*/
 public class ErrorMiddleware: Middleware {
 
+  /**
+    Tries to execute a request and creates a corresponding error if it fails.
+    - Parameter request: The request
+    - Paramater chainingTo: The next responser
+    - Returns: The response
+  */
   public func respond(to request: Request, chainingTo chain: Responder) throws -> Response {
     let response: Response
 
@@ -26,7 +17,7 @@ public class ErrorMiddleware: Middleware {
     } catch let error as StatusError {
       response = Response(status: error.status, body: error.message)
     } catch {
-      let status = Response.Status.internalServerError
+      let status = Status.internalServerError
       response = Response(status: status, body: status.error.message)
     }
 

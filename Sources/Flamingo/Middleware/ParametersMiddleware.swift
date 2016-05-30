@@ -1,7 +1,16 @@
 import String
 
+/**
+  Middleware for parameter parsing
+*/
 public class ParametersMiddleware: Middleware {
 
+  /**
+    Parses and sets request parameters.
+    - Parameter request: The request
+    - Paramater chainingTo: The next responser
+    - Returns: The response
+  */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
     var request = request
     var queryString = ""

@@ -1,5 +1,9 @@
 import HTTP
 
+/**
+  Route container that holds and build routes
+  which are relative to the root path.
+*/
 public final class RouteContainer {
   let path: String
   var routes: [Route] = []
@@ -8,11 +12,7 @@ public final class RouteContainer {
     self.path = path
   }
 
-  // MARK: Add routes
-
-  // public func add(method: Method, path: String, middleware: Middleware..., responder: Responder) {
-  //   add(method: method, path: path, middleware: middleware, responder: responder)
-  // }
+  // MARK: - Add routes
 
   public func add(method: Method, path: String, middleware: [Middleware], responder: Responder) {
     let action = middleware.chain(to: responder)
@@ -82,6 +82,8 @@ extension RouteContainer {
     add(method: .put, path: path, middleware: middleware, responder: responder)
   }
 }
+
+// MARK: - PATCH routes
 
 extension RouteContainer {
 

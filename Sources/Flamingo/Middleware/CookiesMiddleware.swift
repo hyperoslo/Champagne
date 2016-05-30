@@ -1,5 +1,14 @@
+/**
+  Middleware to manage cookies
+*/
 public class CookiesMiddleware: Middleware {
 
+  /**
+    Parses and sets cookie header from the request to the response.
+    - Parameter request: The request
+    - Paramater chainingTo: The next responser
+    - Returns: The response
+  */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
     var request = request
 

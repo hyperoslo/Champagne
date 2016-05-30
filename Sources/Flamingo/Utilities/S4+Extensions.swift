@@ -1,6 +1,10 @@
 import S4
 import C7
 
+/**
+  Convenience typealiases for S4 types
+*/
+
 // MARK: - Basic
 
 public typealias Byte = C7.Byte
@@ -12,6 +16,7 @@ public typealias Message = S4.Message
 public typealias Body = S4.Body
 public typealias Headers = S4.Headers
 public typealias Header = S4.Header
+public typealias Status = S4.Status
 
 // MARK: - Request
 
@@ -26,10 +31,6 @@ extension Request {
 public typealias Response = S4.Response
 public typealias Responder = S4.Responder
 public typealias BasicResponder = S4.BasicResponder
-
-extension Response {
-  public typealias Status = S4.Status
-}
 
 // MARK: - Headers
 

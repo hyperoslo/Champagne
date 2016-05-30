@@ -10,6 +10,7 @@ app.router.draw { map in
   map.resources("users", controller: controller)
 
   map.namespace("api") { map in
+    map.fallback(respond: controller.index)
     map.root(respond: controller.index)
     map.resources("users", controller: controller)
     map.get("log", respond: controller.index)
