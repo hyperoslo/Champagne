@@ -2,15 +2,15 @@ import XCTest
 import PathKit
 @testable import Flamingo
 
-class ControllerTests: XCTestCase {
+class ApplicationControllerTests: XCTestCase {
 
-  let controller = TestResourceController()
-
-  static var allTests: [(String, (ControllerTests) -> () throws -> Void)] {
+  static var allTests: [(String, (ApplicationControllerTests) -> () throws -> Void)] {
     return [
-      ("testRender", testRender),
+      ("testRender", testRender)
     ]
   }
+
+  let controller = TestResourceController()
 
   override func setUp() {
     super.setUp()
