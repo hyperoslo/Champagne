@@ -5,7 +5,7 @@
 public protocol ResourceController: ApplicationController {
 
   /**
-    Generates a route to display a list of all resource items.
+    Displays a list of all resource items.
     Corresponds to GET /items.
     - Parameter request: The request
     - Returns: The response

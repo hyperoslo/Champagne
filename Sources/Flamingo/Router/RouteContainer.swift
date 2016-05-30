@@ -14,6 +14,16 @@ public final class RouteContainer {
 
   // MARK: - Add routes
 
+  /**
+    Build a route using method and path. Responder is added as an action
+    on the corresponding method.
+    - Parameter method: The request method
+    - Parameter path: The path of a route
+    - Parameter middleware: List with middleware
+    - Parameter responder: The responder
+
+    - Returns: The response
+  */
   public func add(method: Method, path: String, middleware: [Middleware], responder: Responder) {
     let action = middleware.chain(to: responder)
     let path = path.hasPrefix("/") ? String(path.characters.dropFirst()) : path
