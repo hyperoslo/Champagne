@@ -2,18 +2,23 @@
   Response status error
 */
 public struct StatusError: ErrorProtocol {
-  let status: Status
 
-  var message: String {
+  public let status: Status
+
+  public var message: String {
     return "\(status.statusCode) - \(status.reasonPhrase)"
   }
 
-  init(_ status: Status) {
+  public init(_ status: Status) {
     self.status = status
   }
 }
 
-extension Status {
+/**
+  Status extension to create an error.
+*/
+public extension Status {
+
   var error: StatusError {
     return StatusError(self)
   }
