@@ -6,6 +6,18 @@ class RouteContainerTests: XCTestCase {
   static var allTests: [(String, (RouteContainerTests) -> () throws -> Void)] {
     return [
       ("testInit", testInit),
+      ("testAdd", testAdd),
+      ("testFallback", testFallback),
+      ("testClear", testClear),
+      ("testGet", testGet),
+      ("testPost", testPost),
+      ("testPut", testPut),
+      ("testPatch", testPatch),
+      ("testDelete", testDelete),
+      ("testOptions", testOptions),
+      ("testRoot", testRoot),
+      ("testNamespace", testNamespace),
+      ("testResources", testResources)
     ]
   }
 
@@ -43,6 +55,8 @@ class RouteContainerTests: XCTestCase {
     super.setUp()
     container.clear()
   }
+
+  // MARK: - Tests
 
   func testInit() {
     XCTAssertEqual(container.path, rootPath)
