@@ -5,6 +5,8 @@ import HTTPServer
   import Glibc
 #endif
 
+public var application = Application()
+
 /**
   Flamingo application
 */
