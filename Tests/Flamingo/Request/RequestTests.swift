@@ -3,14 +3,14 @@ import XCTest
 
 class RequestTests: XCTestCase {
 
-  var request: Request!
-
   static var allTests: [(String, (RequestTests) -> () throws -> Void)] {
     return [
       ("testParameters", testParameters),
       ("testBodyString", testBodyString)
     ]
   }
+
+  var request: Request!
 
   override func setUp() {
     super.setUp()
