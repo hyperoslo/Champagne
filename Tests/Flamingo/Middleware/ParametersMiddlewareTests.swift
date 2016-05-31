@@ -30,7 +30,11 @@ class ParametersMiddlewareTests: XCTestCase {
       return Response(status: .ok)
     }
 
-    try! middleware.respond(to: request, chainingTo: responder)
+    do {
+      try middleware.respond(to: request, chainingTo: responder)
+    } catch {
+      XCTFail("ParametersMiddleware throw an error: \(error)")
+    }
   }
 
   func testRespondToPostRequest() {
@@ -48,7 +52,11 @@ class ParametersMiddlewareTests: XCTestCase {
       return Response(status: .ok)
     }
 
-    try! middleware.respond(to: request, chainingTo: responder)
+    do {
+      try middleware.respond(to: request, chainingTo: responder)
+    } catch {
+      XCTFail("ParametersMiddleware throw an error: \(error)")
+    }
   }
 
   func testResolveMethodWithGet() {
@@ -63,7 +71,11 @@ class ParametersMiddlewareTests: XCTestCase {
       return Response(status: .ok)
     }
 
-    try! middleware.respond(to: request, chainingTo: responder)
+    do {
+      try middleware.respond(to: request, chainingTo: responder)
+    } catch {
+      XCTFail("ParametersMiddleware throw an error: \(error)")
+    }
   }
 
   func testResolveMethodWithPost() {
@@ -78,6 +90,10 @@ class ParametersMiddlewareTests: XCTestCase {
       return Response(status: .ok)
     }
 
-    try! middleware.respond(to: request, chainingTo: responder)
+    do {
+      try middleware.respond(to: request, chainingTo: responder)
+    } catch {
+      XCTFail("ParametersMiddleware throw an error: \(error)")
+    }
   }
 }
