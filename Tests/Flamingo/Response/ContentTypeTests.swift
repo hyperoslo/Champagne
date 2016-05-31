@@ -5,11 +5,13 @@ class ContentTypeTests: XCTestCase {
 
   static var allTests: [(String, (ContentTypeTests) -> () throws -> Void)] {
     return [
-      ("testInit", testInit),
+      ("testRawValues", testRawValues),
     ]
   }
 
-  func testInit() {
-    //XCTAssertEqual(statusError.status, status)
+  func testRawValues() {
+    XCTAssertEqual(ContentType.plain.rawValue, "text/plain")
+    XCTAssertEqual(ContentType.html.rawValue, "text/html")
+    XCTAssertEqual(ContentType.json.rawValue, "application/json")
   }
 }
