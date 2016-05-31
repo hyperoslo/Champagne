@@ -13,6 +13,7 @@ XCTMain([
   testCase(ContentTypeTests.allTests),
   testCase(FileResponderTests.allTests),
   testCase(ResponseTests.allTests),
+  testCase(RouteBuildingTests.allTests),
   testCase(RouteContainerTests.allTests),
   testCase(RouterTests.allTests),
   testCase(StencilRendererTests.allTests),
