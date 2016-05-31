@@ -52,7 +52,7 @@ class ParametersMiddlewareTests: XCTestCase {
   }
 
   func testResolveMethodWithGet() {
-    var request = Request(
+    let request = Request(
       method: Request.Method.get,
       uri: URI(path: "/"),
       body: Data("_method=put")
@@ -67,7 +67,7 @@ class ParametersMiddlewareTests: XCTestCase {
   }
 
   func testResolveMethodWithPost() {
-    var request = Request(
+    let request = Request(
       method: Request.Method.post,
       uri: URI(path: "/"),
       body: Data("_method=put")
