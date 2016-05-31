@@ -3,13 +3,42 @@ import XCTest
 
 class RequestTests: XCTestCase {
 
+  var request: Request!
+
   static var allTests: [(String, (RequestTests) -> () throws -> Void)] {
     return [
-      ("testInit", testInit),
+      ("testParameters", testParameters),
+      ("testBodyString", testBodyString)
     ]
   }
 
-  func testInit() {
-    //XCTAssertEqual(statusError.status, status)
+  override func setUp() {
+    super.setUp()
+
+    request = Request(
+      method: Request.Method.get,
+      uri: URI(path: "/"),
+      body: Data("")
+    )
+  }
+
+  func testParameters() {
+    request.parameters["foo"] = "bar"
+    request.parameters["theme"] = "dark"
+
+    XCTAssertEqual(request.parameters.count, 2)
+    XCTAssertEqual(request.parameters["foo"], "bar")
+    XCTAssertEqual(request.parameters["theme"], "dark")
+
+    let storage = request.storage["fl-parameters"] as? [String: String]
+
+    XCTAssertEqual(storage?.count, 2)
+    XCTAssertEqual(storage?["foo"], "bar")
+    XCTAssertEqual(storage?["theme"], "dark")
+  }
+
+  func testBodyString() {
+    request.body = Body.buffer("test")
+    XCTAssertEqual(request.bodyString, "test")
   }
 }
