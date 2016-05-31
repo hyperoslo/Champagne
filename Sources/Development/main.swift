@@ -2,10 +2,9 @@ import Flamingo
 
 Config.viewsDirectory = "Sources/Development/Views"
 
-let app = Application()
 let controller = Controller()
 
-app.router.draw { map in
+Flamingo.application.router.draw { map in
   map.root(respond: controller.index)
   map.resources("users", controller: Controller.self)
 
@@ -17,4 +16,4 @@ app.router.draw { map in
   }
 }
 
-try app.start()
+try Flamingo.application.start()
