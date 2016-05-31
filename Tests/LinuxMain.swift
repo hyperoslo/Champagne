@@ -7,7 +7,8 @@ XCTMain([
   testCase(ApplicationControllerTests.allTests),
   testCase(ApplicationTests.allTests),
   testCase(StatusErrorTests.allTests),
-  testCase(CookiesMiddlewareTests.allTests),
+  testCase(ErrorMiddlewareTests.allTests),
+  testCase(ParametersMiddlewareTests.allTests)
 ])
 
 #endif

@@ -4,18 +4,18 @@ import HTTP
 
 class ParametersMiddlewareTests: XCTestCase {
 
-  let middleware = ParametersMiddleware()
-
   static var allTests: [(String, (ParametersMiddlewareTests) -> () throws -> Void)] {
     return [
-      ("testQueryString", testQueryString),
-      ("testBodyString", testBodyString),
+      ("testRespondToGetRequest", testRespondToGetRequest),
+      ("testRespondToGetRequest", testRespondToGetRequest),
       ("testResolveMethodWithGet", testResolveMethodWithGet),
       ("testResolveMethodWithPost", testResolveMethodWithPost)
     ]
   }
 
-  func testQueryString() {
+  let middleware = ParametersMiddleware()
+
+  func testRespondToGetRequest() {
     let request = Request(
       method: Request.Method.get,
       uri: URI(path: "/?theme=dark&limit=50"),
@@ -33,7 +33,7 @@ class ParametersMiddlewareTests: XCTestCase {
     try! middleware.respond(to: request, chainingTo: responder)
   }
 
-  func testBodyString() {
+  func testRespondToPostRequest() {
     let request = Request(
       method: Request.Method.post,
       uri: URI(path: "/"),
