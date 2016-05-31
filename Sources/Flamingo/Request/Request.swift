@@ -12,16 +12,6 @@ extension Request {
       storage["fl-parameters"] = parameters
     }
   }
-
-  /// Cookies
-  public var cookies: [String: String] {
-    get {
-      return storage["fl-cookies"] as? [String: String] ?? [:]
-    }
-    set(cookies) {
-      storage["fl-cookies"] = cookies
-    }
-  }
 }
 
 /**

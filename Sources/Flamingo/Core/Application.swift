@@ -17,7 +17,6 @@ public class Application {
 
   var middleware: [Middleware] = [
     ParametersMiddleware(),
-    CookiesMiddleware(),
     ErrorMiddleware()
   ]
 

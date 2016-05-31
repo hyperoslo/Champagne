@@ -3,16 +3,6 @@
 */
 extension Response {
 
-  /// Cookies
-  public var cookies: [String: String] {
-    get {
-      return storage["fl-cookies"] as? [String: String] ?? [:]
-    }
-    set(cookies) {
-      storage["fl-cookies"] = cookies
-    }
-  }
-
   /**
     Creates a new response
     - Parameter status: The status code
