@@ -1,15 +1,16 @@
 import String
 
 /**
-  Middleware for parameter parsing
+  Middleware for parameter parsing.
 */
 public class ParametersMiddleware: Middleware {
 
   /**
     Parses and sets request parameters.
-    - Parameter request: The request
-    - Paramater chainingTo: The next responser
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Paramater chainingTo: The next responser.
+    - Returns: The response.
   */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
     var request = request
@@ -40,6 +41,13 @@ public class ParametersMiddleware: Middleware {
     return try next.respond(to: request)
   }
 
+  /**
+    Resolves a method if it's specified under POST
+    request parameters with a "_method" key.
+
+    - Parameter request: The request.
+    - Returns: The method.
+  */
   func resolveMethod(request: Request) -> Request.Method {
     guard request.method == Request.Method.post else {
       return request.method

@@ -2,7 +2,7 @@ import S4
 import C7
 
 /**
-  Convenience typealiases for S4 types
+  Convenience typealiases for S4 types.
 */
 
 // MARK: - Basic

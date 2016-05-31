@@ -1,13 +1,14 @@
 /**
-  Middleware for internal error handling
+  Middleware for internal error handling.
 */
 public class ErrorMiddleware: Middleware {
 
   /**
     Tries to execute a request and creates a corresponding error if it fails.
-    - Parameter request: The request
-    - Paramater chainingTo: The next responser
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Paramater chainingTo: The next responser.
+    - Returns: The response.
   */
   public func respond(to request: Request, chainingTo chain: Responder) throws -> Response {
     let response: Response

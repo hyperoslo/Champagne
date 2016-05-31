@@ -1,62 +1,68 @@
 /**
- Controller where the each method is a request to perform
- an operation on the resource.
- */
+  Controller with a set of standard CRUD methods.
+*/
 public protocol ResourceController: ApplicationController {
 
   /**
+    `GET /items`
     Displays a list of all resource items.
-    Corresponds to GET /items.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func index(request: Request) throws -> Response
 
   /**
+    `GET /items/:id`
     Displays a specific resource item.
-    Corresponds to GET /items/:id.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func show(request: Request) throws -> Response
 
   /**
+    `GET /items/new.`
     Returns a form for creating a new resource item.
-    Corresponds to GET /items/new.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func new(request: Request) throws -> Response
 
   /**
+    `POST /items.`
     Creates a new resource item.
-    Corresponds to POST /items.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func create(request: Request) throws -> Response
 
   /**
+    `GET /items/:id/edit`
     Returns a form for editing a resource item.
-    Corresponds to POST /items/:id/edit.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func edit(request: Request) throws -> Response
 
   /**
+    `PATCH /items/:id`
     Updates a specific resource item.
-    Corresponds to POST /items/:id.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func update(request: Request) throws -> Response
 
   /**
+    `DELETE /items/:id`
     Deletes a specific resource item.
-    Corresponds to POST /items/:id.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func destroy(request: Request) throws -> Response
 }

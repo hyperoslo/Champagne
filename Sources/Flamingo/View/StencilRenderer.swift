@@ -3,7 +3,7 @@ import String
 import PathKit
 
 /**
-  View renderer based on Stencil template language
+  View renderer based on Stencil template language.
 */
 public struct StencilRenderer: ViewRendering {
   let path: Path
@@ -11,6 +11,7 @@ public struct StencilRenderer: ViewRendering {
 
   /**
     Creates a new view renderer instance.
+
     - Parameter path: The template string loaded from the file.
     - Context: Values to fill into the template.
   */
@@ -21,6 +22,7 @@ public struct StencilRenderer: ViewRendering {
 
   /**
     Renders a template string with a given context.
+    
     - Returns: The rendered template with inserted context information.
   */
   public func render() -> String {

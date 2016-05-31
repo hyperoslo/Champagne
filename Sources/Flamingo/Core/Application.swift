@@ -20,6 +20,11 @@ public class Application {
     ErrorMiddleware()
   ]
 
+  /**
+    Creates a new instance of `Application`.
+
+    - Parameter middleware: Route-specific middleware.
+  */
   public init(middleware: [Middleware] = []) {
     self.middleware.append(contentsOf: middleware)
     router = Router(middleware: middleware)
@@ -27,6 +32,9 @@ public class Application {
 
   // MARK: - Server
 
+  /**
+    Starts HTTP server with the router as a responder.
+  */
   public func start() throws {
     try Server(responder: router).start()
     running = true

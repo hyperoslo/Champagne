@@ -1,9 +1,9 @@
 /**
-  Request extensions
+  Request extensions.
 */
 extension Request {
 
-  /// URL parameters
+  /// URL parameters.
   public var parameters: [String: String] {
     get {
       return storage["fl-parameters"] as? [String: String] ?? [:]
@@ -15,11 +15,11 @@ extension Request {
 }
 
 /**
-  Message extensions
+  Message extensions.
 */
 public extension Message {
 
-  /// Converts body data to string
+  /// Converts body data to string.
   var bodyString: String? {
     var bufferBody = body
     return try? bufferBody.becomeBuffer().description

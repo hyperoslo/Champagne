@@ -2,14 +2,15 @@ import Foundation
 import PathKit
 
 /**
-  Responder that serves static files from the public directory
+  Responder that serves static files from the public directory.
 */
 struct FileResponder: Responder {
 
   /**
     Responds with a static file or an error.
-    - Parameter request: The request
-    - Returns: The response
+
+    - Parameter request: The request.
+    - Returns: The response.
   */
   func respond(to request: Request) throws -> Response {
     guard let path = request.uri.path where path != "/" else {

@@ -1,5 +1,5 @@
 /**
-  Basic content types
+  Basic content types.
 */
 public enum ContentType: String {
   case plain = "text/plain"
