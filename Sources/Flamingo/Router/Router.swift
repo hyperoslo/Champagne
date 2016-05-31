@@ -1,4 +1,4 @@
-import RegexRouteMatcher
+@_exported import RegexRouteMatcher
 
 /**
   Default HTTP router. Responds to requests and provides an interface
@@ -6,8 +6,8 @@ import RegexRouteMatcher
 */
 public final class Router: HTTP.Router {
   public let path: String
+  public var container: RouteContainer
   private let middleware: [Middleware]
-  private var container: RouteContainer
 
   public var fallback: Responder = BasicResponder { request in
     try ErrorMiddleware().respond(to: request, chainingTo: FileResponder())
