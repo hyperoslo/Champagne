@@ -1,4 +1,4 @@
-import HTTP
+@_exported import HTTP
 
 /**
   Route container keeps and builds routes relative to the root path.
@@ -9,6 +9,12 @@ public class RouteContainer: RouteBuilding {
 
   /// List of registerd routes.
   public var routes: [Route] = []
+
+  /// Append leading slash to the route path
+  public var appendLeadingSlash = true
+
+  /// Append trailing slash to the route path
+  public var appendTrailingSlash = false
 
   /**
     Creates a new `RouteContainer` instance.
@@ -27,11 +33,11 @@ public class RouteContainer: RouteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func add(method: Method, path: String, middleware: [Middleware], responder: Responder) {
+  public func add(method: Request.Method, path: String, middleware: [Middleware], responder: Responder) {
     let action = middleware.chain(to: responder)
-    let path = fullPath(with: path)
+    let path = absolutePathFor(path)
 
-    if let route = route(on: path) {
+    if let route = routeFor(absolutePath: path) {
       route.addAction(method: method, action: action)
     } else {
       let route = BasicRoute(path: path, actions: [method: action])
@@ -46,11 +52,11 @@ public class RouteContainer: RouteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func fallback(_ path: String = "", middleware: [Middleware], responder: Responder) {
+  public func fallback(on path: String, middleware: [Middleware], responder: Responder) {
     let fallback = middleware.chain(to: responder)
-    let path = fullPath(with: path)
+    let path = absolutePathFor(path)
 
-    if let route = route(on: path) {
+    if let route = routeFor(absolutePath: path) {
       route.fallback = fallback
     } else {
       let route = BasicRoute(path: path, fallback: fallback)
@@ -66,7 +72,18 @@ public class RouteContainer: RouteBuilding {
     - Parameter responder: The responder.
   */
   public func fallback(_ path: String = "", middleware: Middleware..., respond: Respond) {
-    fallback(path, middleware: middleware, responder: BasicResponder(respond))
+    fallback(on: path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
+  public func fallback(_ path: String = "", middleware: Middleware..., responder: Responder) {
+    fallback(on: path, middleware: middleware, responder: responder)
+  }
+
+  /**
+    Removes all routes
+  */
+  public func clear() {
+    routes.removeAll()
   }
 }
 
@@ -257,6 +274,32 @@ extension RouteContainer {
   }
 
   /**
+    Builds a set of routes scoped by the given path.
+    Allows to create nested route structures.
+
+    - Parameter path: Namespace path.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter build: Closure to fill in a new container with routes.
+  */
+  public func namespace(_ path: String, middleware: Middleware..., build: (container: RouteContainer) -> Void) {
+    let container = RouteContainer(path: path)
+
+    build(container: container)
+
+    for route in container.routes {
+      for (method, action) in route.actions {
+        add(method: method,
+          path: route.path,
+          middleware: middleware,
+          responder: action
+        )
+      }
+
+      fallback(route.path, responder: route.fallback)
+    }
+  }
+
+  /**
     Adds resource controller for specified path.
 
     - Parameter path: Path associated with resource controller.
@@ -284,29 +327,5 @@ extension RouteContainer {
     post(path, respond: factory().create)
     delete(path + "/:id", respond: factory().destroy)
     patch(path + "/:id", respond: factory().update)
-  }
-
-  /**
-    Builds a set of routes scoped by the given path.
-    Allows to create nested route structures.
-
-    - Parameter path: Namespace path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter build: Closure to fill in a new container with routes.
-  */
-  public func namespace(_ path: String, middleware: Middleware..., build: (container: RouteContainer) -> Void) {
-    let container = RouteContainer(path: path)
-
-    build(container: container)
-
-    for route in container.routes {
-      for (method, action) in route.actions {
-        add(method: method,
-          path: route.path,
-          middleware: middleware,
-          responder: action
-        )
-      }
-    }
   }
 }
