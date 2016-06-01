@@ -29,7 +29,7 @@ class ErrorMiddlewareTests: XCTestCase {
       let response = try middleware.respond(to: request, chainingTo: responder)
       XCTAssertEqual(response.status, Status.ok)
     } catch {
-      XCTFail("ErrorMiddleware throws an error.")
+      XCTFail("ErrorMiddleware throws an error: \(error)")
     }
   }
 

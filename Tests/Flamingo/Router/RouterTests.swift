@@ -115,5 +115,26 @@ class RouterTests: XCTestCase, TestResponding {
   }
 
   func testRespond() {
+    router.draw { map in
+      map.get("test", responder: self.responder)
+    }
+
+    let request = Request(method: .get, uri: URI(path: "/test"))
+
+    do {
+      let response = try router.respond(to: request)
+      XCTAssertEqual(response.status, Status.ok)
+    } catch {
+      XCTFail("Router throws an error: \(error)")
+    }
+
+    let failRequest = Request(method: .get, uri: URI(path: "/fail"))
+
+    do {
+      let response = try router.respond(to: failRequest)
+      XCTAssertEqual(response.status, Status.notFound)
+    } catch {
+      XCTFail("Router throws an error: \(error)")
+    }
   }
 }
