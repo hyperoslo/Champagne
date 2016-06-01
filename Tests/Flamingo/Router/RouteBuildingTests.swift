@@ -10,6 +10,7 @@ class RouteBuildingTests: XCTestCase {
     ]
   }
 
+  var container: RouteContainer!
   let rootPath = "/"
 
   let responder = BasicResponder { _ in
@@ -19,24 +20,127 @@ class RouteBuildingTests: XCTestCase {
   // MARK: - Tests
 
   func testRouteForRelativePath() {
-    let container = RouteContainer(path: rootPath)
+    container = RouteContainer(path: rootPath)
     let path = "test"
 
-    container.add(method: .get, path: path, responder: responder)
+    container.get(path, responder: responder)
 
     XCTAssertNotNil(container.routeFor(relativePath: path))
   }
 
   func testRouteForAbsolutePath() {
-    let container = RouteContainer(path: rootPath)
+    container = RouteContainer(path: rootPath)
     let path = "test"
 
-    container.add(method: .get, path: path, responder: responder)
+    container.get(path, responder: responder)
 
-    XCTAssertNotNil(container.routeFor(absolutePath: "\(rootPath)/\(path)"))
+    XCTAssertNotNil(container.routeFor(absolutePath: "\(rootPath)\(path)"))
   }
 
-  func testAbsolutePathFor() {
+  func testAbsolutePathForWithSlashRoot() {
+    container = RouteContainer(path: "/")
 
+    // 1st case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "/path")
+
+    // 2nd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "path/")
+
+    // 3rd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "path")
+
+    // 4th case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "/path/")
+
+  }
+
+  func testAbsolutePathForWithEmptyRoot() {
+    container = RouteContainer(path: "")
+
+    // 1st case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "/path")
+
+    // 2nd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "path/")
+
+    // 3rd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "path")
+
+    // 4th case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = true
+
+    testScenarios(path: "path", absolutePath: "/path/")
+  }
+
+  func testAbsolutePathForWithSlashedNamedRoot() {
+    container = RouteContainer(path: "/name")
+
+    // 1st case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "/name/path")
+
+    // 2nd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "name/path/")
+
+    // 3rd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "name/path")
+
+    // 4th case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "/name/path/")
+  }
+
+  func testAbsolutePathForWithNamedRoot() {
+    container = RouteContainer(path: "name")
+
+    // 1st case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "/name/path")
+
+    // 2nd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "name/path/")
+
+    // 3rd case
+    container.appendLeadingSlash = false
+    container.appendTrailingSlash = false
+    testScenarios(path: "path", absolutePath: "name/path")
+
+    // 4th case
+    container.appendLeadingSlash = true
+    container.appendTrailingSlash = true
+    testScenarios(path: "path", absolutePath: "/name/path/")
+  }
+
+  // MARK: - Helpers
+
+  func testScenarios(path: String, absolutePath: String) {
+    XCTAssertEqual(container.absolutePathFor(path), absolutePath)
+    XCTAssertEqual(container.absolutePathFor("/\(path)"), absolutePath)
+    XCTAssertEqual(container.absolutePathFor("\(path)/"), absolutePath)
+    XCTAssertEqual(container.absolutePathFor("/\(path)/"), absolutePath)
   }
 }

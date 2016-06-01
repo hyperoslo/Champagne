@@ -139,18 +139,18 @@ extension RouteBuilding {
     let separator = root.hasSuffix("/") ? "" : "/"
     var result = root + separator + path
 
-    if appendLeadingSlash && !result.hasPrefix("/") {
-      result = "/" + result
-    } else if !appendLeadingSlash && result.hasPrefix("/") {
-      result = String(result.characters.dropFirst())
-    }
-
     if appendTrailingSlash && !result.hasSuffix("/") {
       result = result + "/"
     } else if !appendTrailingSlash && result.hasSuffix("/") {
       result = String(result.characters.dropLast())
     }
 
-    return root + separator + path
+    if appendLeadingSlash && !result.hasPrefix("/") {
+      result = "/" + result
+    } else if !appendLeadingSlash && result.hasPrefix("/") {
+      result = String(result.characters.dropFirst())
+    }
+
+    return result
   }
 }
