@@ -14,7 +14,6 @@ class RouterTests: XCTestCase, TestResponding {
   }
 
   let rootPath = "/"
-  let path = "test"
   var router: Router!
 
   let middleware: [Middleware] = [
@@ -51,12 +50,12 @@ class RouterTests: XCTestCase, TestResponding {
     router.draw { map in
       XCTAssertTrue(self.router.container.routes.isEmpty)
 
-      map.get(self.path, responder: self.responder)
-      map.post(self.path, responder: self.responder)
+      map.get("test", responder: self.responder)
+      map.post("test", responder: self.responder)
       map.fallback(responder: self.failResponder)
     }
 
-    XCTAssertEqual(router.container.routeFor(relativePath: path)?.path, "\(rootPath)\(path)")
+    XCTAssertEqual(router.container.routeFor(relativePath: "test")?.path, "/test")
     XCTAssertEqual(router.container.routes.count, 2)
     XCTAssertEqual(router.container.routes.first?.actions.count, 2)
     XCTAssertEqual(router.container.routes.last?.actions.count, 0)
@@ -67,11 +66,52 @@ class RouterTests: XCTestCase, TestResponding {
   }
 
   func testCompose() {
+    router.container.get("index", responder: responder)
+    XCTAssertEqual(router.container.routes.count, 1)
 
+    router.compose { map in
+      XCTAssertFalse(self.router.container.routes.isEmpty)
+
+      map.get("test", responder: self.responder)
+      map.post("test", responder: self.responder)
+      map.fallback(responder: self.failResponder)
+    }
+
+    XCTAssertEqual(router.container.routeFor(relativePath: "test")?.path, "/test")
+    XCTAssertEqual(router.container.routes.count, 3)
+    XCTAssertEqual(router.container.routes.first?.actions.count, 1)
+    XCTAssertEqual(router.container.routes[1].actions.count, 2)
+    XCTAssertEqual(router.container.routes.last?.actions.count, 0)
+
+    respond(to: router.container.routes.first?.actions[.get], with: .ok)
+    respond(to: router.container.routes[1].actions[.get], with: .ok)
+    respond(to: router.container.routes[1].actions[.post], with: .ok)
+    respond(to: router.container.routes.last?.fallback, with: .notFound)
   }
 
   func testMatch() {
+    router.draw { map in
+      map.root(responder: self.responder)
+      map.get("api/:version", responder: self.responder)
+      map.get("test", responder: self.responder)
+      map.post("test", responder: self.responder)
+      map.fallback("fail", responder: self.failResponder)
+    }
 
+    var route = router.match(Request(method: .get, uri: URI(path: "/")))
+    XCTAssertEqual(route?.path, "/")
+
+    route = router.match(Request(method: .get, uri: URI(path: "/api/1")))
+    XCTAssertEqual(route?.path, "/api/:version")
+
+    route = router.match(Request(method: .get, uri: URI(path: "/test")))
+    XCTAssertEqual(route?.path, "/test")
+
+    route = router.match(Request(method: .post, uri: URI(path: "/test")))
+    XCTAssertEqual(route?.path, "/test")
+
+    route = router.match(Request(method: .get, uri: URI(path: "/fail")))
+    XCTAssertEqual(route?.path, "/fail")
   }
 
   func testRespond() {
