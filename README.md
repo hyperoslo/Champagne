@@ -25,12 +25,12 @@
 
 A Web Framework for Swift that works on Linux and OS X.
 
-[![CI Status](http://img.shields.io/travis/hyperoslo/Flamingo.svg?style=flat)](https://travis-ci.org/hyperoslo/Flamingo)
-[![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
-[![Mac OS X](https://img.shields.io/badge/os-Mac%20OS%20X-green.svg?style=flat)
-[![Swift](https://img.shields.io/badge/%20in-swift%203.0-orange.svg)
-[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Codebeat](https://codebeat.co/badges/10ee7f48-79d2-4782-8366-b261568a4e41)](https://codebeat.co/projects/github-com-hyperoslo-flamingo)
+![CI Status](http://img.shields.io/travis/hyperoslo/Flamingo.svg?style=flat)](https://travis-ci.org/hyperoslo/Flamingo)
+![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
+![Mac OS X](https://img.shields.io/badge/os-Mac%20OS%20X-green.svg?style=flat)
+![Swift](https://img.shields.io/badge/%20in-swift%203.0-orange.svg)
+![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+![Codebeat](https://codebeat.co/badges/10ee7f48-79d2-4782-8366-b261568a4e41)](https://codebeat.co/projects/github-com-hyperoslo-flamingo)
 
 ## Getting started
 
