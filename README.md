@@ -23,7 +23,7 @@
                                                     @#@@#
 ```
 
-A Web Framework for Swift that works on Linux and OS X.
+A Web Framework for Swift that works on OS X and Linux.
 
 [![CI Status](http://img.shields.io/travis/hyperoslo/Flamingo.svg?style=flat)](https://travis-ci.org/hyperoslo/Flamingo)
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
@@ -34,11 +34,10 @@ A Web Framework for Swift that works on Linux and OS X.
 
 ## Getting started
 
-* `Swift 3.0` is needed to build the package and run the application server.
-Install Development snapshot [version](https://github.com/hyperoslo/Flamingo/blob/master/.swift-version)
+- `Swift 3.0` is needed to build the package and run the application server.
+- Install Development snapshot [version](https://github.com/hyperoslo/Flamingo/blob/master/.swift-version)
 from [Swift.org](https://swift.org/download/) or via [swiftenv](https://github.com/kylef/swiftenv).
-
-* Run in your terminal:
+- Run in your terminal:
 
 ```sh
 git clone https://github.com/hyperoslo/Flamingo.git FlamingoApp
@@ -47,7 +46,7 @@ swift test
 ./.build/debug/Development
 ```
 
-* Open `http://0.0.0.0:8000/` in your browser.
+- Open `http://0.0.0.0:8000/` in your browser.
 
 ## Usage
 
