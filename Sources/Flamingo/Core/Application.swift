@@ -38,6 +38,7 @@ public class Application {
     Starts HTTP server with the router as a responder.
   */
   public func start() throws {
+    print(Art.header)
     try Server(responder: router).start()
     running = true
   }
