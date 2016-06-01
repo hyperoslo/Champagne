@@ -8,7 +8,7 @@ import HTTPServer
 public var application = Application()
 
 /**
-  Flamingo application
+  Flamingo application.
 */
 public class Application {
 

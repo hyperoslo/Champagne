@@ -6,8 +6,7 @@ excluded:
 opt_in_rules:
   - empty_count
 disabled_rules:
-  - force_cast
-  - force_try
+  - type_name
 force_cast: warning
 force_try:
   severity: warning
@@ -22,8 +21,3 @@ file_length:
   error: 1200
 variable_name:
   min_length: 2
-type_name:
-  min_length: 2
-  max_length:
-    warning: 40
-    error: 50

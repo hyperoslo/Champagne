@@ -319,7 +319,9 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  public func resources<T: ResourceController>(_ path: String, middleware: Middleware..., buildController factory: () -> T) {
+  public func resources<T: ResourceController>(_ path: String,
+                                                 middleware: Middleware...,
+                                                 buildController factory: () -> T) {
     get(path, respond: factory().index)
     get(path + "/new", respond: factory().new)
     get(path + "/:id", respond: factory().show)
