@@ -12,7 +12,7 @@ public protocol ViewRendering {
 
   /**
     Renders a template string with a given context.
-    
+
     - Returns: The rendered template with inserted context information.
   */
   func render() -> String

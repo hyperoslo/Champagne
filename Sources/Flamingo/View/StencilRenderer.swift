@@ -13,7 +13,7 @@ public struct StencilRenderer: ViewRendering {
     Creates a new view renderer instance.
 
     - Parameter path: The template string loaded from the file.
-    - Context: Values to fill into the template.
+    - Parameter context: Values to fill into the template.
   */
   public init(path: String, context: [String: Any] = [:]) {
     self.context = context
@@ -22,7 +22,7 @@ public struct StencilRenderer: ViewRendering {
 
   /**
     Renders a template string with a given context.
-    
+
     - Returns: The rendered template with inserted context information.
   */
   public func render() -> String {

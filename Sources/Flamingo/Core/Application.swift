@@ -36,6 +36,7 @@ public class Application {
 
   /**
     Starts HTTP server with the router as a responder.
+    - Throws: ErrorType.
   */
   public func start() throws {
     print(Art.header)

@@ -9,7 +9,9 @@ public class ParametersMiddleware: Middleware {
     Parses and sets request parameters.
 
     - Parameter request: The request.
-    - Paramater chainingTo: The next responser.
+    - Parameter next: The next responser.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {

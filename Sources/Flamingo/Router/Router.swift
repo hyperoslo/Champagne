@@ -85,6 +85,8 @@ public final class Router: HTTP.Router {
     Responds to given request.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   public func respond(to request: Request) throws -> Response {

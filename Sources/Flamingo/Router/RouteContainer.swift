@@ -69,12 +69,19 @@ public class RouteContainer: RouteBuilding {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func fallback(_ path: String = "", middleware: Middleware..., respond: Respond) {
     fallback(on: path, middleware: middleware, responder: BasicResponder(respond))
   }
 
+  /**
+    Adds a fallback on a given path.
+
+    - Parameter path: Route path.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter responder: The responder.
+  */
   public func fallback(_ path: String = "", middleware: Middleware..., responder: Responder) {
     fallback(on: path, middleware: middleware, responder: responder)
   }
@@ -107,7 +114,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func get(_ path: String, middleware: Middleware..., respond: Respond) {
     get(path, middleware: middleware, responder: BasicResponder(respond))
@@ -134,7 +141,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func post(_ path: String, middleware: Middleware..., respond: Respond) {
     post(path, middleware: middleware, responder: BasicResponder(respond))
@@ -161,7 +168,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func put(_ path: String, middleware: Middleware..., respond: Respond) {
     put(path, middleware: middleware, responder: BasicResponder(respond))
@@ -188,7 +195,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func patch(_ path: String, middleware: Middleware..., respond: Respond) {
     patch(path, middleware: middleware, responder: BasicResponder(respond))
@@ -215,7 +222,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func delete(_ path: String, middleware: Middleware..., respond: Respond) {
     delete(path, middleware: middleware, responder: BasicResponder(respond))
@@ -242,7 +249,7 @@ extension RouteContainer {
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func options(_ path: String, middleware: Middleware..., respond: Respond) {
     options(path, middleware: middleware, responder: BasicResponder(respond))
@@ -267,7 +274,7 @@ extension RouteContainer {
     Adds a responder on the root path (`GET /`).
 
     - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
+    - Parameter respond: The responder.
   */
   public func root(middleware: Middleware..., respond: Respond) {
     get("", middleware: middleware, responder: BasicResponder(respond))
@@ -303,6 +310,7 @@ extension RouteContainer {
     Adds resource controller for specified path.
 
     - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
   public func resources<T: ResourceController>(_ path: String, middleware: Middleware..., controller: T.Type) {

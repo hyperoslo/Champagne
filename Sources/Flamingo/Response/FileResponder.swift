@@ -10,6 +10,8 @@ struct FileResponder: Responder {
     Responds with a static file or an error.
 
     - Parameter request: The request.
+
+    - Throws: `StatusError` when the file is not found or not readable.
     - Returns: The response.
   */
   func respond(to request: Request) throws -> Response {
