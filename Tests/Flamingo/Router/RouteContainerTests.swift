@@ -1,7 +1,7 @@
 import XCTest
 @testable import Flamingo
 
-class RouteContainerTests: XCTestCase {
+class RouteContainerTests: XCTestCase, TestResponding {
 
   static var allTests: [(String, (RouteContainerTests) -> () throws -> Void)] {
     return [
@@ -39,17 +39,6 @@ class RouteContainerTests: XCTestCase {
   }
 
   lazy var container: RouteContainer = RouteContainer(path: self.rootPath)
-
-  func respond(to responder: Responder?, with status: Status) {
-    let request = Request()
-
-    do {
-      let response = try responder?.respond(to: request)
-      XCTAssertEqual(response?.status, status)
-    } catch {
-      XCTFail("ErrorMiddleware throws an error.")
-    }
-  }
 
   override func setUp() {
     super.setUp()

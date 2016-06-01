@@ -13,7 +13,7 @@ public final class Router: HTTP.Router {
   public var container: RouteContainer
 
   /// Common middleware
-  private let middleware: [Middleware]
+  let middleware: [Middleware]
 
   /// Router default fallback
   public var fallback: Responder = BasicResponder { request in
@@ -24,8 +24,6 @@ public final class Router: HTTP.Router {
   public var routes: [Route] {
     return container.routes
   }
-
-  // MARK: - Initialization
 
   /**
     Creates a new `Router` instance.
