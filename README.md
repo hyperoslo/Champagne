@@ -9,6 +9,23 @@ A Web Framework for Swift that works on Linux and OS X.
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Codebeat](https://codebeat.co/badges/10ee7f48-79d2-4782-8366-b261568a4e41)](https://codebeat.co/projects/github-com-hyperoslo-flamingo)
 
+## Getting started
+
+* `Swift 3.0` is needed to build the package and run the application server.
+Install Development snapshot [version](https://github.com/hyperoslo/Flamingo/blob/master/.swift-version)
+from [Swift.org](https://swift.org/download/) or via [swiftenv](https://github.com/kylef/swiftenv).
+
+* Run in your terminal:
+
+```sh
+git clone https://github.com/hyperoslo/Flamingo.git FlamingoApp
+swift build
+swift test
+./.build/debug/Development
+```
+
+* Open `http://0.0.0.0:8000/` in your browser.
+
 ## Usage
 
 ```swift
@@ -41,14 +58,6 @@ POST /api/users
 DELETE /api/users/:id
 PATCH /api/users/:id
 ```
-
-## Building
-
-`Swift 3.0` is needed to build the package and run the application server.
-
-- Install the latest version of `Swift` using [swiftenv](https://github.com/kylef/swiftenv)
-- If you want to install `Swift` manually, visit [Swift.org](https://swift.org)
-to learn more about installing development [snapshots](https://swift.org/download/#snapshots) on your system.
 
 ## Installation
 
