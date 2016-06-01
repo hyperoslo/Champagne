@@ -1,4 +1,27 @@
 # Flamingo
+```
+                                 ______ __                   _
+                                / ____// /____ _ ____ ___   (_)____   ____ _ ____
+                               / /_   / // __ `// __ `__ \ / // __ \ / __ `// __ \
+                              / __/  / // /_/ // / / / / // // / / // /_/ // /_/ /
+                             /_/    /_/ \__,_//_/ /_/ /_//_//_/ /_/ \__, / \____/
+                                                                    /____/
+
+                                        @((((@            (#&
+                                    &((%   .(*        ((((((((((&
+                                    (%#     #&      /((((((((((((((@
+                                    @      @(*    @((((((@((((((((@#@
+                                    @@       %#(((((@%@((((((((%@######&@@
+                                                    ((@#(#@&* /###%%#
+                                                       @.*
+                                                       & &
+                                                       % &
+                                                       % %(
+                                                       %*@.
+                                                       % &
+                                                      * %
+                                                    @#@@#
+```
 
 A Web Framework for Swift that works on Linux and OS X.
 
@@ -75,9 +98,10 @@ let package = Package(
 )
 ```
 
-## 🚸 Work in Progress
+## Work in Progress
 
-`Flamingo` is under continuous development and **is not ready** for production usage.
+This is a work in progress, `Flamingo` is under continuous development and
+**is not ready** for production usage.
 
 ## Author
 
