@@ -55,7 +55,7 @@ class ErrorMiddlewareTests: XCTestCase {
     let status: Status = .internalServerError
 
     let responder: Responder = BasicResponder { _ in
-      throw NSError()
+      throw TestError()
     }
 
     do {
