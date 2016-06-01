@@ -22,6 +22,8 @@ class RequestTests: XCTestCase {
     )
   }
 
+  // MARK: - Tests
+
   func testParameters() {
     request.parameters["foo"] = "bar"
     request.parameters["theme"] = "dark"

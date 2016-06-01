@@ -9,6 +9,8 @@ class ContentTypeTests: XCTestCase {
     ]
   }
 
+  // MARK: - Tests
+
   func testRawValues() {
     XCTAssertEqual(ContentType.plain.rawValue, "text/plain")
     XCTAssertEqual(ContentType.html.rawValue, "text/html")

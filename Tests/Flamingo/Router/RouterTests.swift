@@ -9,7 +9,7 @@ class RouterTests: XCTestCase, TestResponding {
       ("testDraw", testDraw),
       ("testCompose", testCompose),
       ("testMatch", testMatch),
-      ("testRespond", testRespond),
+      ("testRespond", testRespond)
     ]
   }
 

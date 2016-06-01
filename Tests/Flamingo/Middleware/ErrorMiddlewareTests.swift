@@ -20,6 +20,8 @@ class ErrorMiddlewareTests: XCTestCase {
     body: Data("")
   )
 
+  // MARK: - Tests
+
   func testRespondWithoutError() {
     let responder: Responder = BasicResponder { _ in
       return Response(status: .ok)

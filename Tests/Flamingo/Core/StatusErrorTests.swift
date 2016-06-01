@@ -13,6 +13,8 @@ class StatusErrorTests: XCTestCase {
     ]
   }
 
+  // MARK: - Tests
+
   func testInit() {
     let status: Status = .notFound
     statusError = StatusError(status)

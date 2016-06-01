@@ -6,7 +6,11 @@ class RouteBuildingTests: XCTestCase {
   static var allTests: [(String, (RouteBuildingTests) -> () throws -> Void)] {
     return [
       ("testRouteForRelativePath", testRouteForRelativePath),
-      ("testRouteForAbsolutePath",  testRouteForAbsolutePath)
+      ("testRouteForAbsolutePath", testRouteForAbsolutePath),
+      ("testAbsolutePathForWithSlashRoot", testAbsolutePathForWithSlashRoot),
+      ("testAbsolutePathForWithEmptyRoot", testAbsolutePathForWithEmptyRoot),
+      ("testAbsolutePathForWithSlashedNamedRoot", testAbsolutePathForWithSlashedNamedRoot),
+      ("testAbsolutePathForWithNamedRoot", testAbsolutePathForWithNamedRoot)
     ]
   }
 

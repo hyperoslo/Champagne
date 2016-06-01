@@ -17,6 +17,8 @@ class ApplicationControllerTests: XCTestCase {
     Config.viewsDirectory = (Path(#file).parent().parent() + "Fixtures/Views").description
   }
 
+  // MARK: - Tests
+
   func testRender() {
     let context: [String: Any] = ["title": "Flamingo"]
     let response = controller.render("index", context: context)

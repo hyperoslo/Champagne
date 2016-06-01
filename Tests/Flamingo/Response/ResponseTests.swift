@@ -10,6 +10,8 @@ class ResponseTests: XCTestCase {
     ]
   }
 
+  // MARK: - Tests
+
   func testInit() {
     let status: Status = .ok
     let contentType: ContentType = .plain

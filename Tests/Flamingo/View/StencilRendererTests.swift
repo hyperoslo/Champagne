@@ -8,7 +8,7 @@ class StencilRendererTests: XCTestCase {
     return [
       ("testInit", testInit),
       ("testRenderWhenTemplateExists", testRenderWhenTemplateExists),
-      ("testRenderWhenTemplateNotExist", testRenderWhenTemplateNotExist),
+      ("testRenderWhenTemplateNotExist", testRenderWhenTemplateNotExist)
     ]
   }
 
@@ -18,6 +18,8 @@ class StencilRendererTests: XCTestCase {
     super.setUp()
     Config.viewsDirectory = (Path(#file).parent().parent() + "Fixtures/Views").description
   }
+
+  // MARK: - Tests
 
   func testInit() {
     let name = "index"

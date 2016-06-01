@@ -21,6 +21,8 @@ class FileResponderTests: XCTestCase {
     Config.publicDirectory = (Path(#file).parent().parent() + "Fixtures").description
   }
 
+  // MARK: - Tests
+
   func testRespondToRoot() {
     let request = Request(
       method: Request.Method.get,

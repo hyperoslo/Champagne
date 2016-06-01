@@ -12,6 +12,8 @@ class ApplicationTests: XCTestCase {
 
   var application: Application!
 
+  // MARK: - Tests
+
   func testMiddleware() {
     application = Application()
 

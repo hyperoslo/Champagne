@@ -15,6 +15,8 @@ class ParametersMiddlewareTests: XCTestCase {
 
   let middleware = ParametersMiddleware()
 
+  // MARK: - Tests
+
   func testRespondToGetRequest() {
     let request = Request(
       method: Request.Method.get,
