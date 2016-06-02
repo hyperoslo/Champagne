@@ -1,5 +1,6 @@
 import XCTest
 import PathKit
+import String
 @testable import Flamingo
 
 class StencilRendererTests: XCTestCase {
@@ -44,6 +45,6 @@ class StencilRendererTests: XCTestCase {
     let response = renderer.render()
     let string = "Failed to render template"
 
-    XCTAssertTrue(response.hasPrefix(string))
+    XCTAssertTrue(response.starts(with: string))
   }
 }
