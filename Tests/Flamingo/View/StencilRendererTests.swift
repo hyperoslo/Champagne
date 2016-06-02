@@ -39,11 +39,4 @@ class StencilRendererTests: XCTestCase {
 
     XCTAssertEqual(response, html)
   }
-
-  func testRenderWhenTemplateNotExist() {
-    let renderer = StencilRenderer(path: "error", context: context)
-    let response = renderer.render()
-
-    XCTAssertFalse(response == "")
-  }
 }
