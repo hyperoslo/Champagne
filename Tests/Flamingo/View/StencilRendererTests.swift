@@ -43,8 +43,7 @@ class StencilRendererTests: XCTestCase {
   func testRenderWhenTemplateNotExist() {
     let renderer = StencilRenderer(path: "error", context: context)
     let response = renderer.render()
-    let string = "Failed to render template"
 
-    XCTAssertNotNil(response.index(of: string))
+    XCTAssertFalse(response.isEmpty)
   }
 }
