@@ -1,6 +1,11 @@
 import XCTest
 import PathKit
 import String
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin.C
+#endif
 @testable import Flamingo
 
 class StencilRendererTests: XCTestCase {
