@@ -8,8 +8,7 @@ class StencilRendererTests: XCTestCase {
   static var allTests: [(String, (StencilRendererTests) -> () throws -> Void)] {
     return [
       ("testInit", testInit),
-      ("testRenderWhenTemplateExists", testRenderWhenTemplateExists),
-      ("testRenderWhenTemplateNotExist", testRenderWhenTemplateNotExist)
+      ("testRenderWhenTemplateExists", testRenderWhenTemplateExists)
     ]
   }
 
