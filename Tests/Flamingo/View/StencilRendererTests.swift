@@ -44,6 +44,6 @@ class StencilRendererTests: XCTestCase {
     let renderer = StencilRenderer(path: "error", context: context)
     let response = renderer.render()
 
-    XCTAssertFalse(response.isEmpty)
+    XCTAssertFalse(response == "")
   }
 }
