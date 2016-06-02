@@ -1,10 +1,6 @@
 import XCTest
 import PathKit
-#if os(Linux)
-  import Glibc
-#else
-  import Darwin.C
-#endif
+import String
 @testable import Flamingo
 
 class StencilRendererTests: XCTestCase {
@@ -49,6 +45,6 @@ class StencilRendererTests: XCTestCase {
     let response = renderer.render()
     let string = "Failed to render template"
 
-    XCTAssertTrue(response.index(of: string) != nil)
+    XCTAssertNotNil(response.index(of: string))
   }
 }
