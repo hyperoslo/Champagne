@@ -1,0 +1,86 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "21FCE4D736356DD84727532A674B2214248C61BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3B4FAAEE2A714A56056BB5968260AF324231CB4F" : 0,
+    "C274ABCCABABC9F55ED329880DD113121DABD8E6" : 0,
+    "F4A7D698CFE490C9CAF7D225323A7A235929C3A8" : 0,
+    "8951CEB15DDB2D711276960E67900B8AA34FF427" : 0,
+    "57932305D7AF3390B1D4C8A3D4D1FCFFE771843F" : 0,
+    "1D611DFB0C8941722678616BE789B5765AA3A46E" : 0,
+    "10A2CB6C4392F0E306FF8D509BE5E88232276EA4" : 0,
+    "21FCE4D736356DD84727532A674B2214248C61BA" : 0,
+    "269ADF55FAAC04D68303BE30B6BD693E717155DE" : 0,
+    "704B817219E4CBC31AA92368EF54A4E2835A8C3D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E8367EC-6D9D-4901-BC50-8D0011E21567",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3B4FAAEE2A714A56056BB5968260AF324231CB4F" : "Flamingo\/Packages\/PathParameterMiddleware-0.6.0\/",
+    "C274ABCCABABC9F55ED329880DD113121DABD8E6" : "Flamingo\/Packages\/POSIXRegex-0.6.0\/",
+    "F4A7D698CFE490C9CAF7D225323A7A235929C3A8" : "Flamingo\/Packages\/RegexRouteMatcher-0.6.1\/",
+    "8951CEB15DDB2D711276960E67900B8AA34FF427" : "Flamingo\/Packages\/MediaType-0.6.0\/",
+    "57932305D7AF3390B1D4C8A3D4D1FCFFE771843F" : "Flamingo\/Packages\/HTTPParser-0.7.2\/",
+    "1D611DFB0C8941722678616BE789B5765AA3A46E" : "Flamingo\/Packages\/Hummingbird-1.7.0\/",
+    "10A2CB6C4392F0E306FF8D509BE5E88232276EA4" : "Flamingo\/Packages\/String-0.7.1\/",
+    "21FCE4D736356DD84727532A674B2214248C61BA" : "Flamingo\/",
+    "269ADF55FAAC04D68303BE30B6BD693E717155DE" : "Flamingo\/Packages\/CHTTPParser-0.5.0\/",
+    "704B817219E4CBC31AA92368EF54A4E2835A8C3D" : "Flamingo\/Packages\/POSIX-0.5.0\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Flamingo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Flamingo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/String.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10A2CB6C4392F0E306FF8D509BE5E88232276EA4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ketzusaka\/Hummingbird.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1D611DFB0C8941722678616BE789B5765AA3A46E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hyperoslo\/Flamingo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "21FCE4D736356DD84727532A674B2214248C61BA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/CHTTPParser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "269ADF55FAAC04D68303BE30B6BD693E717155DE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/PathParameterMiddleware.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B4FAAEE2A714A56056BB5968260AF324231CB4F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/HTTPParser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "57932305D7AF3390B1D4C8A3D4D1FCFFE771843F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/POSIX.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "704B817219E4CBC31AA92368EF54A4E2835A8C3D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/MediaType.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8951CEB15DDB2D711276960E67900B8AA34FF427"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/POSIXRegex.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C274ABCCABABC9F55ED329880DD113121DABD8E6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/RegexRouteMatcher.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F4A7D698CFE490C9CAF7D225323A7A235929C3A8"
+    }
+  ]
+}

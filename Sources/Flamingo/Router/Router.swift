@@ -1,52 +1,96 @@
-import Foundation
+@_exported import RegexRouteMatcher
 
-public class Router: Routing {
+/**
+  Default HTTP router. Responds to requests and provides an interface
+  for drawing and composing routes.
+*/
+public final class Router: HTTP.Router {
 
-  var routes = [Int: Route]()
+  /// Root path
+  public let path: String
 
-  public init() {}
+  /// Route container
+  public var container: RouteContainer
 
-  public func resources(name: String, controller: ResourceController) {
-    let name = "/" + name
+  /// Common middleware
+  let middleware: [Middleware]
 
-    get(name, controller.index)
-    get(name + "/new", controller.new)
-    get(name + "/{id}", controller.show)
-    get(name + "/{id}/edit", controller.edit)
-    post(name, controller.create)
-    delete(name + "/{id}", controller.destroy)
-    patch(name + "/{id}", controller.update)
+  /// Router default fallback
+  public var fallback: Responder = BasicResponder { request in
+    try ErrorMiddleware().respond(to: request, chainingTo: FileResponder())
   }
 
-  public func get(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .GET, action: action))
+  /// List of routes
+  public var routes: [Route] {
+    return container.routes
   }
 
-  public func post(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .POST, action: action))
+  /**
+    Creates a new `Router` instance.
+
+    - Parameter path: The root path.
+    - Parameter middleware: Router-specific common middleware.
+  */
+  public init(path: String = "", middleware: [Middleware]) {
+    self.path = path
+    self.middleware = middleware
+    self.container = RouteContainer(path: path)
   }
 
-  public func put(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .PUT, action: action))
+  /**
+    Creates a new `Router` instance.
+
+    - Parameter path: The root path.
+    - Parameter middleware: Router-specific common middleware.
+  */
+  public convenience init(path: String, middleware: Middleware...) {
+    self.init(path: path, middleware: middleware)
   }
 
-  public func patch(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .PATCH, action: action))
+  // MARK: - Routing
+
+  /**
+    Builds and register new routes. Creates a new container,
+    so all existing routes will be removed.
+
+    - Parameter build: Building closure.
+  */
+  public func draw(build: (container: RouteContainer) -> Void) {
+    container = RouteContainer(path: path)
+    build(container: container)
   }
 
-  public func delete(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .DELETE, action: action))
+  /**
+    Builds and register new routes. Uses the same container,
+    so all existing routes will not be removed.
+
+    - Parameter build: Building closure.
+  */
+  public func compose(build: (container: RouteContainer) -> Void) {
+    build(container: container)
   }
 
-  public func head(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .HEAD, action: action))
+  /**
+    Matches request with the route.
+
+    - Parameter request: The request.
+    - Returns: The route or nil if can't find.
+  */
+  public func match(_ request: Request) -> Route? {
+    let matcher = RegexRouteMatcher(routes: routes)
+    return matcher.match(request)
   }
 
-  public func options(path: String, _ action: Route.Action) {
-    add(Route(path: path, method: .OPTIONS, action: action))
-  }
+  /**
+    Responds to given request.
 
-  func add(route: Route) {
-    routes[route.hashValue] = route
+    - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
+    - Returns: The response.
+  */
+  public func respond(to request: Request) throws -> Response {
+    let responder = match(request) ?? fallback
+    return try middleware.chain(to: responder).respond(to: request)
   }
 }

@@ -1,0 +1,3 @@
+cmd: "swift build"
+name: "Flamingo"
+sh: true
