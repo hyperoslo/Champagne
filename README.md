@@ -108,7 +108,7 @@ Hyper Interaktiv AS, ios@hyper.no
 
 ## Contributing
 
-We would love you to contribute to Cache, check the [CONTRIBUTING](https://github.com/hyperoslo/Flamingo/blob/master/CONTRIBUTING.md)
+We would love you to contribute to **Flamingo**, check the [CONTRIBUTING](https://github.com/hyperoslo/Flamingo/blob/master/CONTRIBUTING.md)
 file for more info.
 
 ## License
