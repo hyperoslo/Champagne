@@ -21,3 +21,8 @@ public extension ApplicationController {
     return Response(status: .ok, contentType: .html, body: body)
   }
 }
+
+/**
+  Controller that is aware of adding new routes.
+*/
+public protocol RoutingController: ApplicationController, RouteDrawing {}
