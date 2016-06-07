@@ -363,7 +363,22 @@ extension RouteContainer {
     - Parameter controller: Controller type to use.
   */
   public func use<T: RoutingController>(_ path: String, middleware: Middleware..., controller: T.Type) {
-    let builder = controller.init()
+    use(path) {
+      return controller.init()
+    }
+  }
+
+  /**
+    Uses routing controller on specified path.
+
+    - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter controller: Controller type to use.
+  */
+  public func use<T: RoutingController>(_ path: String,
+                                          middleware: Middleware...,
+                                          buildController factory: () -> T) {
+    let builder = factory()
     namespace(path, middleware: middleware, build: builder.draw)
   }
 }
