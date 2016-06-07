@@ -346,7 +346,7 @@ extension RouteContainer {
   public func resources<T: ResourceController>(_ path: String,
                                                  middleware: Middleware...,
                                                  buildController factory: () -> T) {
-    get(path, respond: factory().index)
+    get(path, middleware: middleware, respond: factory().index)
     get(path + "/new", respond: factory().new)
     get(path + "/:id", respond: factory().show)
     get(path + "/:id/edit", respond: factory().edit)
