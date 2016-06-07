@@ -256,6 +256,48 @@ extension RouteContainer {
   }
 }
 
+// MARK: - Namespace
+
+extension RouteContainer {
+  /**
+    Builds a set of routes scoped by the given path.
+    Allows to create nested route structures.
+
+    - Parameter path: Namespace path.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter build: Closure to fill in a new container with routes.
+  */
+  public func namespace(_ path: String, middleware: Middleware..., build: (container: RouteContainer) -> Void) {
+    namespace(path, middleware: middleware, build: build)
+  }
+
+  /**
+    Builds a set of routes scoped by the given path.
+    Allows to create nested route structures.
+
+    - Parameter path: Namespace path.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter build: Closure to fill in a new container with routes.
+  */
+  private func namespace(_ path: String, middleware: [Middleware], build: (container: RouteContainer) -> Void) {
+    let container = RouteContainer(path: path)
+
+    build(container: container)
+
+    for route in container.routes {
+      for (method, action) in route.actions {
+        add(method: method,
+          path: route.path,
+          middleware: middleware,
+          responder: action
+        )
+      }
+
+      fallback(route.path, responder: route.fallback)
+    }
+  }
+}
+
 // MARK: - Extra
 
 extension RouteContainer {
@@ -278,32 +320,6 @@ extension RouteContainer {
   */
   public func root(middleware: Middleware..., respond: Respond) {
     get("", middleware: middleware, responder: BasicResponder(respond))
-  }
-
-  /**
-    Builds a set of routes scoped by the given path.
-    Allows to create nested route structures.
-
-    - Parameter path: Namespace path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter build: Closure to fill in a new container with routes.
-  */
-  public func namespace(_ path: String, middleware: Middleware..., build: (container: RouteContainer) -> Void) {
-    let container = RouteContainer(path: path)
-
-    build(container: container)
-
-    for route in container.routes {
-      for (method, action) in route.actions {
-        add(method: method,
-          path: route.path,
-          middleware: middleware,
-          responder: action
-        )
-      }
-
-      fallback(route.path, responder: route.fallback)
-    }
   }
 
   /**
@@ -337,5 +353,17 @@ extension RouteContainer {
     post(path, respond: factory().create)
     delete(path + "/:id", respond: factory().destroy)
     patch(path + "/:id", respond: factory().update)
+  }
+
+  /**
+    Uses routing controller on specified path.
+
+    - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter controller: Controller type to use.
+  */
+  public func use<T: RoutingController>(_ path: String, middleware: Middleware..., controller: T.Type) {
+    let builder = controller.init()
+    namespace(path, middleware: middleware, build: builder.draw)
   }
 }

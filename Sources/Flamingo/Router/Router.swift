@@ -1,14 +1,10 @@
 @_exported import RegexRouteMatcher
 
-public protocol RouteDrawing {
-  func draw(build: (container: RouteContainer) -> Void)
-}
-
 /**
   Default HTTP router. Responds to requests and provides an interface
   for drawing and composing routes.
 */
-public final class Router: HTTP.Router, RouteDrawing {
+public final class Router: HTTP.Router {
 
   /// Root path
   public let path: String

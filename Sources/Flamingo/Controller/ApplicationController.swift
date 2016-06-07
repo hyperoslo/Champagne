@@ -25,4 +25,12 @@ public extension ApplicationController {
 /**
   Controller that is aware of adding new routes.
 */
-public protocol RoutingController: ApplicationController, RouteDrawing {}
+public protocol RoutingController: ApplicationController {
+
+  /**
+    Method to register routes.
+
+    - Parameter map: Route container.
+  */
+  func draw(map: RouteContainer)
+}
