@@ -16,8 +16,10 @@ class RouteContainerTests: XCTestCase, TestResponding {
       ("testDelete", testDelete),
       ("testOptions", testOptions),
       ("testRoot", testRoot),
-      ("testNamespace", testNamespace),
-      ("testResources", testResources)
+      ("testNamespaceWithBuild", testNamespaceWithBuild),
+      ("testNamespaceWithController", testNamespaceWithController),
+      ("testResources", testResources),
+      ("testUse", testUse)
     ]
   }
 
@@ -182,7 +184,7 @@ class RouteContainerTests: XCTestCase, TestResponding {
     respond(to: container.routes.first?.actions[.get], with: .ok)
   }
 
-  func testNamespace() {
+  func testNamespaceWithBuild() {
     let namespace = "group"
     let routePath = "/\(namespace)/\(self.path)"
 
@@ -202,6 +204,21 @@ class RouteContainerTests: XCTestCase, TestResponding {
     respond(to: container.routes.last?.fallback, with: .notFound)
   }
 
+  func testNamespaceWithController() {
+    let namespace = "group"
+
+    container.namespace(namespace, controller: TestRoutingController.self)
+
+    XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)")?.path, "/\(namespace)")
+    XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)/info")?.path, "/\(namespace)/info")
+    XCTAssertEqual(container.routes.count, 2)
+    XCTAssertEqual(container.routes.first?.actions.count, 1)
+    XCTAssertEqual(container.routes.last?.actions.count, 1)
+
+    respond(to: container.routes.first?.actions[.get], with: .ok)
+    respond(to: container.routes.last?.actions[.get], with: .ok)
+  }
+
   func testResources() {
     let name = "resource"
 
@@ -219,13 +236,11 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testUse() {
-    let name = "resource"
-
-    container.use(name, controller: TestRoutingController.self)
+    container.use(controller: TestRoutingController.self)
 
     XCTAssertEqual(container.routes.count, 2)
-    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
-    XCTAssertEqual(container.routeFor(relativePath: "\(name)/info")?.path, "/\(name)/info")
+    XCTAssertEqual(container.routeFor(relativePath: "/")?.path, "/")
+    XCTAssertEqual(container.routeFor(relativePath: "info")?.path, "/info")
     XCTAssertEqual(container.routes.first?.actions.count, 1)
     XCTAssertEqual(container.routes.last?.actions.count, 1)
   }
