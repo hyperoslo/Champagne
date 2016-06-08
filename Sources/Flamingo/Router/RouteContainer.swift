@@ -200,6 +200,8 @@ public extension RouteContainer {
   */
   func resources<T: ResourceController>(_ path: String,
                                           middleware: [Middleware] = [],
+                                          only: [ResourceAction]? = nil,
+                                          except: [ResourceAction]? = nil,
                                           controller: T.Type) {
     resources(path, middleware: middleware) {
       return controller.init()
@@ -216,6 +218,8 @@ public extension RouteContainer {
   */
   func resources<T: ResourceController>(_ path: String,
                                           middleware: [Middleware] = [],
+                                          only: [ResourceAction]? = nil,
+                                          except: [ResourceAction]? = nil,
                                           factory: () -> T) {
     get(path, middleware: middleware, respond: factory().index)
     get(path + "/new", middleware: middleware, respond: factory().new)

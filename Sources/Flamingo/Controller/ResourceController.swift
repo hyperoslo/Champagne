@@ -148,3 +148,7 @@ extension ResourceController {
     throw StatusError(.notFound)
   }
 }
+
+public enum ResourceAction {
+  case index, new, show, edit, create, destroy, update
+}
