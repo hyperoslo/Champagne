@@ -83,7 +83,7 @@ public protocol ResourceController: ApplicationController {
 
 // MARK: - Default implementations
 
-extension ResourceController {
+public extension ResourceController {
 
   /**
     `GET /items`

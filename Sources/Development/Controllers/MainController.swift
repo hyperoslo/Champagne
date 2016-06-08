@@ -14,6 +14,6 @@ class MainController: RoutingController {
   }
 
   func info(request: Request) throws -> Response {
-    return render("index")
+    return render("info")
   }
 }
