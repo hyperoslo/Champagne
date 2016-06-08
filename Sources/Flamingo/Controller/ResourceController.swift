@@ -8,6 +8,8 @@ public protocol ResourceController: ApplicationController {
     Displays a list of all resource items.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func index(request: Request) throws -> Response
@@ -17,6 +19,8 @@ public protocol ResourceController: ApplicationController {
     Displays a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func show(request: Request) throws -> Response
@@ -26,6 +30,8 @@ public protocol ResourceController: ApplicationController {
     Returns a form for creating a new resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func new(request: Request) throws -> Response
@@ -35,6 +41,8 @@ public protocol ResourceController: ApplicationController {
     Creates a new resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func create(request: Request) throws -> Response
@@ -44,6 +52,8 @@ public protocol ResourceController: ApplicationController {
     Returns a form for editing a resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func edit(request: Request) throws -> Response
@@ -53,6 +63,8 @@ public protocol ResourceController: ApplicationController {
     Updates a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func update(request: Request) throws -> Response
@@ -62,6 +74,8 @@ public protocol ResourceController: ApplicationController {
     Deletes a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func destroy(request: Request) throws -> Response
@@ -76,6 +90,8 @@ extension ResourceController {
     Displays a list of all resource items.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func index(request: Request) throws -> Response {
@@ -87,6 +103,8 @@ extension ResourceController {
     Displays a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func show(request: Request) throws -> Response {
@@ -98,6 +116,8 @@ extension ResourceController {
     Returns a form for creating a new resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func new(request: Request) throws -> Response {
@@ -109,6 +129,8 @@ extension ResourceController {
     Creates a new resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func create(request: Request) throws -> Response {
@@ -120,6 +142,8 @@ extension ResourceController {
     Returns a form for editing a resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func edit(request: Request) throws -> Response {
@@ -131,6 +155,8 @@ extension ResourceController {
     Updates a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func update(request: Request) throws -> Response {
@@ -142,6 +168,8 @@ extension ResourceController {
     Deletes a specific resource item.
 
     - Parameter request: The request.
+
+    - Throws: `ErrorType` when response fails.
     - Returns: The response.
   */
   func destroy(request: Request) throws -> Response {

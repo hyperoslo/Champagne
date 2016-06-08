@@ -196,6 +196,8 @@ extension RouteContainer {
 
     - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
+    - Parameter only: Included CRUD actions.
+    - Parameter except: Excluded CRUD actions.
     - Parameter controller: Controller type to use.
   */
   public func resources<T: ResourceController>(_ path: String,
@@ -280,7 +282,6 @@ public extension RouteContainer {
   /**
     Uses routing controller on specified path.
 
-    - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
@@ -293,7 +294,6 @@ public extension RouteContainer {
   /**
     Uses routing controller on specified path.
 
-    - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
