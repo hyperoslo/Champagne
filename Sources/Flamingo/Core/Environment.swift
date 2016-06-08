@@ -1,23 +1,33 @@
 /**
   The environment of the application
 */
-public enum Environment: Equatable {
-  case development
-  case test
-  case production
-  case custom(String)
+public struct Environment: Equatable {
 
-  init(_ name: String) {
-    switch name.lowercased() {
-    case "development":
-      self = .development
-    case "test":
-      self = .test
-    case "production":
-      self = .production
-    default:
-      self = .custom(name)
-    }
+  /// Environment value
+  public let value: String
+
+  /**
+    Creates a new instance of `Environment`.
+
+    - Parameter value: Environment string value.
+  */
+  public init(_ value: String) {
+    self.value = value
+  }
+
+  /// Checks if the current environment is production
+  public var isProduction: Bool {
+    return value.lowercased() == "production"
+  }
+
+  /// Checks if the current environment is development
+  public var isDevelopment: Bool {
+    return value.lowercased() == "development"
+  }
+
+  /// Checks if the current environment is test
+  public var isTest: Bool {
+    return value.lowercased() == "test"
   }
 }
 
@@ -25,24 +35,14 @@ public enum Environment: Equatable {
 
 extension Environment: CustomStringConvertible {
 
+  /// String representation
   public var description: String {
-    let result: String
-
-    switch self {
-    case development:
-      result = "development"
-    case test:
-      result = "test"
-    case production:
-      result = "production"
-    case custom(let string):
-      result = string
-    }
-
-    return result
+    return value
   }
 }
 
+// MARK: - Equatable
+
 public func == (lhs: Environment, rhs: Environment) -> Bool {
-  return lhs.description == rhs.description
+  return lhs.value == rhs.value
 }
