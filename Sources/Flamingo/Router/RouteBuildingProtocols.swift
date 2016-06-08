@@ -1,19 +1,15 @@
 // MARK: - GET routes
 
-public protocol RouteGetBuilding: RouteBuilding {}
-
-public extension RouteGetBuilding {
+public protocol RouteGetBuilding: RouteBuilding {
 
   /**
     Registers `GET /path` route.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
+    - Parameter respond: Respond method.
   */
-  func get(_ path: String, middleware: [Middleware] = [], respond: Respond) {
-    get(path, middleware: middleware, responder: BasicResponder(respond))
-  }
+  func get(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `GET /path` route.
@@ -22,6 +18,15 @@ public extension RouteGetBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func get(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RouteGetBuilding {
+
+  func get(_ path: String, middleware: [Middleware] = [], respond: Respond) {
+    get(path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
   func get(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .get, path: path, middleware: middleware, responder: responder)
   }
@@ -29,20 +34,16 @@ public extension RouteGetBuilding {
 
 // MARK: - POST routes
 
-public protocol RoutePostBuilding: RouteBuilding {}
-
-public extension RoutePostBuilding {
+public protocol RoutePostBuilding: RouteBuilding {
 
   /**
     Registers `POST /path` route.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
+    - Parameter respond: Respond method.
   */
-  func post(_ path: String, middleware: [Middleware] = [], respond: Respond) {
-    post(path, middleware: middleware, responder: BasicResponder(respond))
-  }
+  func post(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `POST /path` route.
@@ -51,6 +52,15 @@ public extension RoutePostBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func post(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RoutePostBuilding {
+
+  func post(_ path: String, middleware: [Middleware] = [], respond: Respond) {
+    post(path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
   func post(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .post, path: path, middleware: middleware, responder: responder)
   }
@@ -58,20 +68,16 @@ public extension RoutePostBuilding {
 
 // MARK: - PUT routes
 
-public protocol RoutePutBuilding: RouteBuilding {}
-
-public extension RoutePutBuilding {
+public protocol RoutePutBuilding: RouteBuilding {
 
   /**
     Registers `PUT /path` route.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
+    - Parameter respond: Respond method.
   */
-  func put(_ path: String, middleware: [Middleware] = [], respond: Respond) {
-    put(path, middleware: middleware, responder: BasicResponder(respond))
-  }
+  func put(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `PUT /path` route.
@@ -80,6 +86,16 @@ public extension RoutePutBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func put(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RoutePutBuilding {
+
+  func put(_ path: String, middleware: [Middleware] = [], respond: Respond) {
+    put(path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
+
   func put(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .put, path: path, middleware: middleware, responder: responder)
   }
@@ -87,9 +103,16 @@ public extension RoutePutBuilding {
 
 // MARK: - PATCH routes
 
-public protocol RoutePatchBuilding: RouteBuilding {}
+public protocol RoutePatchBuilding: RouteBuilding {
 
-public extension RoutePatchBuilding {
+  /**
+    Registers `PATCH /path` route.
+
+    - Parameter path: Route path.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter respond: Respond method.
+  */
+  func patch(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `PATCH /path` route.
@@ -98,17 +121,16 @@ public extension RoutePatchBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func patch(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RoutePatchBuilding {
+
   func patch(_ path: String, middleware: [Middleware] = [], respond: Respond) {
     patch(path, middleware: middleware, responder: BasicResponder(respond))
   }
 
-  /**
-    Registers `PATCH /path` route.
 
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
   func patch(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .patch, path: path, middleware: middleware, responder: responder)
   }
@@ -116,20 +138,16 @@ public extension RoutePatchBuilding {
 
 // MARK: - DELETE routes
 
-public protocol RouteDeleteBuilding: RouteBuilding {}
-
-public extension RouteDeleteBuilding {
+public protocol RouteDeleteBuilding: RouteBuilding {
 
   /**
     Registers `DELETE /path` route.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
+    - Parameter respond: Respond method.
   */
-  func delete(_ path: String, middleware: [Middleware] = [], respond: Respond) {
-    delete(path, middleware: middleware, responder: BasicResponder(respond))
-  }
+  func delete(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `DELETE /path` route.
@@ -138,6 +156,15 @@ public extension RouteDeleteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func delete(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RouteDeleteBuilding {
+
+  func delete(_ path: String, middleware: [Middleware] = [], respond: Respond) {
+    delete(path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
   func delete(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .delete, path: path, middleware: middleware, responder: responder)
   }
@@ -145,20 +172,16 @@ public extension RouteDeleteBuilding {
 
 // MARK: - OPTIONS routes
 
-public protocol RouteOptionsBuilding: RouteBuilding {}
-
-public extension RouteOptionsBuilding {
+public protocol RouteOptionsBuilding: RouteBuilding {
 
   /**
     Registers `OPTIONS /path` route.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
+    - Parameter respond: Respond method.
   */
-  func options(_ path: String, middleware: [Middleware] = [], respond: Respond) {
-    options(path, middleware: middleware, responder: BasicResponder(respond))
-  }
+  func options(_ path: String, middleware: [Middleware], respond: Respond)
 
   /**
     Registers `OPTIONS /path` route.
@@ -167,6 +190,16 @@ public extension RouteOptionsBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
+  func options(_ path: String, middleware: [Middleware], responder: Responder)
+}
+
+public extension RouteOptionsBuilding {
+
+  func options(_ path: String, middleware: [Middleware] = [], respond: Respond) {
+    options(path, middleware: middleware, responder: BasicResponder(respond))
+  }
+
+
   func options(_ path: String, middleware: [Middleware] = [], responder: Responder) {
     add(method: .options, path: path, middleware: middleware, responder: responder)
   }
