@@ -16,23 +16,23 @@ struct FileResponder: Responder {
   */
   func respond(to request: Request) throws -> Response {
     guard let path = request.uri.path where path != "/" else {
-      throw StatusError(Status.notFound)
+      throw StatusError(.notFound)
     }
 
     let publicPath = Path(Config.publicDirectory)
 
     guard publicPath.exists && publicPath.isDirectory else {
-      throw StatusError(Status.notFound)
+      throw StatusError(.notFound)
     }
 
     let filePath = publicPath + String(path.characters.dropFirst())
 
     guard filePath.exists else {
-      throw StatusError(Status.notFound)
+      throw StatusError(.notFound)
     }
 
     guard filePath.isReadable else {
-      throw StatusError(Status.forbidden)
+      throw StatusError(.forbidden)
     }
 
     let response: Response
@@ -40,12 +40,12 @@ struct FileResponder: Responder {
     do {
       let data = try filePath.read()
       guard let body = String(data: data, encoding: NSUTF8StringEncoding) else {
-        throw StatusError(Status.notFound)
+        throw StatusError(.notFound)
       }
 
       response = Response(status: .ok, body: body)
     } catch {
-      throw StatusError(Status.notFound)
+      throw StatusError(.notFound)
     }
 
     return response
