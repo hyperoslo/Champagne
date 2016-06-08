@@ -137,7 +137,9 @@ public extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter build: Closure to fill in a new container with routes.
   */
-  func namespace(_ path: String, middleware: [Middleware] = [], build: (container: RouteContainer) -> Void) {
+  func namespace(_ path: String,
+                   middleware: [Middleware] = [],
+                   build: (container: RouteContainer) -> Void) {
     let container = RouteContainer(path: path)
 
     build(container: container)
@@ -153,6 +155,35 @@ public extension RouteContainer {
 
       fallback(route.path, responder: route.fallback)
     }
+  }
+
+  /**
+    Uses routing controller on specified path.
+
+    - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter controller: Controller type to use.
+  */
+  func namespace<T: RoutingController>(_ path: String,
+                                         middleware: [Middleware] = [],
+                                         controller: T.Type) {
+    namespace(path, middleware: middleware) {
+      return controller.init()
+    }
+  }
+
+  /**
+    Uses routing controller on specified path.
+
+    - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter factory: Closure to instantiate a new instance of controller.
+  */
+  func namespace<T: RoutingController>(_ path: String,
+                                         middleware: [Middleware] = [],
+                                         factory: () -> T) {
+    let builder = factory()
+    namespace(path, middleware: middleware, build: builder.draw)
   }
 }
 
@@ -185,7 +216,7 @@ public extension RouteContainer {
   */
   func resources<T: ResourceController>(_ path: String,
                                           middleware: [Middleware] = [],
-                                          buildController factory: () -> T) {
+                                          factory: () -> T) {
     get(path, middleware: middleware, respond: factory().index)
     get(path + "/new", middleware: middleware, respond: factory().new)
     get(path + "/:id", middleware: middleware, respond: factory().show)
@@ -207,10 +238,8 @@ public extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  func use<T: RoutingController>(_ path: String = "",
-                                   middleware: [Middleware] = [],
-                                   controller: T.Type) {
-    use(path, middleware: middleware) {
+  func use<T: RoutingController>(middleware: [Middleware] = [], controller: T.Type) {
+    use(middleware: middleware) {
       return controller.init()
     }
   }
@@ -220,12 +249,9 @@ public extension RouteContainer {
 
     - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
-    - Parameter controller: Controller type to use.
+    - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  func use<T: RoutingController>(_ path: String = "",
-                                   middleware: [Middleware] = [],
-                                   buildController factory: () -> T) {
-    let builder = factory()
-    namespace(path, middleware: middleware, build: builder.draw)
+  func use<T: RoutingController>(middleware: [Middleware] = [], factory: () -> T) {
+    namespace("", middleware: middleware, build: factory().draw)
   }
 }
