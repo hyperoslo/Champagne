@@ -19,6 +19,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
       ("testNamespaceWithBuild", testNamespaceWithBuild),
       ("testNamespaceWithController", testNamespaceWithController),
       ("testResources", testResources),
+      ("testResourcesWithOnly", testResourcesWithOnly),
+      ("testResourcesWithExcept", testResourcesWithExcept),
+      ("testAddResourceAction", testAddResourceAction),
       ("testUse", testUse)
     ]
   }
@@ -233,6 +236,73 @@ class RouteContainerTests: XCTestCase, TestResponding {
     XCTAssertEqual(container.routes[1].actions.count, 1)
     XCTAssertEqual(container.routes[2].actions.count, 3)
     XCTAssertEqual(container.routes.last?.actions.count, 1)
+  }
+
+  func testResourcesWithOnly() {
+    let name = "resource"
+
+    container.resources(name, only: [.index, .show], controller: TestResourceController.self)
+
+    XCTAssertEqual(container.routes.count, 2)
+    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id")?.path, "/\(name)/:id")
+    XCTAssertEqual(container.routes.first?.actions.count, 1)
+    XCTAssertEqual(container.routes.last?.actions.count, 1)
+  }
+
+  func testResourcesWithExcept() {
+    let name = "resource"
+
+    container.resources(name, except: [.index, .show], controller: TestResourceController.self)
+
+    XCTAssertEqual(container.routes.count, 4)
+    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/new")?.path, "/\(name)/new")
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id")?.path, "/\(name)/:id")
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id/edit")?.path, "/\(name)/:id/edit")
+    XCTAssertEqual(container.routes.first?.actions.count, 1)
+    XCTAssertEqual(container.routes[1].actions.count, 1)
+    XCTAssertEqual(container.routes[2].actions.count, 1)
+    XCTAssertEqual(container.routes.last?.actions.count, 2)
+  }
+
+  func testAddResourceAction() {
+    let name = "resource"
+    let factory = { return TestResourceController() }
+
+    container.addResourceAction(.index, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
+
+    container.clear()
+    container.addResourceAction(.new, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/new")?.path, "/\(name)/new")
+
+    container.clear()
+    container.addResourceAction(.show, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id")?.path, "/\(name)/:id")
+
+    container.clear()
+    container.addResourceAction(.edit, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id/edit")?.path, "/\(name)/:id/edit")
+
+    container.clear()
+    container.addResourceAction(.create, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
+
+    container.clear()
+    container.addResourceAction(.destroy, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id")?.path, "/\(name)/:id")
+
+    container.clear()
+    container.addResourceAction(.update, on: name, factory: factory)
+    XCTAssertEqual(container.routes.count, 1)
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/:id")?.path, "/\(name)/:id")
   }
 
   func testUse() {
