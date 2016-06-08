@@ -1,6 +1,6 @@
 import Flamingo
 
-public class Controller: ResourceController {
+public class BirdController: ResourceController {
 
   public required init() {}
 

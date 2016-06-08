@@ -207,7 +207,7 @@ public extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  func use<T: RoutingController>(_ path: String,
+  func use<T: RoutingController>(_ path: String = "",
                                    middleware: [Middleware] = [],
                                    controller: T.Type) {
     use(path, middleware: middleware) {
@@ -222,7 +222,7 @@ public extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  func use<T: RoutingController>(_ path: String,
+  func use<T: RoutingController>(_ path: String = "",
                                    middleware: [Middleware] = [],
                                    buildController factory: () -> T) {
     let builder = factory()
