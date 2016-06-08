@@ -83,9 +83,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testGet() {
-    container.get(path, middleware: ParametersMiddleware(), responder: responder)
-    container.get(path, middleware: ParametersMiddleware(), responder: responder)
-    container.get(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.get(path, middleware: middleware, responder: responder)
+    container.get(path, middleware: middleware, responder: responder)
+    container.get(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -98,9 +98,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testPost() {
-    container.post(path, middleware: ParametersMiddleware(), responder: responder)
-    container.post(path, middleware: ParametersMiddleware(), responder: responder)
-    container.post(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.post(path, middleware: middleware, responder: responder)
+    container.post(path, middleware: middleware, responder: responder)
+    container.post(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -113,9 +113,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testPut() {
-    container.put(path, middleware: ParametersMiddleware(), responder: responder)
-    container.put(path, middleware: ParametersMiddleware(), responder: responder)
-    container.put(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.put(path, middleware: middleware, responder: responder)
+    container.put(path, middleware: middleware, responder: responder)
+    container.put(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -128,9 +128,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testPatch() {
-    container.patch(path, middleware: ParametersMiddleware(), responder: responder)
-    container.patch(path, middleware: ParametersMiddleware(), responder: responder)
-    container.patch(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.patch(path, middleware: middleware, responder: responder)
+    container.patch(path, middleware: middleware, responder: responder)
+    container.patch(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -143,9 +143,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testDelete() {
-    container.delete(path, middleware: ParametersMiddleware(), responder: responder)
-    container.delete(path, middleware: ParametersMiddleware(), responder: responder)
-    container.delete(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.delete(path, middleware: middleware, responder: responder)
+    container.delete(path, middleware: middleware, responder: responder)
+    container.delete(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -158,9 +158,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testOptions() {
-    container.options(path, middleware: ParametersMiddleware(), responder: responder)
-    container.options(path, middleware: ParametersMiddleware(), responder: responder)
-    container.options(path2, middleware: ParametersMiddleware(), responder: responder)
+    container.options(path, middleware: middleware, responder: responder)
+    container.options(path, middleware: middleware, responder: responder)
+    container.options(path2, middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: path)?.path, "/" + path)
     XCTAssertEqual(container.routeFor(relativePath: path2)?.path, "/" + path2)
@@ -173,7 +173,7 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testRoot() {
-    container.root(middleware: ParametersMiddleware(), responder: responder)
+    container.root(middleware: middleware, responder: responder)
 
     XCTAssertEqual(container.routeFor(relativePath: "/")?.path, "/")
     XCTAssertEqual(container.routes.count, 1)
@@ -186,7 +186,7 @@ class RouteContainerTests: XCTestCase, TestResponding {
     let namespace = "group"
     let routePath = "/\(namespace)/\(self.path)"
 
-    container.namespace(namespace, middleware: ParametersMiddleware()) { map in
+    container.namespace(namespace, middleware: middleware) { map in
       map.get(self.path, responder: self.responder)
       map.post(self.path, responder: self.responder)
       map.fallback(responder: self.failResponder)
