@@ -6,6 +6,7 @@ import XCTest
 XCTMain([
   testCase(ApplicationControllerTests.allTests),
   testCase(ApplicationTests.allTests),
+  testCase(EnvironmentTests.allTests),
   testCase(StatusErrorTests.allTests),
   testCase(ErrorMiddlewareTests.allTests),
   testCase(ParametersMiddlewareTests.allTests),
