@@ -1,10 +1,6 @@
 import Foundation
 import HTTPServer
 
-#if os(Linux)
-  import Glibc
-#endif
-
 public var application = Application()
 
 /**
