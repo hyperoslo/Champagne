@@ -149,6 +149,9 @@ extension ResourceController {
   }
 }
 
+/**
+  Resource actions
+*/
 public enum ResourceAction {
   case index, new, show, edit, create, destroy, update
 }

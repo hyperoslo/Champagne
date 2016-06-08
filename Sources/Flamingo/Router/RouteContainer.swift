@@ -189,7 +189,7 @@ public extension RouteContainer {
 
 // MARK: - Resources
 
-public extension RouteContainer {
+extension RouteContainer {
 
   /**
     Adds resource controller for specified path.
@@ -198,12 +198,12 @@ public extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  func resources<T: ResourceController>(_ path: String,
-                                          middleware: [Middleware] = [],
-                                          only: [ResourceAction]? = nil,
-                                          except: [ResourceAction]? = nil,
-                                          controller: T.Type) {
-    resources(path, middleware: middleware) {
+  public func resources<T: ResourceController>(_ path: String,
+                                                 middleware: [Middleware] = [],
+                                                 only: [ResourceAction]? = nil,
+                                                 except: [ResourceAction]? = nil,
+                                                 controller: T.Type) {
+    resources(path, middleware: middleware, only: only, except: except) {
       return controller.init()
     }
   }
@@ -214,20 +214,62 @@ public extension RouteContainer {
 
     - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
+    - Parameter only: Included CRUD actions.
+    - Parameter except: Excluded CRUD actions.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  func resources<T: ResourceController>(_ path: String,
-                                          middleware: [Middleware] = [],
-                                          only: [ResourceAction]? = nil,
-                                          except: [ResourceAction]? = nil,
-                                          factory: () -> T) {
-    get(path, middleware: middleware, respond: factory().index)
-    get(path + "/new", middleware: middleware, respond: factory().new)
-    get(path + "/:id", middleware: middleware, respond: factory().show)
-    get(path + "/:id/edit", middleware: middleware, respond: factory().edit)
-    post(path, middleware: middleware, respond: factory().create)
-    delete(path + "/:id", middleware: middleware, respond: factory().destroy)
-    patch(path + "/:id", middleware: middleware, respond: factory().update)
+  public func resources<T: ResourceController>(_ path: String,
+                                                 middleware: [Middleware] = [],
+                                                 only: [ResourceAction]? = nil,
+                                                 except: [ResourceAction]? = nil,
+                                                 factory: () -> T) {
+    var actions: [ResourceAction] = [
+      .index, .new, .show, .edit,
+      .create, .destroy, .update
+    ]
+
+    if let only = only {
+      actions = only
+    }
+
+    if let except = except {
+      actions = actions.filter({ !except.contains($0) })
+    }
+
+    for action in actions {
+      addResourceAction(action, on: path, middleware: middleware, factory: factory)
+    }
+  }
+
+  /**
+    Creates standard Index, New, Show, Edit, Create, Destroy and Update routes
+    using the respond method from a supplied `ResourceController`.
+
+    - Parameter action: Resource action.
+    - Parameter path: Path associated with resource controller.
+    - Parameter middleware: Route-specific middleware.
+    - Parameter factory: Closure to instantiate a new instance of controller.
+  */
+  func addResourceAction<T: ResourceController>(_ action: ResourceAction,
+                                                  on path: String,
+                                                  middleware: [Middleware] = [],
+                                                  factory: () -> T) {
+    switch action {
+    case .index:
+      get(path, middleware: middleware, respond: factory().index)
+    case .new:
+      get(path + "/new", middleware: middleware, respond: factory().new)
+    case .show:
+      get(path + "/:id", middleware: middleware, respond: factory().show)
+    case .edit:
+      get(path + "/:id/edit", middleware: middleware, respond: factory().edit)
+    case .create:
+      post(path, middleware: middleware, respond: factory().create)
+    case .destroy:
+      delete(path + "/:id", middleware: middleware, respond: factory().destroy)
+    case .update:
+      patch(path + "/:id", middleware: middleware, respond: factory().update)
+    }
   }
 }
 
