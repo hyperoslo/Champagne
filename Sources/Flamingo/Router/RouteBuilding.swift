@@ -34,77 +34,16 @@ public protocol RouteBuilding {
     - Parameter responder: The responder.
   */
   func fallback(on path: String, middleware: [Middleware], responder: Responder)
+
+  /**
+    Removes all routes
+  */
+  func clear()
 }
 
 // MARK: - Default implementations
 
 extension RouteBuilding {
-
-  /**
-    Registers `GET /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func get(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .get, path: path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `POST /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func post(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .post, path: path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `PUT /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func put(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .put, path: path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `PATCH /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func patch(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .patch, path: path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `DELETE /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func delete(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .delete, path: path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `OPTIONS /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func options(_ path: String, middleware: [Middleware], responder: Responder) {
-    add(method: .options, path: path, middleware: middleware, responder: responder)
-  }
 
   /**
     Returns a route for a given path.

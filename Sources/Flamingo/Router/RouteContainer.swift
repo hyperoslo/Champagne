@@ -3,7 +3,8 @@
 /**
   Route container keeps and builds routes relative to the root path.
 */
-public class RouteContainer: RouteBuilding {
+public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
+  RoutePutBuilding, RoutePatchBuilding, RouteDeleteBuilding, RouteOptionsBuilding {
   /// Root path.
   public let path: String
 
@@ -65,13 +66,25 @@ public class RouteContainer: RouteBuilding {
   }
 
   /**
+    Removes all routes
+  */
+  public func clear() {
+    routes.removeAll()
+  }
+}
+
+// MARK: - Fallbacks
+
+public extension RouteContainer {
+
+  /**
     Adds a fallback on a given path.
 
     - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
     - Parameter respond: The responder.
   */
-  public func fallback(_ path: String = "", middleware: Middleware..., respond: Respond) {
+  func fallback(_ path: String = "", middleware: [Middleware] = [], respond: Respond) {
     fallback(on: path, middleware: middleware, responder: BasicResponder(respond))
   }
 
@@ -82,194 +95,39 @@ public class RouteContainer: RouteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func fallback(_ path: String = "", middleware: Middleware..., responder: Responder) {
+  func fallback(_ path: String = "", middleware: [Middleware] = [], responder: Responder) {
     fallback(on: path, middleware: middleware, responder: responder)
   }
-
-  /**
-    Removes all routes
-  */
-  public func clear() {
-    routes.removeAll()
-  }
 }
 
-// MARK: - GET routes
+// MARK: - Root
 
-extension RouteContainer {
+public extension RouteContainer {
 
   /**
-    Registers `GET /path` route.
+    Adds a responder on the root path (`GET /`).
 
-    - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func get(_ path: String, middleware: Middleware..., responder: Responder) {
-    add(method: .get, path: path, middleware: middleware, responder: responder)
+  func root(middleware: [Middleware] = [], responder: Responder) {
+    get("", middleware: middleware, responder: responder)
   }
 
   /**
-    Registers `GET /path` route.
+    Adds a responder on the root path (`GET /`).
 
-    - Parameter path: Route path.
     - Parameter middleware: Route-specific middleware.
     - Parameter respond: The responder.
   */
-  public func get(_ path: String, middleware: Middleware..., respond: Respond) {
-    get(path, middleware: middleware, responder: BasicResponder(respond))
-  }
-}
-
-// MARK: - POST routes
-
-extension RouteContainer {
-
-  /**
-    Registers `POST /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func post(_ path: String, middleware: Middleware..., responder: Responder) {
-    post(path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `POST /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func post(_ path: String, middleware: Middleware..., respond: Respond) {
-    post(path, middleware: middleware, responder: BasicResponder(respond))
-  }
-}
-
-// MARK: - PUT routes
-
-extension RouteContainer {
-
-  /**
-    Registers `PUT /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func put(_ path: String, middleware: Middleware..., responder: Responder) {
-    put(path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `PUT /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func put(_ path: String, middleware: Middleware..., respond: Respond) {
-    put(path, middleware: middleware, responder: BasicResponder(respond))
-  }
-}
-
-// MARK: - PATCH routes
-
-extension RouteContainer {
-
-  /**
-    Registers `PATCH /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func patch(_ path: String, middleware: Middleware..., responder: Responder) {
-    patch(path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `PATCH /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func patch(_ path: String, middleware: Middleware..., respond: Respond) {
-    patch(path, middleware: middleware, responder: BasicResponder(respond))
-  }
-}
-
-// MARK: - DELETE routes
-
-extension RouteContainer {
-
-  /**
-    Registers `DELETE /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func delete(_ path: String, middleware: Middleware..., responder: Responder) {
-    delete(path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `DELETE /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func delete(_ path: String, middleware: Middleware..., respond: Respond) {
-    delete(path, middleware: middleware, responder: BasicResponder(respond))
-  }
-}
-
-// MARK: - OPTIONS routes
-
-extension RouteContainer {
-
-  /**
-    Registers `OPTIONS /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func options(_ path: String, middleware: Middleware..., responder: Responder) {
-    options(path, middleware: middleware, responder: responder)
-  }
-
-  /**
-    Registers `OPTIONS /path` route.
-
-    - Parameter path: Route path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func options(_ path: String, middleware: Middleware..., respond: Respond) {
-    options(path, middleware: middleware, responder: BasicResponder(respond))
+  func root(middleware: [Middleware] = [], respond: Respond) {
+    get("", middleware: middleware, responder: BasicResponder(respond))
   }
 }
 
 // MARK: - Namespace
 
-extension RouteContainer {
-  /**
-    Builds a set of routes scoped by the given path.
-    Allows to create nested route structures.
-
-    - Parameter path: Namespace path.
-    - Parameter middleware: Route-specific middleware.
-    - Parameter build: Closure to fill in a new container with routes.
-  */
-  public func namespace(_ path: String, middleware: Middleware..., build: (container: RouteContainer) -> Void) {
-    namespace(path, middleware: middleware, build: build)
-  }
+public extension RouteContainer {
 
   /**
     Builds a set of routes scoped by the given path.
@@ -279,7 +137,7 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter build: Closure to fill in a new container with routes.
   */
-  private func namespace(_ path: String, middleware: [Middleware], build: (container: RouteContainer) -> Void) {
+  func namespace(_ path: String, middleware: [Middleware] = [], build: (container: RouteContainer) -> Void) {
     let container = RouteContainer(path: path)
 
     build(container: container)
@@ -298,29 +156,9 @@ extension RouteContainer {
   }
 }
 
-// MARK: - Extra
+// MARK: - Resources
 
-extension RouteContainer {
-
-  /**
-    Adds a responder on the root path (`GET /`).
-
-    - Parameter middleware: Route-specific middleware.
-    - Parameter responder: The responder.
-  */
-  public func root(middleware: Middleware..., responder: Responder) {
-    get("", middleware: middleware, responder: responder)
-  }
-
-  /**
-    Adds a responder on the root path (`GET /`).
-
-    - Parameter middleware: Route-specific middleware.
-    - Parameter respond: The responder.
-  */
-  public func root(middleware: Middleware..., respond: Respond) {
-    get("", middleware: middleware, responder: BasicResponder(respond))
-  }
+public extension RouteContainer {
 
   /**
     Adds resource controller for specified path.
@@ -329,8 +167,10 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  public func resources<T: ResourceController>(_ path: String, middleware: Middleware..., controller: T.Type) {
-    resources(path) {
+  func resources<T: ResourceController>(_ path: String,
+                                          middleware: [Middleware] = [],
+                                          controller: T.Type) {
+    resources(path, middleware: middleware) {
       return controller.init()
     }
   }
@@ -343,17 +183,22 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  public func resources<T: ResourceController>(_ path: String,
-                                                 middleware: Middleware...,
-                                                 buildController factory: () -> T) {
+  func resources<T: ResourceController>(_ path: String,
+                                          middleware: [Middleware] = [],
+                                          buildController factory: () -> T) {
     get(path, middleware: middleware, respond: factory().index)
-    get(path + "/new", respond: factory().new)
-    get(path + "/:id", respond: factory().show)
-    get(path + "/:id/edit", respond: factory().edit)
-    post(path, respond: factory().create)
-    delete(path + "/:id", respond: factory().destroy)
-    patch(path + "/:id", respond: factory().update)
+    get(path + "/new", middleware: middleware, respond: factory().new)
+    get(path + "/:id", middleware: middleware, respond: factory().show)
+    get(path + "/:id/edit", middleware: middleware, respond: factory().edit)
+    post(path, middleware: middleware, respond: factory().create)
+    delete(path + "/:id", middleware: middleware, respond: factory().destroy)
+    patch(path + "/:id", middleware: middleware, respond: factory().update)
   }
+}
+
+// MARK: - Use
+
+public extension RouteContainer {
 
   /**
     Uses routing controller on specified path.
@@ -362,8 +207,10 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  public func use<T: RoutingController>(_ path: String, middleware: Middleware..., controller: T.Type) {
-    use(path) {
+  func use<T: RoutingController>(_ path: String,
+                                   middleware: [Middleware] = [],
+                                   controller: T.Type) {
+    use(path, middleware: middleware) {
       return controller.init()
     }
   }
@@ -375,9 +222,9 @@ extension RouteContainer {
     - Parameter middleware: Route-specific middleware.
     - Parameter controller: Controller type to use.
   */
-  public func use<T: RoutingController>(_ path: String,
-                                          middleware: Middleware...,
-                                          buildController factory: () -> T) {
+  func use<T: RoutingController>(_ path: String,
+                                   middleware: [Middleware] = [],
+                                   buildController factory: () -> T) {
     let builder = factory()
     namespace(path, middleware: middleware, build: builder.draw)
   }
