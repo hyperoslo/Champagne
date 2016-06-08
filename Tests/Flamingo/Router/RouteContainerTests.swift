@@ -217,4 +217,16 @@ class RouteContainerTests: XCTestCase, TestResponding {
     XCTAssertEqual(container.routes[2].actions.count, 3)
     XCTAssertEqual(container.routes.last?.actions.count, 1)
   }
+
+  func testUse() {
+    let name = "resource"
+
+    container.use(name, controller: TestRoutingController.self)
+
+    XCTAssertEqual(container.routes.count, 2)
+    XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
+    XCTAssertEqual(container.routeFor(relativePath: "\(name)/info")?.path, "/\(name)/info")
+    XCTAssertEqual(container.routes.first?.actions.count, 1)
+    XCTAssertEqual(container.routes.last?.actions.count, 1)
+  }
 }
