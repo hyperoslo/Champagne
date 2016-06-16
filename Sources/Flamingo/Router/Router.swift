@@ -78,7 +78,10 @@ public final class Router {
     - Returns: The route or nil if can't find.
   */
   public func match(_ request: Request) -> Route? {
-    let matcher = RouteMatcher(routes: routes)
+    guard let matcher = try? RouteMatcher(routes: routes) else {
+      return nil
+    }
+    
     return matcher.match(request)
   }
 }

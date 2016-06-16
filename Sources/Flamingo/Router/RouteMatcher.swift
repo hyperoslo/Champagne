@@ -3,8 +3,8 @@ import Rexy
 public struct RouteMatcher {
   let mathers: [RouteRegex]
 
-  public init(routes: [Route]) {
-    self.mathers = routes.map(RouteRegex.init)
+  public init(routes: [Route]) throws {
+    self.mathers = try routes.map(try RouteRegex.init)
   }
 
   public func match(_ request: Request) -> Route? {
@@ -28,11 +28,11 @@ struct RouteRegex {
   let parameterKeys: [String]
   let route: Route
 
-  init(route: Route) {
-    let parameterRegex = try! Regex(pattern: ":([[:alnum:]]+)")
+  init(route: Route) throws {
+    let parameterRegex = try Regex(pattern: ":([[:alnum:]]+)")
     let pattern = parameterRegex.replace(route.path, with: "([[:alnum:]_-]+)")
 
-    self.regex = try! Regex(pattern: "^" + pattern + "$")
+    self.regex = try Regex(pattern: "^" + pattern + "$")
     self.parameterKeys = parameterRegex.groups(route.path)
     self.route = route
   }
