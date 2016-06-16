@@ -16,7 +16,7 @@ class RequestTests: XCTestCase {
     super.setUp()
 
     request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/"),
       body: Data("")
     )

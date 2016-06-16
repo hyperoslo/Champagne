@@ -22,8 +22,8 @@ class ResponseTests: XCTestCase {
     )
 
     XCTAssertEqual(response.status, status)
-    XCTAssertEqual(response.headers["Server"].values, ["Flamingo \(Application.version)"])
-    XCTAssertEqual(response.headers["Content-Type"].values, ["\(contentType.rawValue); charset=utf8"])
+    XCTAssertEqual(response.headers["Server"], "Flamingo \(Application.version)")
+    XCTAssertEqual(response.headers["Content-Type"], "\(contentType.rawValue); charset=utf8")
     XCTAssertEqual(response.bodyString, "test")
   }
 

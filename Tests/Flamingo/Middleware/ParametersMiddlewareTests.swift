@@ -18,7 +18,7 @@ class ParametersMiddlewareTests: XCTestCase {
 
   func testRespondToGetRequest() {
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/?theme=dark&limit=50"),
       body: Data("")
     )
@@ -40,7 +40,7 @@ class ParametersMiddlewareTests: XCTestCase {
 
   func testRespondToPostRequest() {
     let request = Request(
-      method: Request.Method.post,
+      method: Method.post,
       uri: URI(path: "/"),
       body: Data("theme=dark&bird=flamingo")
     )
@@ -62,13 +62,13 @@ class ParametersMiddlewareTests: XCTestCase {
 
   func testResolveMethodWithGet() {
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/"),
       body: Data("_method=put")
     )
 
     let responder: Responder = BasicResponder { request in
-      XCTAssertEqual(request.method, Request.Method.get)
+      XCTAssertEqual(request.method, Method.get)
       return Response(status: .ok)
     }
 
@@ -81,13 +81,13 @@ class ParametersMiddlewareTests: XCTestCase {
 
   func testResolveMethodWithPost() {
     let request = Request(
-      method: Request.Method.post,
+      method: Method.post,
       uri: URI(path: "/"),
       body: Data("_method=put")
     )
 
     let responder: Responder = BasicResponder { request in
-      XCTAssertEqual(request.method, Request.Method.put)
+      XCTAssertEqual(request.method, Method.put)
       return Response(status: .ok)
     }
 
