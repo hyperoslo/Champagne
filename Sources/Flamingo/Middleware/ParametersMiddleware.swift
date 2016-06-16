@@ -18,7 +18,7 @@ public class ParametersMiddleware: Middleware {
     var request = request
     var queryString = ""
 
-    if request.method == Request.Method.get {
+    if request.method == Method.get {
       if let elements = request.uri.path?.split(separator: "?", maxSplits: 1), query = elements.last {
         queryString = query
       }
@@ -50,8 +50,8 @@ public class ParametersMiddleware: Middleware {
     - Parameter request: The request.
     - Returns: The method.
   */
-  func resolveMethod(request: Request) -> Request.Method {
-    guard request.method == Request.Method.post else {
+  func resolveMethod(request: Request) -> Method {
+    guard request.method == Method.post else {
       return request.method
     }
 
@@ -59,7 +59,7 @@ public class ParametersMiddleware: Middleware {
       return request.method
     }
 
-    let method: Request.Method
+    let method: Method
 
     switch methodParameter.uppercased() {
     case "HEAD":

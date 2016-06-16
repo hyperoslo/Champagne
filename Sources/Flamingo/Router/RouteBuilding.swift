@@ -22,7 +22,7 @@ public protocol RouteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  func add(method: Request.Method, path: String, middleware: [Middleware], responder: Responder)
+  func add(method: Method, path: String, middleware: [Middleware], responder: Responder)
 
   /**
     Adds a fallback on a given path.

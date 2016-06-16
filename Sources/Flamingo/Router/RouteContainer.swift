@@ -32,7 +32,7 @@ public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func add(method: Request.Method, path: String, middleware: [Middleware], responder: Responder) {
+  public func add(method: Method, path: String, middleware: [Middleware], responder: Responder) {
     let action = middleware.chain(to: responder)
     let path = absolutePathFor(path)
 

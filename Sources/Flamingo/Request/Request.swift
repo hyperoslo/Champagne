@@ -25,3 +25,16 @@ public extension Message {
     return try? bufferBody.becomeBuffer().description
   }
 }
+
+extension Headers: CustomStringConvertible {
+
+  public var description: String {
+    var string = ""
+
+    headers.forEach {
+      string += "\($0): \($1)\n"
+    }
+
+    return string
+  }
+}
