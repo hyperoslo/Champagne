@@ -3,6 +3,16 @@
 */
 extension Request {
 
+  /// URL path.
+  public var path: String? {
+        return uri.path
+    }
+
+  /// URL query.
+  public var query: [String: [String?]] {
+    return uri.query
+  }
+
   /// URL parameters.
   public var parameters: [String: String] {
     get {
@@ -10,6 +20,17 @@ extension Request {
     }
     set(parameters) {
       storage["fl-parameters"] = parameters
+    }
+  }
+
+  /// Path parameters.
+  public var pathParameters: [String: String] {
+    get {
+      return storage["pathParameters"] as? [String: String] ?? [:]
+    }
+
+    set(pathParameters) {
+      storage["pathParameters"] = pathParameters
     }
   }
 }
