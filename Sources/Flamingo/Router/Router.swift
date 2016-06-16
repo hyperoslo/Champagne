@@ -1,10 +1,11 @@
-@_exported import RegexRouteMatcher
+import Rexy
+import S4
 
 /**
   Default HTTP router. Responds to requests and provides an interface
   for drawing and composing routes.
 */
-public final class Router: HTTP.Router {
+public final class Router {
 
   /// Root path
   public let path: String
@@ -80,7 +81,11 @@ public final class Router: HTTP.Router {
     let matcher = RegexRouteMatcher(routes: routes)
     return matcher.match(request)
   }
+}
 
+// MARK: - Responder
+
+extension Router: Responder {
   /**
     Responds to given request.
 

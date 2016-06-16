@@ -15,8 +15,8 @@ public typealias DataConvertible = S4.DataConvertible
 public typealias Message = S4.Message
 public typealias Body = S4.Body
 public typealias Headers = S4.Headers
-public typealias Header = S4.Header
 public typealias Status = S4.Status
+public typealias Method = S4.Method
 
 // MARK: - Request
 
@@ -30,12 +30,12 @@ extension Request {
 
 public typealias Response = S4.Response
 public typealias Responder = S4.Responder
+public typealias Respond = S4.Respond
 public typealias BasicResponder = S4.BasicResponder
 
 // MARK: - Headers
 
 extension S4.Headers {
-  public typealias Values = S4.Header
   public typealias Key = C7.CaseInsensitiveString
 }
 

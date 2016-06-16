@@ -12,8 +12,8 @@ extension Response {
   */
   init(status: Status, contentType: ContentType, body: DataConvertible) {
     let headers: Headers = [
-      "Server": Header("Flamingo \(Application.version)"),
-      "Content-Type": Header("\(contentType.rawValue); charset=utf8")
+      "Server": "Flamingo \(Application.version)",
+      "Content-Type": "\(contentType.rawValue); charset=utf8"
     ]
 
     self.init(status: status, headers: headers, body: body.data)
