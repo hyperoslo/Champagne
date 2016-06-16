@@ -78,7 +78,7 @@ public final class Router {
     - Returns: The route or nil if can't find.
   */
   public func match(_ request: Request) -> Route? {
-    let matcher = RegexRouteMatcher(routes: routes)
+    let matcher = RouteMatcher(routes: routes)
     return matcher.match(request)
   }
 }
