@@ -1,10 +1,6 @@
 import Foundation
 import HTTPServer
 
-#if os(Linux)
-  import Glibc
-#endif
-
 public var application = Application()
 
 /**
@@ -14,6 +10,7 @@ public class Application {
 
   public static let version = "0.0.1"
 
+  public let environment: Environment
   public var router: Router
   var running = false
 
@@ -27,7 +24,9 @@ public class Application {
 
     - Parameter middleware: Route-specific middleware.
   */
-  public init(middleware: [Middleware] = []) {
+  public init(environment: Environment = Environment("development"),
+              middleware: [Middleware] = []) {
+    self.environment = environment
     self.middleware.append(contentsOf: middleware)
     router = Router(middleware: middleware)
   }
