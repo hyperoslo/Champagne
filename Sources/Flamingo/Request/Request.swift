@@ -49,6 +49,7 @@ public extension Message {
 
 extension Headers: CustomStringConvertible {
 
+  /// String representation
   public var description: String {
     var string = ""
 

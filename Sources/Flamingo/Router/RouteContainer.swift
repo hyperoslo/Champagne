@@ -39,7 +39,7 @@ public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
     if let route = routeFor(absolutePath: path) {
       route.addAction(method: method, action: action)
     } else {
-      let route = BasicRoute(path: path, actions: [method: action])
+      let route = Route(path: path, actions: [method: action])
       routes.append(route)
     }
   }
@@ -58,7 +58,7 @@ public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
     if let route = routeFor(absolutePath: path) {
       route.fallback = fallback
     } else {
-      let route = BasicRoute(path: path, fallback: fallback)
+      let route = Route(path: path, fallback: fallback)
       routes.append(route)
     }
   }

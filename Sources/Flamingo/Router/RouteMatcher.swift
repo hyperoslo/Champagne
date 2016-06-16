@@ -4,7 +4,7 @@ public struct RouteMatcher {
   let mathers: [RouteRegex]
 
   public init(routes: [Route]) throws {
-    self.mathers = try routes.map(try RouteRegex.init)
+    self.mathers = try routes.map(RouteRegex.init)
   }
 
   public func match(_ request: Request) -> Route? {
@@ -15,7 +15,7 @@ public struct RouteMatcher {
     let parameters = regex.parameters(request)
     let middleware = PathParameterMiddleware(parameters)
 
-    return BasicRoute(
+    return Route(
       path: regex.route.path,
       actions: regex.route.actions.mapValues({ middleware.chain(to: $0) }),
       fallback: regex.route.fallback

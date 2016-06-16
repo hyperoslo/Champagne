@@ -3,6 +3,21 @@
 */
 extension Response {
 
+  /// Status code helper.
+  public var statusCode: Int {
+    return status.statusCode
+  }
+
+  /// Reason phrase helper.
+  public var reasonPhrase: String {
+    return status.reasonPhrase
+  }
+
+  /// HTTP status line
+  public var statusLine: String {
+    return "HTTP/1.1 " + statusCode.description + " " + reasonPhrase + "\n"
+  }
+
   /**
     Creates a new response.
 
@@ -19,19 +34,15 @@ extension Response {
     self.init(status: status, headers: headers, body: body.data)
   }
 
+  /**
+    Creates a new response.
+
+    - Parameter status: The status code.
+    - Parameter headers: Response headers.
+    - Parameter body: Body data.
+  */
   public init(status: Status, headers: Headers = [:], body: DataConvertible) {
     self.init(status: status, headers: headers, body: body.data)
-  }
-}
-
-extension Response {
-
-  public var statusCode: Int {
-    return status.statusCode
-  }
-
-  public var reasonPhrase: String {
-    return status.reasonPhrase
   }
 }
 
@@ -39,10 +50,7 @@ extension Response {
 
 extension Response: CustomStringConvertible {
 
-  public var statusLine: String {
-    return "HTTP/1.1 " + statusCode.description + " " + reasonPhrase + "\n"
-  }
-
+  /// String representation.
   public var description: String {
     return statusLine + headers.description
   }

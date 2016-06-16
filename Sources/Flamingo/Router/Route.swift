@@ -1,29 +1,20 @@
-public protocol Route: Responder {
-  var path: String { get }
-  var actions: [Method: Responder] { get }
-  var fallback: Responder { get }
-}
+/**
+  Route extensions.
+*/
 
-extension Route {
+public final class Route {
 
-  public var fallback: Responder {
-    return BasicResponder { _ in
-      Response(status: .methodNotAllowed)
-    }
+  public static let defaultFallback = BasicResponder { _ in
+    Response(status: .methodNotAllowed)
   }
 
-  public func respond(to request: Request) throws -> Response {
-    let action = actions[request.method] ?? fallback
-    return try action.respond(to: request)
-  }
-}
-
-public final class BasicRoute: Route {
   public let path: String
   public var actions: [Method: Responder]
   public var fallback: Responder
 
-  public init(path: String, actions: [Method: Responder] = [:], fallback: Responder = BasicRoute.defaultFallback) {
+  public init(path: String,
+           actions: [Method: Responder] = [:],
+          fallback: Responder = Route.defaultFallback) {
     self.path = path
     self.actions = actions
     self.fallback = fallback
@@ -32,8 +23,14 @@ public final class BasicRoute: Route {
   public func addAction(method: Method, action: Responder) {
     actions[method] = action
   }
+}
 
-  public static let defaultFallback = BasicResponder { _ in
-    Response(status: .methodNotAllowed)
+// MARK: - Responder
+
+extension Route: Responder {
+
+  public func respond(to request: Request) throws -> Response {
+    let action = actions[request.method] ?? fallback
+    return try action.respond(to: request)
   }
 }

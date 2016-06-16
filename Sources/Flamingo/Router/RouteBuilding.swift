@@ -49,9 +49,9 @@ extension RouteBuilding {
     - Parameter relativePath: Relative route path.
     - Returns: The route.
   */
-  func routeFor(relativePath: String) -> BasicRoute? {
+  func routeFor(relativePath: String) -> Route? {
     let path = absolutePathFor(relativePath)
-    return routes.filter({ $0.path == path }).first as? BasicRoute
+    return routes.filter({ $0.path == path }).first
   }
 
   /**
@@ -60,8 +60,8 @@ extension RouteBuilding {
     - Parameter absolutePath: Absolute route path.
     - Returns: The route.
   */
-  func routeFor(absolutePath: String) -> BasicRoute? {
-    return routes.filter({ $0.path == absolutePath }).first as? BasicRoute
+  func routeFor(absolutePath: String) -> Route? {
+    return routes.filter({ $0.path == absolutePath }).first
   }
 
   /**
