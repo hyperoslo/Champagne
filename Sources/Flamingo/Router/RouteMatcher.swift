@@ -1,59 +1,54 @@
 import Rexy
 
-public struct RouteMatcher {
-  let mathers: [RouteRegex]
+/**
+  Default route matcher. Matches request path to the route.
+*/
+struct RouteMatcher {
 
-  public init(routes: [Route]) throws {
-    self.mathers = try routes.map(RouteRegex.init)
-  }
+  /// Route regex
+  var regex: Regex?
 
-  public func match(_ request: Request) -> Route? {
-    guard let regex = mathers.filter({ $0.matches(request) }).first else {
-      return nil
+  /// Parameter keys
+  let segments: [String]
+
+  /**
+    Creates a new `RouteMatcher` instance.
+
+    - Parameter routePath: The route path.
+  */
+  init(_ routePath: String) {
+    do {
+      let parameterRegex = try Regex(pattern: ":([[:alnum:]]+)")
+      let pattern = parameterRegex.replace(routePath, with: "([[:alnum:]_-]+)")
+
+      regex = try Regex(pattern: "^" + pattern + "$")
+      segments = parameterRegex.groups(routePath)
+    } catch {
+      segments = []
     }
-
-    let parameters = regex.parameters(request)
-    let middleware = PathParameterMiddleware(parameters)
-
-    return Route(
-      path: regex.route.path,
-      actions: regex.route.actions.mapValues({ middleware.chain(to: $0) }),
-      fallback: regex.route.fallback
-    )
-  }
-}
-
-struct RouteRegex {
-  let regex: Regex
-  let parameterKeys: [String]
-  let route: Route
-
-  init(route: Route) throws {
-    let parameterRegex = try Regex(pattern: ":([[:alnum:]]+)")
-    let pattern = parameterRegex.replace(route.path, with: "([[:alnum:]_-]+)")
-
-    self.regex = try Regex(pattern: "^" + pattern + "$")
-    self.parameterKeys = parameterRegex.groups(route.path)
-    self.route = route
   }
 
-  func matches(_ request: Request) -> Bool {
-    guard let path = request.path else {
-      return false
-    }
+  /**
+    Matches given path to the route.
 
-    return regex.matches(path)
+    - Parameter path: The request path.
+    - Returns: True or false if not found.
+  */
+  func matches(_ path: String) -> Bool {
+    return regex?.matches(path) ?? false
   }
 
-  func parameters(_ request: Request) -> [String: String] {
-    guard let path = request.path else {
-      return [:]
-    }
+  /**
+    Extracts parameters from a given request path.
 
+    - Parameter path: The request path.
+    - Returns: Parameters dictionary.
+  */
+  func parameters(_ path: String) -> [String: String] {
     var parameters = [String: String]()
-    let values = regex.groups(path)
+    let values = regex?.groups(path) ?? []
 
-    for (index, key) in parameterKeys.enumerated() {
+    for (index, key) in segments.enumerated() {
       parameters[key] = values[index]
     }
 
