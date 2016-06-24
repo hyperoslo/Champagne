@@ -72,23 +72,30 @@ public final class Router {
   }
 
   /**
-    Matches request with the route.
+    Matches request to the route.
 
     - Parameter request: The request.
-    - Returns: The route or nil if can't find.
+    - Returns: The route or nil if not found.
   */
   public func match(_ request: Request) -> Route? {
-    guard let matcher = try? RouteMatcher(routes: routes) else {
-      return nil
-    }
-    
-    return matcher.match(request)
+    guard let path = request.path,
+      result = routes
+        .map({ (route: $0, matcher: RouteMatcher($0.path)) })
+        .filter({ $0.matcher.matches(path) }).first
+      else { return nil }
+
+    let route = result.route
+    let middleware = PathParameterMiddleware(result.matcher.parameters(path))
+    let actions = route.actions.mapValues({ middleware.chain(to: $0) })
+
+    return Route(path: route.path, actions: actions, fallback: route.fallback)
   }
 }
 
 // MARK: - Responder
 
 extension Router: Responder {
+
   /**
     Responds to given request.
 
