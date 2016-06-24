@@ -14,7 +14,7 @@ class PathParametersMiddlewareTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    middleware = PathParametersMiddleware(parameters: parameters)
+    middleware = PathParametersMiddleware(parameters)
   }
 
   // MARK: - Tests

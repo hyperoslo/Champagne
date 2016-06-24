@@ -15,6 +15,8 @@ class RouteTests: XCTestCase, TestResponding {
   }
 
   var route: Route!
+  let path = "/api/:version"
+  let request = Request(method: .get, uri: URI(path: "/api/v1"))
 
   let fallback = BasicResponder { _ in
     Response(status: .notFound)
@@ -24,31 +26,29 @@ class RouteTests: XCTestCase, TestResponding {
     Response(status: .ok, body: Data(""))
   }
 
-  let request = Request(method: .get, uri: URI(path: "/api/v1"))
-
   override func setUp() {
     super.setUp()
-    route = Route(path: "/api/:version")
+    route = Route(path: path)
   }
 
   // MARK: - Tests
 
   func testInit() {
     route = Route(
-      path: "/api/:version",
+      path: path,
       actions: [Method.get: responder],
       fallback: fallback)
 
-    XCTAssertEqual(route.path, "/api/:version")
+    XCTAssertEqual(route.path, path)
 
     respond(to: route.actions[Method.get], with: .ok)
     respond(to: route.fallback, with: .notFound)
   }
 
   func testInitDefaults() {
-    route = Route(path: "/api/:version")
+    route = Route(path: path)
 
-    XCTAssertEqual(route.path, "/api/:version")
+    XCTAssertEqual(route.path, path)
     XCTAssertTrue(route.actions.isEmpty)
 
     respond(to: route.fallback, with: .methodNotAllowed)

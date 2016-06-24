@@ -85,7 +85,7 @@ public final class Router {
       else { return nil }
 
     let route = result.route
-    let middleware = PathParameterMiddleware(result.matcher.parameters(path))
+    let middleware = PathParametersMiddleware(result.matcher.parameters(path))
     let actions = route.actions.mapValues({ middleware.chain(to: $0) })
 
     return Route(path: route.path, actions: actions, fallback: route.fallback)
