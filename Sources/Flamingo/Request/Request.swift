@@ -5,8 +5,8 @@ extension Request {
 
   /// URL path.
   public var path: String? {
-        return uri.path
-    }
+    return uri.path
+  }
 
   /// URL query.
   public var query: [String: [String?]] {
