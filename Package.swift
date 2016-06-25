@@ -17,9 +17,15 @@ let package = Package(
     ),
   ],
   dependencies: [
+    // Standards
     .Package(url: "https://github.com/open-swift/S4.git", majorVersion: 0, minor: 9),
+    // POSIX Regular expressions
     .Package(url: "https://github.com/vadymmarkov/Rexy.git", majorVersion: 0, minor: 5),
+    // Server
+    .Package(url: "https://github.com/VeniceX/TCP.git", majorVersion: 0, minor: 8),
+    .Package(url: "https://github.com/Zewo/HTTPParser.git", majorVersion: 0, minor: 9),
+    .Package(url: "https://github.com/Zewo/HTTPSerializer.git", majorVersion: 0, minor: 8),
+    // Template engine
     .Package(url: "https://github.com/necolt/Stencil.git", versions: Version(0,5,6)..<Version(1,0,0)),
-    .Package(url: "https://github.com/VeniceX/HTTPServer.git", versions: Version(0,5,0)..<Version(1,0,0))
   ]
 )
