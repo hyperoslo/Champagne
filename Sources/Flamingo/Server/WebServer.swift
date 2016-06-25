@@ -2,24 +2,41 @@ import TCP
 import HTTPParser
 import HTTPSerializer
 
+/**
+  Default S4-compatible HTTP web server
+*/
 public struct WebServer: Server {
+  /// Server.
   public let server: C7.Host
-  public let port: Int
+
+  /// Responder.
   public let responder: S4.Responder
 
+  /// Failure closure.
   public var failure: (ErrorProtocol) -> Void = { error in
     print("Error: \(error)")
   }
 
+  /// Request parser.
   let parser: S4.RequestParser
+
+  /// Response serializer.
   let serializer: S4.ResponseSerializer
+
+  // Buffer size.
   let bufferSize: Int = 2048
 
   // MARK: - Initializers
 
+  /**
+    Creates a new `WebServer` instance.
+
+    - Parameter host: HTTP Host.
+    - Parameter port: TCP port.
+    - Parameter responder: The responder.
+  */
   public init(host: String, port: Int, responder: Responder) throws {
     self.server = try TCPServer(host: host, port: port, reusePort: false)
-    self.port = port
     self.parser = RequestParser()
     self.serializer = ResponseSerializer()
     self.responder = responder
@@ -27,6 +44,10 @@ public struct WebServer: Server {
 
   // MARK: - Server
 
+  /**
+    Starts the server.
+    - Throws: `ErrorType` when server fails.
+  */
   public func start() throws {
     while true {
       let stream = try server.accept(timingOut: .never)
@@ -43,6 +64,12 @@ public struct WebServer: Server {
 
   // MARK: - Processing
 
+  /**
+    Processes a given stream.
+
+    - Parameter stream: Request stream.
+    - Throws: `ErrorType` when processing fails.
+  */
   private func processStream(_ stream: Stream) throws {
     while !stream.closed {
       do {
@@ -60,6 +87,12 @@ public struct WebServer: Server {
     }
   }
 
+  /**
+    Processes a given data.
+
+    - Parameter stream: Request data.
+    - Throws: `ErrorType` when processing fails.
+  */
   private func processData(_ data: Data, stream: Stream) throws {
     guard let request = try parser.parse(data) else {
       return
