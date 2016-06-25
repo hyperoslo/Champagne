@@ -34,6 +34,8 @@ public struct WebServer: Server {
     - Parameter host: HTTP Host.
     - Parameter port: TCP port.
     - Parameter responder: The responder.
+
+    - Throws: `ErrorType` when server can't be created.
   */
   public init(host: String, port: Int, responder: Responder) throws {
     self.server = try TCPServer(host: host, port: port, reusePort: false)
@@ -90,7 +92,9 @@ public struct WebServer: Server {
   /**
     Processes a given data.
 
-    - Parameter stream: Request data.
+    - Parameter data: Request data.
+    - Parameter stream: Request stream.
+
     - Throws: `ErrorType` when processing fails.
   */
   private func processData(_ data: Data, stream: Stream) throws {

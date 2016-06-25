@@ -37,7 +37,7 @@ public final class Route {
     Adds a new action for a given method.
 
     - Parameter method: The request method.
-    - Parameter actions: A list of actions.
+    - Parameter action: The action.
   */
   public func addAction(method: Method, action: Responder) {
     actions[method] = action

@@ -7,13 +7,21 @@ public var application = Application()
 */
 public class Application {
 
-  public static let version = "0.0.1"
+  public static let version = "0.2.1"
 
+  /// Application environment.
   public let environment: Environment
+
+  /// Application router.
   public let router: Router
+
+  /// S4-compatible server type.
   public let server: Server.Type
+
+  /// Flag that indicates if server is running.
   var running = false
 
+  // Application middleware.
   var middleware: [Middleware] = [
     ParametersMiddleware(),
     ErrorMiddleware()
@@ -22,6 +30,7 @@ public class Application {
   /**
     Creates a new instance of `Application`.
 
+    - Parameter server: S4-compatible server type.
     - Parameter environment: Environment.
     - Parameter middleware: Route-specific middleware.
   */
