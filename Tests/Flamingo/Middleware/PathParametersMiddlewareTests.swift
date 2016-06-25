@@ -5,7 +5,8 @@ class PathParametersMiddlewareTests: XCTestCase {
 
   static var allTests: [(String, (PathParametersMiddlewareTests) -> () throws -> Void)] {
     return [
-      ("testInit", testInit)
+      ("testInit", testInit),
+      ("testRespond", testRespond)
     ]
   }
 

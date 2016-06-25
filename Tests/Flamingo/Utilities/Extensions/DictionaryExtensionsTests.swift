@@ -5,7 +5,7 @@ class DictionaryExtensionsTests: XCTestCase {
 
   static var allTests: [(String, (DictionaryExtensionsTests) -> () throws -> Void)] {
     return [
-      ("testInit", testInit)
+      ("testMapValues", testMapValues)
     ]
   }
 
@@ -15,7 +15,7 @@ class DictionaryExtensionsTests: XCTestCase {
 
   // MARK: - Tests
 
-  func testInit() {
+  func testMapValues() {
     XCTAssertEqual(2, 2)
   }
 }

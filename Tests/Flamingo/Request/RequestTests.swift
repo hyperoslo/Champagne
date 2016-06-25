@@ -5,7 +5,10 @@ class RequestTests: XCTestCase {
 
   static var allTests: [(String, (RequestTests) -> () throws -> Void)] {
     return [
+      ("testPath", testPath),
+      ("testQuery", testQuery),
       ("testParameters", testParameters),
+      ("testPathParameters", testPathParameters),
       ("testBodyString", testBodyString)
     ]
   }
@@ -24,6 +27,14 @@ class RequestTests: XCTestCase {
 
   // MARK: - Tests
 
+  func testPath() {
+    XCTAssertEqual(request.path, request.uri.path)
+  }
+
+  func testQuery() {
+    XCTAssertEqual(request.query.count, request.uri.query.count)
+  }
+
   func testParameters() {
     request.parameters["foo"] = "bar"
     request.parameters["theme"] = "dark"
@@ -33,6 +44,21 @@ class RequestTests: XCTestCase {
     XCTAssertEqual(request.parameters["theme"], "dark")
 
     let storage = request.storage["fl-parameters"] as? [String: String]
+
+    XCTAssertEqual(storage?.count, 2)
+    XCTAssertEqual(storage?["foo"], "bar")
+    XCTAssertEqual(storage?["theme"], "dark")
+  }
+
+  func testPathParameters() {
+    request.pathParameters["foo"] = "bar"
+    request.pathParameters["theme"] = "dark"
+
+    XCTAssertEqual(request.pathParameters.count, 2)
+    XCTAssertEqual(request.pathParameters["foo"], "bar")
+    XCTAssertEqual(request.pathParameters["theme"], "dark")
+
+    let storage = request.storage["path-parameters"] as? [String: String]
 
     XCTAssertEqual(storage?.count, 2)
     XCTAssertEqual(storage?["foo"], "bar")

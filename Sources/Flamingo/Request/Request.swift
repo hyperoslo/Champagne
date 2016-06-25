@@ -26,11 +26,11 @@ extension Request {
   /// Path parameters.
   public var pathParameters: [String: String] {
     get {
-      return storage["pathParameters"] as? [String: String] ?? [:]
+      return storage["path-parameters"] as? [String: String] ?? [:]
     }
 
     set(pathParameters) {
-      storage["pathParameters"] = pathParameters
+      storage["path-parameters"] = pathParameters
     }
   }
 }

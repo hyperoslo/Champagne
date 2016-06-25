@@ -42,6 +42,8 @@ extension Response {
     - Parameter body: Body data.
   */
   public init(status: Status, headers: Headers = [:], body: DataConvertible) {
+    var headers = headers
+    headers["Server"] = "Flamingo \(Application.version)"
     self.init(status: status, headers: headers, body: body.data)
   }
 }
