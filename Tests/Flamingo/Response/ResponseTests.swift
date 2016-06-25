@@ -10,6 +10,7 @@ class ResponseTests: XCTestCase {
       ("testStatusCode", testStatusCode),
       ("testReasonPhrase", testReasonPhrase),
       ("testStatusLine", testStatusLine),
+      ("testDidUpgrade", testDidUpgrade),
       ("testBodyString", testBodyString),
       ("testDescription", testDescription)
     ]
@@ -64,6 +65,12 @@ class ResponseTests: XCTestCase {
     let result = "HTTP/1.1 " + response.statusCode.description
       + " " + response.reasonPhrase + "\n"
     XCTAssertEqual(response.statusLine, result)
+  }
+
+  func testDidUpgrade() {
+    XCTAssertNil(response.storage["response-connection-upgrade"])
+    response.didUpgrade = { request, stream in }
+    XCTAssertNotNil(response.storage["response-connection-upgrade"])
   }
 
   func testBodyString() {
