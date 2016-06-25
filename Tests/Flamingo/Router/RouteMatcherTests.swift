@@ -6,7 +6,9 @@ class RouteMatcherTests: XCTestCase {
   static var allTests: [(String, (RouteMatcherTests) -> () throws -> Void)] {
     return [
       ("testInitWithoutParameterKeys", testInitWithoutParameterKeys),
-      ("testInitWitParameterKeys", testInitWitParameterKeys)
+      ("testInitWitParameterKeys", testInitWitParameterKeys),
+      ("testMatch", testMatch),
+      ("testParameters", testParameters)
     ]
   }
 
