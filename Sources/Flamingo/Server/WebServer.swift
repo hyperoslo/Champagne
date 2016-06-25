@@ -1,4 +1,3 @@
-import S4
 import TCP
 import HTTPParser
 import HTTPSerializer
@@ -7,7 +6,6 @@ public struct WebServer: Server {
   public let server: C7.Host
   public let port: Int
   public let responder: S4.Responder
-  public let middleware: [S4.Middleware]
 
   public var failure: (ErrorProtocol) -> Void = { error in
     print("Error: \(error)")
@@ -19,32 +17,12 @@ public struct WebServer: Server {
 
   // MARK: - Initializers
 
-  public init(host: String = "0.0.0.0",
-              port: Int = 8080,
-        middleware: [Middleware] = [],
-         responder: Responder) throws {
+  public init(host: String, port: Int, responder: Responder) throws {
     self.server = try TCPServer(host: host, port: port, reusePort: false)
     self.port = port
     self.parser = RequestParser()
     self.serializer = ResponseSerializer()
-    self.middleware = middleware
     self.responder = responder
-  }
-
-  public init(host: String = "0.0.0.0",
-              port: Int = 8080,
-        middleware: [Middleware] = [],
-         _ respond: Respond) throws {
-    try self.init(
-      host: host,
-      port: port,
-      middleware: middleware,
-      responder: BasicResponder(respond)
-    )
-  }
-
-  public init(host: String, port: Int, responder: Responder) throws {
-    try self.init(host: host, port: port, middleware: [], responder: responder)
   }
 
   // MARK: - Server
@@ -59,16 +37,6 @@ public struct WebServer: Server {
         } catch {
           self.failure(error)
         }
-      }
-    }
-  }
-
-  public func startInBackground() {
-    co {
-      do {
-        try self.start()
-      } catch {
-        self.failure(error)
       }
     }
   }
@@ -97,7 +65,7 @@ public struct WebServer: Server {
       return
     }
 
-    let response = try middleware.chain(to: responder).respond(to: request)
+    let response = try responder.respond(to: request)
     try serializer.serialize(response, to: stream)
 
     if let upgrade = response.didUpgrade {
@@ -108,5 +76,15 @@ public struct WebServer: Server {
     if !request.isKeepAlive {
       try stream.close()
     }
+  }
+}
+
+// S4.Server extension
+
+extension Server {
+
+  public init(host: String, port: Int, _ respond: Respond) throws {
+    let responder = BasicResponder(respond)
+    try self.init(host: host, port: port, responder: responder)
   }
 }
