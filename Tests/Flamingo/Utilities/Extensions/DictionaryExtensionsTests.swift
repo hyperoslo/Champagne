@@ -9,13 +9,16 @@ class DictionaryExtensionsTests: XCTestCase {
     ]
   }
 
-  override func setUp() {
-    super.setUp()
-  }
-
   // MARK: - Tests
 
   func testMapValues() {
-    XCTAssertEqual(2, 2)
+    let dictionary = ["foo": "bar", "bird": "flamingo"]
+    let result = dictionary.mapValues {
+      "(\($0))"
+    }
+
+    XCTAssertEqual(result.count, 2)
+    XCTAssertEqual(result["foo"], "(bar)")
+    XCTAssertEqual(result["bird"], "(flamingo)")
   }
 }
