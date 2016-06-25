@@ -7,100 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D542F1F91D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F1FA1D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F1FB1D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F1FC1D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F1FD1D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F1FE1D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F1FF1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F2001D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2011D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2021D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2031D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2041D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2051D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2061D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2071D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F2081D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2091D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F20A1D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F20B1D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F20C1D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F20D1D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F20E1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F20F1D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2101D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F2111D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
-		D542F2121D1EEA7000FF48F4 /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
-		D542F2131D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F2141D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2151D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2161D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F2171D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F2181D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F2191D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
-		D542F21A1D1EEA7000FF48F4 /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
-		D542F21B1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
-		D542F21C1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
-		D542F21D1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
-		D542F21E1D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
-		D542F21F1D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2201D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
-		D542F2211D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
-		D542F2221D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
-		D542F2231D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2241D1EEA7000FF48F4 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_libc" /* libc.dylib */; };
-		D542F2251D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F2261D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2271D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2281D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F2291D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F22A1D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F22B1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
-		D542F22C1D1EEA7000FF48F4 /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
-		D542F22D1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
-		D542F22E1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
-		D542F22F1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
-		D542F2301D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
-		D542F2311D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2321D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
-		D542F2331D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
-		D542F2341D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
-		D542F2351D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2361D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F2371D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2381D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2391D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F23A1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F23B1D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F23C1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
-		D542F23D1D1EEA7000FF48F4 /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
-		D542F23E1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
-		D542F23F1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
-		D542F2401D1EEA7000FF48F4 /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
-		D542F2411D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
-		D542F2421D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2431D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2441D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
-		D542F2451D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
-		D542F2461D1EEA7000FF48F4 /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
-		D542F2471D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
-		D542F2481D1EEA7000FF48F4 /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
-		D542F2491D1EEA7000FF48F4 /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
-		D542F24A1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
-		D542F24B1D1EEA7000FF48F4 /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
-		D542F24C1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
-		D542F24D1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
-		D542F24E1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
-		D542F24F1D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
-		D542F2501D1EEA7000FF48F4 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
-		D542F2511D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
-		D542F2521D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
-		D542F2531D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
-		D542F2541D1EEA7000FF48F4 /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
-		D542F2551D1EEA7000FF48F4 /* Flamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Flamingo" /* Flamingo.dylib */; };
-		D542F2561D1EEA7000FF48F4 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_libc" /* libc.dylib */; };
+		D536709A1D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D536709B1D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D536709C1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D536709D1D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D536709E1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D536709F1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670A01D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670A11D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670A21D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670A31D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670A41D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670A51D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670A61D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670A71D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670A81D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670A91D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670AA1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D53670AB1D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670AC1D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670AD1D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670AE1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670AF1D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670B01D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670B11D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670B21D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
+		D53670B31D1EF8D500A1B93D /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
+		D53670B41D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D53670B51D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670B61D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670B71D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670B81D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670B91D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670BA1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
+		D53670BB1D1EF8D500A1B93D /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
+		D53670BC1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
+		D53670BD1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
+		D53670BE1D1EF8D500A1B93D /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
+		D53670BF1D1EF8D500A1B93D /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
+		D53670C01D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670C11D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
+		D53670C21D1EF8D500A1B93D /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
+		D53670C31D1EF8D500A1B93D /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
+		D53670C41D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670C51D1EF8D500A1B93D /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_libc" /* libc.dylib */; };
+		D53670C61D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D53670C71D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670C81D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670C91D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670CA1D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670CB1D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670CC1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
+		D53670CD1D1EF8D500A1B93D /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
+		D53670CE1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
+		D53670CF1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
+		D53670D01D1EF8D500A1B93D /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
+		D53670D11D1EF8D500A1B93D /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
+		D53670D21D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670D31D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
+		D53670D41D1EF8D500A1B93D /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
+		D53670D51D1EF8D500A1B93D /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
+		D53670D61D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670D71D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D53670D81D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670D91D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670DA1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670DB1D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670DC1D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670DD1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
+		D53670DE1D1EF8D500A1B93D /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
+		D53670DF1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
+		D53670E01D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
+		D53670E11D1EF8D500A1B93D /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
+		D53670E21D1EF8D500A1B93D /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
+		D53670E31D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670E41D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670E51D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
+		D53670E61D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CURIParser" /* CURIParser.dylib */; };
+		D53670E71D1EF8D500A1B93D /* String.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_String" /* String.dylib */; };
+		D53670E81D1EF8D500A1B93D /* POSIX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_POSIX" /* POSIX.dylib */; };
+		D53670E91D1EF8D500A1B93D /* Venice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Venice" /* Venice.dylib */; };
+		D53670EA1D1EF8D500A1B93D /* URI.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_URI" /* URI.dylib */; };
+		D53670EB1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
+		D53670EC1D1EF8D500A1B93D /* IP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_IP" /* IP.dylib */; };
+		D53670ED1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPSerializer" /* HTTPSerializer.dylib */; };
+		D53670EE1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPParser" /* HTTPParser.dylib */; };
+		D53670EF1D1EF8D500A1B93D /* TCP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_TCP" /* TCP.dylib */; };
+		D53670F01D1EF8D500A1B93D /* PathKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PathKit" /* PathKit.dylib */; };
+		D53670F11D1EF8D500A1B93D /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
+		D53670F21D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_HTTPServer" /* HTTPServer.dylib */; };
+		D53670F31D1EF8D500A1B93D /* Stencil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Stencil" /* Stencil.dylib */; };
+		D53670F41D1EF8D500A1B93D /* Rexy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Rexy" /* Rexy.dylib */; };
+		D53670F51D1EF8D500A1B93D /* S4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_S4" /* S4.dylib */; };
+		D53670F61D1EF8D500A1B93D /* Flamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Flamingo" /* Flamingo.dylib */; };
+		D53670F71D1EF8D500A1B93D /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_libc" /* libc.dylib */; };
 		_LinkFileRef_C7 /* C7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_C7" /* C7.dylib */; };
 		_LinkFileRef_CHTTPParser /* CHTTPParser.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CHTTPParser" /* CHTTPParser.dylib */; };
 		_LinkFileRef_CLibvenice /* CLibvenice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_CLibvenice" /* CLibvenice.dylib */; };
@@ -254,6 +254,7 @@
 		__src_cc_ref_Sources/Flamingo/Router/RouteContainer.swift /* Router/RouteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Router/RouteContainer.swift /* Router/RouteContainer.swift */; };
 		__src_cc_ref_Sources/Flamingo/Router/RouteMatcher.swift /* Router/RouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Router/RouteMatcher.swift /* Router/RouteMatcher.swift */; };
 		__src_cc_ref_Sources/Flamingo/Router/Router.swift /* Router/Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Router/Router.swift /* Router/Router.swift */; };
+		__src_cc_ref_Sources/Flamingo/Server/WebServer.swift /* Server/WebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Server/WebServer.swift /* Server/WebServer.swift */; };
 		__src_cc_ref_Sources/Flamingo/Utilities/Env.swift /* Utilities/Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Utilities/Env.swift /* Utilities/Env.swift */; };
 		__src_cc_ref_Sources/Flamingo/Utilities/Extensions/DictionaryExtensions.swift /* Utilities/Extensions/DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/Utilities/Extensions/DictionaryExtensions.swift /* Utilities/Extensions/DictionaryExtensions.swift */; };
 		__src_cc_ref_Sources/Flamingo/View/Art.swift /* View/Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Flamingo/View/Art.swift /* View/Art.swift */; };
@@ -285,133 +286,133 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D542F2571D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670F81D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_C7";
 			remoteInfo = C7;
 		};
-		D542F2581D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670F91D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_PathKit";
 			remoteInfo = PathKit;
 		};
-		D542F2591D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FA1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_CLibvenice";
 			remoteInfo = CLibvenice;
 		};
-		D542F25A1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FB1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_POSIX";
 			remoteInfo = POSIX;
 		};
-		D542F25B1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FC1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_Venice";
 			remoteInfo = Venice;
 		};
-		D542F25C1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FD1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_IP";
 			remoteInfo = IP;
 		};
-		D542F25D1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FE1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_CURIParser";
 			remoteInfo = CURIParser;
 		};
-		D542F25E1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53670FF1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_String";
 			remoteInfo = String;
 		};
-		D542F25F1D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671001D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_S4";
 			remoteInfo = S4;
 		};
-		D542F2601D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671011D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_URI";
 			remoteInfo = URI;
 		};
-		D542F2611D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671021D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_CHTTPParser";
 			remoteInfo = CHTTPParser;
 		};
-		D542F2621D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671031D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_HTTPSerializer";
 			remoteInfo = HTTPSerializer;
 		};
-		D542F2631D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671041D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_HTTPParser";
 			remoteInfo = HTTPParser;
 		};
-		D542F2641D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671051D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_TCP";
 			remoteInfo = TCP;
 		};
-		D542F2651D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671061D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_HTTPServer";
 			remoteInfo = HTTPServer;
 		};
-		D542F2661D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671071D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_Stencil";
 			remoteInfo = Stencil;
 		};
-		D542F2671D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671081D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_Rexy";
 			remoteInfo = Rexy;
 		};
-		D542F2681D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D53671091D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "______Target_Flamingo";
 			remoteInfo = Flamingo;
 		};
-		D542F2691D1EEA7100FF48F4 /* PBXContainerItemProxy */ = {
+		D536710A1D1EF8D600A1B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = __RootObject_ /* Project object */;
 			proxyType = 1;
@@ -557,6 +558,7 @@
 		__PBXFileRef_Sources/Flamingo/Router/RouteContainer.swift /* Router/RouteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router/RouteContainer.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Flamingo/Router/RouteMatcher.swift /* Router/RouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router/RouteMatcher.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Flamingo/Router/Router.swift /* Router/Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router/Router.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Flamingo/Server/WebServer.swift /* Server/WebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server/WebServer.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Flamingo/Utilities/Env.swift /* Utilities/Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/Env.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Flamingo/Utilities/Extensions/DictionaryExtensions.swift /* Utilities/Extensions/DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/Extensions/DictionaryExtensions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Flamingo/View/Art.swift /* View/Art.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View/Art.swift; sourceTree = "<group>"; };
@@ -641,25 +643,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2131D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F2141D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2151D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F2161D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F2171D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
-				D542F2181D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F2191D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */,
-				D542F21A1D1EEA7000FF48F4 /* IP.dylib in Frameworks */,
-				D542F21B1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */,
-				D542F21C1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */,
-				D542F21D1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */,
-				D542F21E1D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */,
-				D542F21F1D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F2201D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */,
-				D542F2211D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */,
-				D542F2221D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */,
-				D542F2231D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
+				D53670B41D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D53670B51D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670B61D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670B71D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670B81D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
+				D53670B91D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670BA1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */,
+				D53670BB1D1EF8D500A1B93D /* IP.dylib in Frameworks */,
+				D53670BC1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */,
+				D53670BD1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */,
+				D53670BE1D1EF8D500A1B93D /* TCP.dylib in Frameworks */,
+				D53670BF1D1EF8D500A1B93D /* PathKit.dylib in Frameworks */,
+				D53670C01D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670C11D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */,
+				D53670C21D1EF8D500A1B93D /* Stencil.dylib in Frameworks */,
+				D53670C31D1EF8D500A1B93D /* Rexy.dylib in Frameworks */,
+				D53670C41D1EF8D500A1B93D /* S4.dylib in Frameworks */,
 				_LinkFileRef_Flamingo /* Flamingo.dylib in Frameworks */,
-				D542F2241D1EEA7000FF48F4 /* libc.dylib in Frameworks */,
+				D53670C51D1EF8D500A1B93D /* libc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,23 +669,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2251D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F2261D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2271D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F2281D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F2291D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
-				D542F22A1D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F22B1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */,
-				D542F22C1D1EEA7000FF48F4 /* IP.dylib in Frameworks */,
-				D542F22D1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */,
-				D542F22E1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */,
-				D542F22F1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */,
-				D542F2301D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */,
-				D542F2311D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F2321D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */,
-				D542F2331D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */,
-				D542F2341D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */,
-				D542F2351D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
+				D53670C61D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D53670C71D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670C81D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670C91D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670CA1D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
+				D53670CB1D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670CC1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */,
+				D53670CD1D1EF8D500A1B93D /* IP.dylib in Frameworks */,
+				D53670CE1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */,
+				D53670CF1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */,
+				D53670D01D1EF8D500A1B93D /* TCP.dylib in Frameworks */,
+				D53670D11D1EF8D500A1B93D /* PathKit.dylib in Frameworks */,
+				D53670D21D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670D31D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */,
+				D53670D41D1EF8D500A1B93D /* Stencil.dylib in Frameworks */,
+				D53670D51D1EF8D500A1B93D /* Rexy.dylib in Frameworks */,
+				D53670D61D1EF8D500A1B93D /* S4.dylib in Frameworks */,
 				_LinkFileRef_libc /* libc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,25 +694,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2441D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F2451D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2461D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F2471D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F2481D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
-				D542F2491D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F24A1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */,
-				D542F24B1D1EEA7000FF48F4 /* IP.dylib in Frameworks */,
-				D542F24C1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */,
-				D542F24D1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */,
-				D542F24E1D1EEA7000FF48F4 /* TCP.dylib in Frameworks */,
-				D542F24F1D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */,
-				D542F2501D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F2511D1EEA7000FF48F4 /* HTTPServer.dylib in Frameworks */,
-				D542F2521D1EEA7000FF48F4 /* Stencil.dylib in Frameworks */,
-				D542F2531D1EEA7000FF48F4 /* Rexy.dylib in Frameworks */,
-				D542F2541D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
-				D542F2551D1EEA7000FF48F4 /* Flamingo.dylib in Frameworks */,
-				D542F2561D1EEA7000FF48F4 /* libc.dylib in Frameworks */,
+				D53670E51D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D53670E61D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670E71D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670E81D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670E91D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
+				D53670EA1D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670EB1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */,
+				D53670EC1D1EF8D500A1B93D /* IP.dylib in Frameworks */,
+				D53670ED1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */,
+				D53670EE1D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */,
+				D53670EF1D1EF8D500A1B93D /* TCP.dylib in Frameworks */,
+				D53670F01D1EF8D500A1B93D /* PathKit.dylib in Frameworks */,
+				D53670F11D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670F21D1EF8D500A1B93D /* HTTPServer.dylib in Frameworks */,
+				D53670F31D1EF8D500A1B93D /* Stencil.dylib in Frameworks */,
+				D53670F41D1EF8D500A1B93D /* Rexy.dylib in Frameworks */,
+				D53670F51D1EF8D500A1B93D /* S4.dylib in Frameworks */,
+				D53670F61D1EF8D500A1B93D /* Flamingo.dylib in Frameworks */,
+				D53670F71D1EF8D500A1B93D /* libc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,9 +720,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2011D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F2021D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2031D1EEA7000FF48F4 /* String.dylib in Frameworks */,
+				D53670A21D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670A31D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670A41D1EF8D500A1B93D /* String.dylib in Frameworks */,
 				_LinkFileRef_S4 /* S4.dylib in Frameworks */,
 				_LinkFileRef_URI /* URI.dylib in Frameworks */,
 				_LinkFileRef_CHTTPParser /* CHTTPParser.dylib in Frameworks */,
@@ -731,11 +733,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2041D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2051D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F2061D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F2071D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F2081D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
+				D53670A51D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670A61D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670A71D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670A81D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670A91D1EF8D500A1B93D /* S4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,16 +745,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2091D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F20A1D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F20B1D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F20C1D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F20D1D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F20E1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
-				D542F20F1D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
-				D542F2101D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F2111D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */,
-				D542F2121D1EEA7000FF48F4 /* IP.dylib in Frameworks */,
+				D53670AA1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D53670AB1D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D53670AC1D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670AD1D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670AE1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670AF1D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
+				D53670B01D1EF8D500A1B93D /* S4.dylib in Frameworks */,
+				D53670B11D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670B21D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */,
+				D53670B31D1EF8D500A1B93D /* IP.dylib in Frameworks */,
 				_LinkFileRef_HTTPSerializer /* HTTPSerializer.dylib in Frameworks */,
 				_LinkFileRef_HTTPParser /* HTTPParser.dylib in Frameworks */,
 				_LinkFileRef_TCP /* TCP.dylib in Frameworks */,
@@ -763,8 +765,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F1FA1D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F1FB1D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
+				D536709B1D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D536709C1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
 				_LinkFileRef_POSIX /* POSIX.dylib in Frameworks */,
 				_LinkFileRef_Venice /* Venice.dylib in Frameworks */,
 			);
@@ -818,10 +820,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F1FC1D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
-				D542F1FD1D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F1FE1D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F1FF1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
+				D536709D1D1EF8D500A1B93D /* C7.dylib in Frameworks */,
+				D536709E1D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D536709F1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670A01D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
 				_LinkFileRef_IP /* IP.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -830,7 +832,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2001D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
+				D53670A11D1EF8D500A1B93D /* C7.dylib in Frameworks */,
 				_LinkFileRef_CURIParser /* CURIParser.dylib in Frameworks */,
 				_LinkFileRef_String /* String.dylib in Frameworks */,
 			);
@@ -840,7 +842,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F1F91D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
+				D536709A1D1EF8D500A1B93D /* C7.dylib in Frameworks */,
 				_LinkFileRef_CLibvenice /* CLibvenice.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -849,23 +851,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D542F2361D1EEA7000FF48F4 /* CLibvenice.dylib in Frameworks */,
-				D542F2371D1EEA7000FF48F4 /* CURIParser.dylib in Frameworks */,
-				D542F2381D1EEA7000FF48F4 /* String.dylib in Frameworks */,
-				D542F2391D1EEA7000FF48F4 /* POSIX.dylib in Frameworks */,
-				D542F23A1D1EEA7000FF48F4 /* Venice.dylib in Frameworks */,
-				D542F23B1D1EEA7000FF48F4 /* URI.dylib in Frameworks */,
-				D542F23C1D1EEA7000FF48F4 /* CHTTPParser.dylib in Frameworks */,
-				D542F23D1D1EEA7000FF48F4 /* IP.dylib in Frameworks */,
-				D542F23E1D1EEA7000FF48F4 /* HTTPSerializer.dylib in Frameworks */,
-				D542F23F1D1EEA7000FF48F4 /* HTTPParser.dylib in Frameworks */,
-				D542F2401D1EEA7000FF48F4 /* TCP.dylib in Frameworks */,
-				D542F2411D1EEA7000FF48F4 /* PathKit.dylib in Frameworks */,
-				D542F2421D1EEA7000FF48F4 /* C7.dylib in Frameworks */,
+				D53670D71D1EF8D500A1B93D /* CLibvenice.dylib in Frameworks */,
+				D53670D81D1EF8D500A1B93D /* CURIParser.dylib in Frameworks */,
+				D53670D91D1EF8D500A1B93D /* String.dylib in Frameworks */,
+				D53670DA1D1EF8D500A1B93D /* POSIX.dylib in Frameworks */,
+				D53670DB1D1EF8D500A1B93D /* Venice.dylib in Frameworks */,
+				D53670DC1D1EF8D500A1B93D /* URI.dylib in Frameworks */,
+				D53670DD1D1EF8D500A1B93D /* CHTTPParser.dylib in Frameworks */,
+				D53670DE1D1EF8D500A1B93D /* IP.dylib in Frameworks */,
+				D53670DF1D1EF8D500A1B93D /* HTTPSerializer.dylib in Frameworks */,
+				D53670E01D1EF8D500A1B93D /* HTTPParser.dylib in Frameworks */,
+				D53670E11D1EF8D500A1B93D /* TCP.dylib in Frameworks */,
+				D53670E21D1EF8D500A1B93D /* PathKit.dylib in Frameworks */,
+				D53670E31D1EF8D500A1B93D /* C7.dylib in Frameworks */,
 				_LinkFileRef_HTTPServer /* HTTPServer.dylib in Frameworks */,
 				_LinkFileRef_Stencil /* Stencil.dylib in Frameworks */,
 				_LinkFileRef_Rexy /* Rexy.dylib in Frameworks */,
-				D542F2431D1EEA7000FF48F4 /* S4.dylib in Frameworks */,
+				D53670E41D1EF8D500A1B93D /* S4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1069,7 @@
 				__PBXFileRef_Sources/Flamingo/Router/RouteContainer.swift /* Router/RouteContainer.swift */,
 				__PBXFileRef_Sources/Flamingo/Router/RouteMatcher.swift /* Router/RouteMatcher.swift */,
 				__PBXFileRef_Sources/Flamingo/Router/Router.swift /* Router/Router.swift */,
+				__PBXFileRef_Sources/Flamingo/Server/WebServer.swift /* Server/WebServer.swift */,
 				__PBXFileRef_Sources/Flamingo/Utilities/Env.swift /* Utilities/Env.swift */,
 				__PBXFileRef_Sources/Flamingo/View/Art.swift /* View/Art.swift */,
 				__PBXFileRef_Sources/Flamingo/View/StencilRenderer.swift /* View/StencilRenderer.swift */,
@@ -1897,6 +1900,7 @@
 				__src_cc_ref_Sources/Flamingo/Router/RouteContainer.swift /* Router/RouteContainer.swift in Sources */,
 				__src_cc_ref_Sources/Flamingo/Router/RouteMatcher.swift /* Router/RouteMatcher.swift in Sources */,
 				__src_cc_ref_Sources/Flamingo/Router/Router.swift /* Router/Router.swift in Sources */,
+				__src_cc_ref_Sources/Flamingo/Server/WebServer.swift /* Server/WebServer.swift in Sources */,
 				__src_cc_ref_Sources/Flamingo/Utilities/Env.swift /* Utilities/Env.swift in Sources */,
 				__src_cc_ref_Sources/Flamingo/View/Art.swift /* View/Art.swift in Sources */,
 				__src_cc_ref_Sources/Flamingo/View/StencilRenderer.swift /* View/StencilRenderer.swift in Sources */,
@@ -2111,97 +2115,97 @@
 		__Dependency_C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_C7" /* C7 */;
-			targetProxy = D542F2571D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670F81D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_CHTTPParser /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_CHTTPParser" /* CHTTPParser */;
-			targetProxy = D542F2611D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671021D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_CLibvenice /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_CLibvenice" /* CLibvenice */;
-			targetProxy = D542F2591D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FA1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_CURIParser /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_CURIParser" /* CURIParser */;
-			targetProxy = D542F25D1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FE1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_Flamingo /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_Flamingo" /* Flamingo */;
-			targetProxy = D542F2681D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671091D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_HTTPParser /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_HTTPParser" /* HTTPParser */;
-			targetProxy = D542F2631D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671041D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_HTTPSerializer /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_HTTPSerializer" /* HTTPSerializer */;
-			targetProxy = D542F2621D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671031D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_HTTPServer /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_HTTPServer" /* HTTPServer */;
-			targetProxy = D542F2651D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671061D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_IP /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_IP" /* IP */;
-			targetProxy = D542F25C1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FD1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_POSIX /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_POSIX" /* POSIX */;
-			targetProxy = D542F25A1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FB1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_PathKit /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_PathKit" /* PathKit */;
-			targetProxy = D542F2581D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670F91D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_Rexy /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_Rexy" /* Rexy */;
-			targetProxy = D542F2671D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671081D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_S4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_S4" /* S4 */;
-			targetProxy = D542F25F1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671001D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_Stencil /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_Stencil" /* Stencil */;
-			targetProxy = D542F2661D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671071D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_String /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_String" /* String */;
-			targetProxy = D542F25E1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FF1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_TCP /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_TCP" /* TCP */;
-			targetProxy = D542F2641D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671051D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_URI /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_URI" /* URI */;
-			targetProxy = D542F2601D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53671011D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_Venice /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_Venice" /* Venice */;
-			targetProxy = D542F25B1D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D53670FC1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 		__Dependency_libc /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "______Target_libc" /* libc */;
-			targetProxy = D542F2691D1EEA7100FF48F4 /* PBXContainerItemProxy */;
+			targetProxy = D536710A1D1EF8D600A1B93D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2637,7 +2641,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_Flamingo.xcodeproj/Configs/Project.xcconfig /* Project.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/.build/debug";
 			};
 			name = Release;
 		};
@@ -2645,7 +2648,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_Flamingo.xcodeproj/Configs/Project.xcconfig /* Project.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/.build/debug";
 			};
 			name = Debug;
 		};
