@@ -66,14 +66,14 @@ class RouteTests: XCTestCase, TestResponding {
     route.addAction(method: .get, action: responder)
 
     respond(
-      to: BasicResponder { _ in try! self.route.respond(to: self.request) },
+      to: BasicResponder { _ in try self.route.respond(to: self.request) },
       with: .ok
     )
   }
 
   func testRespondWithoutAction() {
     respond(
-      to: BasicResponder { _ in try! self.route.respond(to: self.request) },
+      to: BasicResponder { _ in try self.route.respond(to: self.request) },
       with: .methodNotAllowed
     )
   }

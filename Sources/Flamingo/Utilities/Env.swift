@@ -27,8 +27,8 @@ public struct Env {
   /**
     Sets a new value for a given environment variable.
 
-    - Parameter key: The key.
     - Parameter value: The value.
+    - Parameter key: The key.
   */
   public static func add(value: String, key: String) {
     setenv(key, value, 1)
