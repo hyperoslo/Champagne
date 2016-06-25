@@ -1,3 +1,5 @@
+import String
+
 /**
   Request extensions.
 */
@@ -32,6 +34,28 @@ extension Request {
     set(pathParameters) {
       storage["path-parameters"] = pathParameters
     }
+  }
+
+  /// Connection.
+  var connection: String? {
+    get {
+      return headers.headers["connection"]
+    }
+
+    set(connection) {
+      headers.headers["connection"] = connection
+    }
+  }
+
+  /// HTTP persistent connection.
+  var isKeepAlive: Bool {
+    guard let connection = connection else {
+      return false
+    }
+
+    return version.minor == 0
+      ? connection.lowercased().contains("keep-alive")
+      : connection.lowercased().contains("close")
   }
 }
 
