@@ -1,5 +1,3 @@
-@_exported import HTTP
-
 /**
   Basic protocol for route building.
 */
@@ -24,7 +22,7 @@ public protocol RouteBuilding {
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  func add(method: Request.Method, path: String, middleware: [Middleware], responder: Responder)
+  func add(method: Method, path: String, middleware: [Middleware], responder: Responder)
 
   /**
     Adds a fallback on a given path.
@@ -51,9 +49,9 @@ extension RouteBuilding {
     - Parameter relativePath: Relative route path.
     - Returns: The route.
   */
-  func routeFor(relativePath: String) -> BasicRoute? {
+  func routeFor(relativePath: String) -> Route? {
     let path = absolutePathFor(relativePath)
-    return routes.filter({ $0.path == path }).first as? BasicRoute
+    return routes.filter({ $0.path == path }).first
   }
 
   /**
@@ -62,8 +60,8 @@ extension RouteBuilding {
     - Parameter absolutePath: Absolute route path.
     - Returns: The route.
   */
-  func routeFor(absolutePath: String) -> BasicRoute? {
-    return routes.filter({ $0.path == absolutePath }).first as? BasicRoute
+  func routeFor(absolutePath: String) -> Route? {
+    return routes.filter({ $0.path == absolutePath }).first
   }
 
   /**

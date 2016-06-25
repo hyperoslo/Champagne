@@ -25,7 +25,7 @@ class FileResponderTests: XCTestCase {
 
   func testRespondToRoot() {
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/")
     )
 
@@ -41,7 +41,7 @@ class FileResponderTests: XCTestCase {
     Config.publicDirectory = (Path(#file).parent().parent() + "Fixtures/file.txt").description
 
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/file.txt")
     )
 
@@ -57,7 +57,7 @@ class FileResponderTests: XCTestCase {
     Config.publicDirectory = (Path(#file).parent().parent() + "Public").description
 
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/file.txt")
     )
 
@@ -71,7 +71,7 @@ class FileResponderTests: XCTestCase {
 
   func testRespondWhenFileNotExist() {
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/test.js")
     )
 
@@ -85,7 +85,7 @@ class FileResponderTests: XCTestCase {
 
   func testRespondWhenFileExists() {
     let request = Request(
-      method: Request.Method.get,
+      method: Method.get,
       uri: URI(path: "/file.txt")
     )
 

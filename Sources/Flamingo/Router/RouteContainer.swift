@@ -1,5 +1,3 @@
-@_exported import HTTP
-
 /**
   Route container keeps and builds routes relative to the root path.
 */
@@ -34,14 +32,14 @@ public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
     - Parameter middleware: Route-specific middleware.
     - Parameter responder: The responder.
   */
-  public func add(method: Request.Method, path: String, middleware: [Middleware], responder: Responder) {
+  public func add(method: Method, path: String, middleware: [Middleware], responder: Responder) {
     let action = middleware.chain(to: responder)
     let path = absolutePathFor(path)
 
     if let route = routeFor(absolutePath: path) {
       route.addAction(method: method, action: action)
     } else {
-      let route = BasicRoute(path: path, actions: [method: action])
+      let route = Route(path: path, actions: [method: action])
       routes.append(route)
     }
   }
@@ -60,7 +58,7 @@ public class RouteContainer: RouteGetBuilding, RoutePostBuilding,
     if let route = routeFor(absolutePath: path) {
       route.fallback = fallback
     } else {
-      let route = BasicRoute(path: path, fallback: fallback)
+      let route = Route(path: path, fallback: fallback)
       routes.append(route)
     }
   }

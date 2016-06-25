@@ -3,6 +3,16 @@
 */
 extension Request {
 
+  /// URL path.
+  public var path: String? {
+    return uri.path
+  }
+
+  /// URL query.
+  public var query: [String: [String?]] {
+    return uri.query
+  }
+
   /// URL parameters.
   public var parameters: [String: String] {
     get {
@@ -10,6 +20,17 @@ extension Request {
     }
     set(parameters) {
       storage["fl-parameters"] = parameters
+    }
+  }
+
+  /// Path parameters.
+  public var pathParameters: [String: String] {
+    get {
+      return storage["path-parameters"] as? [String: String] ?? [:]
+    }
+
+    set(pathParameters) {
+      storage["path-parameters"] = pathParameters
     }
   }
 }
@@ -23,5 +44,19 @@ public extension Message {
   var bodyString: String? {
     var bufferBody = body
     return try? bufferBody.becomeBuffer().description
+  }
+}
+
+extension Headers: CustomStringConvertible {
+
+  /// String representation
+  public var description: String {
+    var string = ""
+
+    headers.forEach {
+      string += "\($0): \($1)\n"
+    }
+
+    return string
   }
 }

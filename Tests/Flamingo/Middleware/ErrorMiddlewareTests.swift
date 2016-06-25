@@ -1,5 +1,4 @@
 import XCTest
-import HTTP
 @testable import Flamingo
 
 class ErrorMiddlewareTests: XCTestCase {
@@ -15,7 +14,7 @@ class ErrorMiddlewareTests: XCTestCase {
   let middleware = ErrorMiddleware()
 
   let request = Request(
-    method: Request.Method.get,
+    method: Method.get,
     uri: URI(path: "/"),
     body: Data("")
   )

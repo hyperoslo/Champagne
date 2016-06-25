@@ -22,6 +22,7 @@ public class Application {
   /**
     Creates a new instance of `Application`.
 
+    - Parameter environment: Environment.
     - Parameter middleware: Route-specific middleware.
   */
   public init(environment: Environment = Environment("development"),
