@@ -21,7 +21,7 @@ XCTMain([
   testCase(RouterTests.allTests),
   testCase(RouteTests.allTests),
   testCase(DictionaryExtensionsTests.allTests),
-  testCase(EnvTests.allTests)
+  testCase(EnvTests.allTests),
   testCase(StencilRendererTests.allTests)
 ])
 
