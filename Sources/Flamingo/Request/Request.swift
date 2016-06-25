@@ -1,4 +1,4 @@
-import String
+//import String
 
 /**
   Request extensions.
@@ -54,8 +54,8 @@ extension Request {
     }
 
     return version.minor == 0
-      ? connection.lowercased().contains("keep-alive")
-      : connection.lowercased().contains("close")
+      ? connection.lowercased().index(of: "keep-alive") != nil
+      : connection.lowercased().index(of: "close") != nil
   }
 }
 

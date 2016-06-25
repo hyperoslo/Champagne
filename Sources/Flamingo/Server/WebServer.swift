@@ -81,10 +81,8 @@ public struct WebServer: Server {
         let data = try stream.receive(upTo: bufferSize)
         try processData(data, stream: stream)
       } catch is SystemError {
-        failure(error)
         break
       } catch is StreamError {
-        failure(error)
         break
       } catch {
         let response = Response(status: .internalServerError)
