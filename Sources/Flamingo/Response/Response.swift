@@ -3,6 +3,8 @@
 */
 extension Response {
 
+  typealias DidUpgrade = (Request, Stream) throws -> Void
+
   /// Status code helper.
   public var statusCode: Int {
     return status.statusCode
@@ -16,6 +18,17 @@ extension Response {
   /// HTTP status line
   public var statusLine: String {
     return "HTTP/1.1 " + statusCode.description + " " + reasonPhrase + "\n"
+  }
+
+  // Connection upgrade.
+  var didUpgrade: DidUpgrade? {
+    get {
+      return storage["response-connection-upgrade"] as? DidUpgrade
+    }
+
+    set(didUpgrade) {
+      storage["response-connection-upgrade"] = didUpgrade
+    }
   }
 
   /**

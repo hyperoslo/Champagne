@@ -6,6 +6,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "3B4FAAEE2A714A56056BB5968260AF324231CB4F" : 0,
     "C274ABCCABABC9F55ED329880DD113121DABD8E6" : 0,
+    "15033DFF73D1DAA84A806DC9B6994613D8A2EB4F" : 0,
     "F4A7D698CFE490C9CAF7D225323A7A235929C3A8" : 0,
     "8951CEB15DDB2D711276960E67900B8AA34FF427" : 0,
     "57932305D7AF3390B1D4C8A3D4D1FCFFE771843F" : 0,
@@ -19,6 +20,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "3B4FAAEE2A714A56056BB5968260AF324231CB4F" : "Flamingo\/Packages\/PathParameterMiddleware-0.6.0\/",
     "C274ABCCABABC9F55ED329880DD113121DABD8E6" : "Flamingo\/Packages\/POSIXRegex-0.6.0\/",
+    "15033DFF73D1DAA84A806DC9B6994613D8A2EB4F" : "Flamingo\/Packages\/IP-0.8.0\/",
     "F4A7D698CFE490C9CAF7D225323A7A235929C3A8" : "Flamingo\/Packages\/RegexRouteMatcher-0.6.1\/",
     "8951CEB15DDB2D711276960E67900B8AA34FF427" : "Flamingo\/Packages\/MediaType-0.6.0\/",
     "57932305D7AF3390B1D4C8A3D4D1FCFFE771843F" : "Flamingo\/Packages\/HTTPParser-0.7.2\/",
@@ -36,6 +38,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zewo\/String.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10A2CB6C4392F0E306FF8D509BE5E88232276EA4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VeniceX\/IP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "15033DFF73D1DAA84A806DC9B6994613D8A2EB4F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ketzusaka\/Hummingbird.git",

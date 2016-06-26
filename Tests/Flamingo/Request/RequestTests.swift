@@ -9,6 +9,10 @@ class RequestTests: XCTestCase {
       ("testQuery", testQuery),
       ("testParameters", testParameters),
       ("testPathParameters", testPathParameters),
+      ("testConnection", testConnection),
+      ("testIsKeepAliveWithoutConnection", testIsKeepAliveWithoutConnection),
+      ("testIsKeepAliveWithCloseConnection", testIsKeepAliveWithCloseConnection),
+      ("testIsKeepAliveWithKeepAliveConnection", testIsKeepAliveWithKeepAliveConnection),
       ("testBodyString", testBodyString)
     ]
   }
@@ -63,6 +67,29 @@ class RequestTests: XCTestCase {
     XCTAssertEqual(storage?.count, 2)
     XCTAssertEqual(storage?["foo"], "bar")
     XCTAssertEqual(storage?["theme"], "dark")
+  }
+
+  func testConnection() {
+    request.connection = "close"
+    XCTAssertEqual(request.headers["connection"], "close")
+  }
+
+  func testIsKeepAliveWithoutConnection() {
+    XCTAssertFalse(request.isKeepAlive)
+  }
+
+  func testIsKeepAliveWithCloseConnection() {
+    request.connection = "close"
+    request.version.minor = 1
+
+    XCTAssertTrue(request.isKeepAlive)
+  }
+
+  func testIsKeepAliveWithKeepAliveConnection() {
+    request.connection = "keep-alive"
+    request.version.minor = 0
+
+    XCTAssertTrue(request.isKeepAlive)
   }
 
   func testBodyString() {

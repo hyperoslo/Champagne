@@ -42,9 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_String"
-               BuildableName = "String.dylib"
-               BlueprintName = "String"
+               BlueprintIdentifier = "______Target_Rexy"
+               BuildableName = "Rexy.dylib"
+               BlueprintName = "Rexy"
                ReferencedContainer = "container:Flamingo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -73,146 +73,6 @@
                BlueprintIdentifier = "______Target_Stencil"
                BuildableName = "Stencil.dylib"
                BlueprintName = "Stencil"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_POSIXRegex"
-               BuildableName = "POSIXRegex.dylib"
-               BlueprintName = "POSIXRegex"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_StructuredData"
-               BuildableName = "StructuredData.dylib"
-               BlueprintName = "StructuredData"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_MediaType"
-               BuildableName = "MediaType.dylib"
-               BlueprintName = "MediaType"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_CURIParser"
-               BuildableName = "CURIParser.dylib"
-               BlueprintName = "CURIParser"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_URI"
-               BuildableName = "URI.dylib"
-               BlueprintName = "URI"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_HTTP"
-               BuildableName = "HTTP.dylib"
-               BlueprintName = "HTTP"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_PathParameterMiddleware"
-               BuildableName = "PathParameterMiddleware.dylib"
-               BlueprintName = "PathParameterMiddleware"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_RegexRouteMatcher"
-               BuildableName = "RegexRouteMatcher.dylib"
-               BlueprintName = "RegexRouteMatcher"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_TrieRouteMatcher"
-               BuildableName = "TrieRouteMatcher.dylib"
-               BlueprintName = "TrieRouteMatcher"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_Router"
-               BuildableName = "Router.dylib"
-               BlueprintName = "Router"
                ReferencedContainer = "container:Flamingo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -308,6 +168,48 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "______Target_String"
+               BuildableName = "String.dylib"
+               BlueprintName = "String"
+               ReferencedContainer = "container:Flamingo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "______Target_CURIParser"
+               BuildableName = "CURIParser.dylib"
+               BlueprintName = "CURIParser"
+               ReferencedContainer = "container:Flamingo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "______Target_URI"
+               BuildableName = "URI.dylib"
+               BlueprintName = "URI"
+               ReferencedContainer = "container:Flamingo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "______Target_HTTPParser"
                BuildableName = "HTTPParser.dylib"
                BlueprintName = "HTTPParser"
@@ -392,16 +294,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_FixturesTestSuite"
-               BuildableName = "FixturesTestSuite.xctest"
-               BlueprintName = "FixturesTestSuite"
-               ReferencedContainer = "container:Flamingo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference

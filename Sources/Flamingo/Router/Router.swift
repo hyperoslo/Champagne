@@ -1,5 +1,4 @@
 import Rexy
-import S4
 
 /**
   Default HTTP router. Responds to requests and provides an interface

@@ -1,5 +1,4 @@
 import Foundation
-import HTTPServer
 
 public var application = Application()
 
@@ -8,12 +7,21 @@ public var application = Application()
 */
 public class Application {
 
-  public static let version = "0.0.1"
+  public static let version = "0.2.1"
 
+  /// Application environment.
   public let environment: Environment
-  public var router: Router
+
+  /// Application router.
+  public let router: Router
+
+  /// S4-compatible server type.
+  public let server: Server.Type
+
+  /// Flag that indicates if server is running.
   var running = false
 
+  // Application middleware.
   var middleware: [Middleware] = [
     ParametersMiddleware(),
     ErrorMiddleware()
@@ -22,11 +30,14 @@ public class Application {
   /**
     Creates a new instance of `Application`.
 
+    - Parameter server: S4-compatible server type.
     - Parameter environment: Environment.
     - Parameter middleware: Route-specific middleware.
   */
-  public init(environment: Environment = Environment("development"),
-              middleware: [Middleware] = []) {
+  public init(server: Server.Type = WebServer.self,
+         environment: Environment = Environment("development"),
+          middleware: [Middleware] = []) {
+    self.server = server
     self.environment = environment
     self.middleware.append(contentsOf: middleware)
     router = Router(middleware: middleware)
@@ -40,7 +51,8 @@ public class Application {
   */
   public func start() throws {
     print(Art.header)
-    try Server(responder: router).start()
+
+    try server.init(host: "0.0.0.0", port: 8080, responder: router).start()
     running = true
   }
 }
