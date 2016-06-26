@@ -20,6 +20,10 @@ public extension ApplicationController {
     let body = Config.ViewRenderer.init(path: template, context: context).render()
     return Response(status: .ok, contentType: .html, body: body)
   }
+
+  public func render(json: JSONRepresentable) -> Response {
+    return Response(status: .ok, contentType: .json, body: json.json)
+  }
 }
 
 /**
