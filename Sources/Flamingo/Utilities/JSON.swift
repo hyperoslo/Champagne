@@ -10,6 +10,8 @@ public protocol JSONRepresentable {
 
 public protocol JSONConvertible: JSONInitializable, JSONRepresentable {}
 
+// MARK: - DataConvertible
+
 extension JSON: DataConvertible {
 
   public init(data: Data) throws {
@@ -24,5 +26,34 @@ extension JSON: DataConvertible {
     }
 
     return Data(data)
+  }
+}
+
+// MARK: - Literal Convertibles
+
+extension JSON: ArrayLiteralConvertible {
+
+  public init(arrayLiteral elements: JSON...) {
+    self = .array(elements)
+  }
+}
+
+extension JSON: DictionaryLiteralConvertible {
+
+  public init(dictionaryLiteral elements: (String, JSON)...) {
+    var dictionary = [String : JSON](minimumCapacity: elements.count)
+
+    elements.forEach { key, value in
+      dictionary[key] = value
+    }
+
+    self = .object(dictionary)
+  }
+}
+
+extension JSON: NilLiteralConvertible {
+
+  public init(nilLiteral value: Void) {
+    self = .null
   }
 }
