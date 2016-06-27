@@ -55,6 +55,23 @@ extension JSON: DataConvertible {
   }
 }
 
+extension JSON: JSONConvertible {
+  /**
+    Creates a new instance of `Self`.
+
+    - Parameter json: JSON object.
+    - Throws: An error that occurs during initialization.
+  */
+  public init(json: JSON) throws {
+    self = json
+  }
+
+  /// JSON object
+  public var json: JSON {
+    return self
+  }
+}
+
 // MARK: - Literal Convertibles
 
 extension JSON: ArrayLiteralConvertible {
