@@ -40,6 +40,19 @@ public extension ApplicationController {
   public func render(data: DataRepresentable, mime: MimeType) -> Response {
     return Response(status: .ok, mime: mime, body: data)
   }
+
+  public typealias MimeResponder = Dictionary<MimeType, () -> Response>
+
+  /**
+    Determines the desired response format from the HTTP Accept header
+    and responds with first corresponding passed response if there is any.
+  */
+  public func respond(to request: Request, _ responders: MimeResponder) -> Response {
+    let accepts = request.headers["Accept"]?.split(separator: ",") ?? []
+
+    return responders.filter({ accepts.contains($0.0.rawValue) }).first?.1()
+      ?? Response(status: .notAcceptable)
+  }
 }
 
 /**
