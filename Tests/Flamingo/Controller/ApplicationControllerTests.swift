@@ -58,4 +58,33 @@ class ApplicationControllerTests: XCTestCase {
       "\(MimeType.text.rawValue); charset=utf8"
     )
   }
+
+  func testRespond() {
+    var request = Request(
+      method: Method.get,
+      uri: URI(path: "/index"),
+      body: Data("")
+    )
+
+    let context = JSON.object(["title": "Flamingo", "count": 1])
+    let string = "{\"count\":1,\"title\":\"Flamingo\"}"
+
+    request.headers["Accept"] = MimeType.json.rawValue
+
+    let response = controller.respond(to: request, [
+      .html: { self.controller.render("index") },
+      .json: { self.controller.render(json: context) }
+    ])
+
+    XCTAssertEqual(response.status, Status.ok)
+    XCTAssertEqual(response.bodyString, string)
+    XCTAssertEqual(
+      response.headers["Content-Type"],
+      "\(MimeType.json.rawValue); charset=utf8"
+    )
+  }
+
+  func testRedirect() {
+
+  }
 }
