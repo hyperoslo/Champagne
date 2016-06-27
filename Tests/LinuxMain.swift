@@ -12,7 +12,7 @@ XCTMain([
   testCase(ParametersMiddlewareTests.allTests),
   testCase(PathParametersMiddlewareTests.allTests),
   testCase(RequestTests.allTests),
-  testCase(ContentTypeTests.allTests),
+  testCase(MimeTypeTests.allTests),
   testCase(FileResponderTests.allTests),
   testCase(ResponseTests.allTests),
   testCase(RouteBuildingTests.allTests),

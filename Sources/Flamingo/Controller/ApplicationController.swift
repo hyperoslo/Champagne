@@ -18,11 +18,11 @@ public extension ApplicationController {
   */
   public func render(_ template: String, context: [String: Any] = [:]) -> Response {
     let body = Config.ViewRenderer.init(path: template, context: context).render()
-    return Response(status: .ok, contentType: .html, body: body)
+    return Response(status: .ok, mime: .html, body: body)
   }
 
   public func render(json: JSONRepresentable) -> Response {
-    return Response(status: .ok, contentType: .json, body: json.json)
+    return Response(status: .ok, mime: .json, body: json.json)
   }
 }
 
