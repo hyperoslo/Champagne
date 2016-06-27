@@ -38,7 +38,7 @@ extension Response {
     - Parameter mime: The mime type.
     - Parameter body: Body data.
   */
-  init(status: Status, mime: MimeType, body: DataConvertible) {
+  init(status: Status, mime: MimeType, body: DataRepresentable) {
     let headers: Headers = [
       "Server": "Flamingo \(Application.version)",
       "Content-Type": "\(mime.rawValue); charset=utf8"
