@@ -85,6 +85,9 @@ class ApplicationControllerTests: XCTestCase {
   }
 
   func testRedirect() {
+    let response = controller.redirect(to: "index")
 
+    XCTAssertEqual(response.status, Status.found)
+    XCTAssertEqual(response.headers["Location"], "index")
   }
 }
