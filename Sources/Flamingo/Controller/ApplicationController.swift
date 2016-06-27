@@ -21,8 +21,24 @@ public extension ApplicationController {
     return Response(status: .ok, mime: .html, body: body)
   }
 
+  /**
+    Renders a JSON object.
+
+    - Parameter json: JSON representable.
+    - Returns: A response.
+  */
   public func render(json: JSONRepresentable) -> Response {
     return Response(status: .ok, mime: .json, body: json.json)
+  }
+
+  /**
+    Renders a JSON object.
+
+    - Parameter data: Data representable.
+    - Returns: A response.
+  */
+  public func render(data: DataRepresentable, mime: MimeType) -> Response {
+    return Response(status: .ok, mime: mime, body: data)
   }
 }
 
