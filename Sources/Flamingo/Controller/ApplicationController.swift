@@ -38,10 +38,11 @@ public extension ApplicationController {
     - Returns: The response.
   */
   public func render(context: [String: Any] = [:], file: String = #file, action: String = #function) -> Response {
-    guard var folder = file.split(separator: "/").last,
+    guard let controller = file.split(separator: "/").last,
       name = action.split(separator: "(").first
       else { return Response(status: .notFound)  }
 
+    var folder = controller
     folder.replace(string: "Controller.swift", with: "")
 
     return render(template: "\(folder)/\(name)", context: context)
