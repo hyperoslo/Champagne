@@ -12,11 +12,11 @@ public class BirdController: ResourceController {
   }
 
   public func index(request: Request) throws -> Response {
-    let templateContext: [String: Any] = ["birds": birds.map({ $0.dictionary })]
+    let context: [String: Any] = ["birds": birds.map({ $0.dictionary })]
 
     return respond(to: request, [
-      .html: { self.render(context: templateContext) },
-      .json: { self.render(json: templateContext) }
+      .html: { self.render(context: context) },
+      .json: { self.render(json: context) }
     ])
   }
 
