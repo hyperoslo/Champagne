@@ -72,16 +72,6 @@ extension JSON {
     let uint = UInt(value.toUIntMax())
     self = .number(.unsignedInteger(uint))
   }
-
-  /**
-    Creates a new instance of `JSON` from a `JSON` sequence.
-
-    - Parameter value: `JSON` sequence.
-  */
-  public init<T : Sequence where T.Iterator.Element == JSON>(_ value: T) {
-    let array = [JSON](value)
-    self = .array(array)
-  }
 }
 
 // MARK: - DataConvertible

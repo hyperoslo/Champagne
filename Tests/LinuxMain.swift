@@ -8,6 +8,7 @@ XCTMain([
   testCase(ApplicationTests.allTests),
   testCase(EnvironmentTests.allTests),
   testCase(StatusErrorTests.allTests),
+  testCase(JSONTests.allTests),
   testCase(ErrorMiddlewareTests.allTests),
   testCase(ParametersMiddlewareTests.allTests),
   testCase(PathParametersMiddlewareTests.allTests),
