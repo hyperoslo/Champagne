@@ -1,6 +1,7 @@
 import Flamingo
 
 Config.viewsDirectory = "Sources/Development/Views"
+Config.publicDirectory = "Sources/Development/Public"
 
 let controller = MainController()
 
