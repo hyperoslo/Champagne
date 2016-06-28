@@ -39,7 +39,7 @@ public extension ApplicationController {
   */
   public func render(context: [String: Any] = [:], file: String = #file, action: String = #function) -> Response {
     guard var folder = file.split(separator: "/").last,
-      let name = action.split(separator: "(").first
+      name = action.split(separator: "(").first
       else { return Response(status: .notFound)  }
 
     folder.replace(string: "Controller.swift", with: "")
@@ -72,6 +72,8 @@ public extension ApplicationController {
     Renders a JSON object.
 
     - Parameter data: Data representable.
+    - Parameter mime: Mime type.
+
     - Returns: The response.
   */
   public func render(data: DataRepresentable, mime: MimeType) -> Response {
