@@ -10,10 +10,10 @@ class MainController: RoutingController {
   }
 
   func index(request: Request) throws -> Response {
-    return render("index")
+    return render(template: "index")
   }
 
   func info(request: Request) throws -> Response {
-    return render("info")
+    return render(template: "info")
   }
 }
