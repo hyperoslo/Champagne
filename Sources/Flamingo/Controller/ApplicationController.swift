@@ -16,9 +16,35 @@ public extension ApplicationController {
     - Parameter context: Context parameters to use in a template.
     - Returns: The response.
   */
-  public func render(_ template: String, context: [String: Any] = [:]) -> Response {
+  public func render(template: String, context: [String: Any] = [:]) -> Response {
     let body = Config.ViewRenderer.init(path: template, context: context).render()
     return Response(status: .ok, mime: .html, body: body)
+  }
+
+  /**
+    Renders a view template using a renderer from the config.
+    Template path is built automatically using conventions.
+
+    For example:
+
+    Controller:         `UsersController.swift`
+    Response function:  `index(request:)`
+    Template name:      `{Config.viewsDirectory}/Users/index.html`
+
+    - Parameter context: Context parameters to use in a template.
+    - Parameter file: File path, #file by default.
+    - Parameter action: Function name, #function by default.
+
+    - Returns: The response.
+  */
+  public func render(context: [String: Any] = [:], file: String = #file, action: String = #function) -> Response {
+    guard var folder = file.split(separator: "/").last,
+      let name = action.split(separator: "(").first
+      else { return Response(status: .notFound)  }
+
+    folder.replace(string: "Controller.swift", with: "")
+
+    return render(template: "\(folder)/\(name)", context: context)
   }
 
   /**
@@ -29,6 +55,17 @@ public extension ApplicationController {
   */
   public func render(json: JSONRepresentable) -> Response {
     return Response(status: .ok, mime: .json, body: json.json)
+  }
+
+  /**
+    Renders a JSON object.
+
+    - Parameter json: A dictionary.
+    - Returns: The response.
+  */
+  public func render(json: [String: Any]) -> Response {
+    let json = try? JSON(json)
+    return Response(status: .ok, mime: .json, body: json ?? JSON.null)
   }
 
   /**
