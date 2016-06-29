@@ -1,6 +1,6 @@
-import Flamingo
+@testable import Flamingo
 
-class MainController: RoutingController {
+class TestRoutingController: RoutingController {
 
   required init() {}
 
@@ -14,6 +14,6 @@ class MainController: RoutingController {
   }
 
   func info(request: Request) throws -> Response {
-    return render(template: "info")
+    return render(template: "index")
   }
 }

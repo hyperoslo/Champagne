@@ -35,13 +35,13 @@ extension Response {
     Creates a new response.
 
     - Parameter status: The status code.
-    - Parameter contentType: The content type.
+    - Parameter mime: The mime type.
     - Parameter body: Body data.
   */
-  init(status: Status, contentType: ContentType, body: DataConvertible) {
+  init(status: Status, mime: MimeType, body: DataRepresentable) {
     let headers: Headers = [
       "Server": "Flamingo \(Application.version)",
-      "Content-Type": "\(contentType.rawValue); charset=utf8"
+      "Content-Type": "\(mime.rawValue); charset=utf8"
     ]
 
     self.init(status: status, headers: headers, body: body.data)
