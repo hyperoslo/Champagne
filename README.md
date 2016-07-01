@@ -1,6 +1,6 @@
 # Flamingo
 
-A Web Framework for Swift that works on OS X and Linux.
+The Flamingo Web Framework.
 
 [![CI Status](http://img.shields.io/travis/hyperoslo/Flamingo.svg?style=flat)](https://travis-ci.org/hyperoslo/Flamingo)
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
@@ -9,21 +9,28 @@ A Web Framework for Swift that works on OS X and Linux.
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Codebeat](https://codebeat.co/badges/10ee7f48-79d2-4782-8366-b261568a4e41)](https://codebeat.co/projects/github-com-hyperoslo-flamingo)
 
+* [Getting started](#getting-started)
+* [Usage](#usage)
+* [Author](#author)
+* [Credits](#credits)
+* [Contributing](#contributing)
+* [License](#license)
+
 ## Getting started
 
-- `Swift 3.0` is needed to build the package and run the application server.
-- Install Development snapshot [version](https://github.com/hyperoslo/Flamingo/blob/master/.swift-version)
-from [Swift.org](https://swift.org/download/) or via [swiftenv](https://github.com/kylef/swiftenv).
-- Run in your terminal:
+**Please note** that this is a work in progress, `Flamingo` is under continuous
+development and **is not ready** for production usage.
 
-```sh
-git clone https://github.com/hyperoslo/Flamingo.git FlamingoApp
-swift build
-swift test
-./.build/debug/Development
+`Flamingo` is available through [Swift Package Manager](https://github.com/apple/swift-package-manager).
+To install it, simply add the following lines to your `Package.swift`:
+
+```swift
+.Package(url: "https://github.com/hyperoslo/Flamingo.git", versions: Version(0,1,0)..<Version(1,0,0))
 ```
 
-- Open `http://0.0.0.0:8000/` in your browser.
+`Swift 3.0` is needed to build the package and run the application server.
+Install Development snapshot [version](https://github.com/hyperoslo/Flamingo/blob/master/.swift-version)
+from [Swift.org](https://swift.org/download/) or via [swiftenv](https://github.com/kylef/swiftenv).
 
 ## Usage
 
@@ -58,30 +65,21 @@ DELETE /api/users/:id
 PATCH /api/users/:id
 ```
 
-## Installation
-
-`Flamingo` is available through [Swift Package Manager](https://github.com/apple/swift-package-manager).
-To install it, simply add the following lines to your `Package.swift`:
-
-```swift
-import PackageDescription
-
-let package = Package(
-    name: "FlamingoApplication",
-    dependencies: [
-      .Package(url: "https://github.com/hyperoslo/Flamingo.git", versions: Version(0,1,0)..<Version(1,0,0))
-    ]
-)
-```
-
-## Work in Progress
-
-This is a work in progress, `Flamingo` is under continuous development and
-**is not ready** for production usage.
-
 ## Author
 
 Hyper Interaktiv AS, ios@hyper.no
+
+## Credits
+
+- The current implementation is heavily inspired by [Vapor](https://github.com/qutheory/vapor)
+which is the first true web framework for Swift.
+- It's also worth mentioning that
+a lot of ideas came from [Rails](https://github.com/rails/rails) and
+other Ruby and PHP frameworks.
+- And we salute the whole Swift server-side community, especially
+[Zewo](https://github.com/Zewo/Zewo) and [OpenSwift](https://github.com/open-swift).
+Thanks you for doing such an awesome job bringing developers open source
+libraries and tools for all the needs.
 
 ## Contributing
 
