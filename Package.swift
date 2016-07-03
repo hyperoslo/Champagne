@@ -4,16 +4,13 @@ let package = Package(
   name: "Flamingo",
   targets: [
     Target(
-      name: "Development",
+      name: "Demo",
       dependencies: [
         .Target(name: "Flamingo")
       ]
     ),
     Target(
-      name: "Flamingo",
-      dependencies: [
-        .Target(name: "libc")
-      ]
+      name: "Flamingo"
     ),
   ],
   dependencies: [
