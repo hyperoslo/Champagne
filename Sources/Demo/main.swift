@@ -3,8 +3,6 @@ import Flamingo
 Config.viewsDirectory = "Sources/Development/Views"
 Config.publicDirectory = "Sources/Development/Public"
 
-let controller = MainController()
-
 Flamingo.application.router.draw { map in
   map.use(controller: MainController.self)
   map.resources("birds", only: [.index, .show], controller: BirdController.self)
