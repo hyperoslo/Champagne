@@ -1,7 +1,7 @@
 public protocol Mod: class, ContainerAware, RouteMapper {
 
   /// Mod configuration.
-  var scheme: ModScheme { get }
+  static var scheme: ModScheme { get }
 
   /// Mod-specific middleware.
   var middleware: [Middleware] { get }
@@ -23,7 +23,7 @@ public extension Mod {
   /**
     The place to register sevices in the application container.
   */
-  func mount() {}
+  func mount(on kernel: Kernel) {}
 
   /**
     Registers new routes.
@@ -38,7 +38,7 @@ public extension Mod {
     - Parameter type: Controller type.
     - Returns: A new controller of the given type.
   */
-  func controller<T: Controller>(_ type: T.Type) -> Controller {
-    return T.init(modScheme: scheme, container: container)
+  func controller<T: Controller>(_ type: T.Type) -> T {
+    return T.init(modScheme: self.dynamicType.scheme, container: container)
   }
 }
