@@ -15,15 +15,9 @@ public struct ModScheme {
     self.name = name
     dir = Directory(name: name)
 
-    var route: String
-
-    if let routePrefix = routePrefix {
-      route = routePrefix
-    } else {
-      route = self.name
-    }
-
+    var route = routePrefix
     route.replace(string: " ", with: "")
+    
     self.routePrefix = route.lowercased()
   }
 
