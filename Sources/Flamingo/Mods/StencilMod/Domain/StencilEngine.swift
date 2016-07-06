@@ -23,7 +23,7 @@ public struct StencilEngine: TemplateEngine {
     - Returns: The rendered template with inserted context information.
   */
   public func render(template: String, context: [String: Any] = [:]) throws -> String {
-    let path = Path(root) + "\(template).html.stencil"
+    let path = Path(root + "/\(template).html.stencil")
     return try Template(path: path).render(context: Context(dictionary: context))
   }
 }
