@@ -5,15 +5,14 @@ import Foundation
 */
 public class Application {
 
-  enum Error: ErrorProtocol {
-    case noServer
-  }
-
   /// Current application version.
   public static let version = "0.3.0"
 
   /// Application container.
   let container: Container
+
+  /// Application container.
+  let config: Config
 
   /// Application kernel.
   public let kernel: Kernel
@@ -48,9 +47,10 @@ public class Application {
   */
   public init(kernel: Kernel, config: Config = Config()) throws {
     self.kernel = kernel
+    self.config = config
 
     // Setup config
-    let modTypes = kernel.mods
+    let modTypes = kernel.frameworkMods + kernel.mods
 
     config.kernelScheme = kernel.dynamicType.scheme
     config.modSchemes = modTypes.map({ $0.scheme })
@@ -95,12 +95,8 @@ public class Application {
     - Throws: ErrorType.
   */
   public func start() throws {
-    guard let server = container.resolve(typeOf: Server.self) as? Server.Type else {
-      throw Error.noServer
-    }
-
     print(Art.header)
-    try server.init(host: "0.0.0.0", port: 8080, responder: router).start()
+    try config.server.init(host: "0.0.0.0", port: 8080, responder: router).start()
     running = true
   }
 }
