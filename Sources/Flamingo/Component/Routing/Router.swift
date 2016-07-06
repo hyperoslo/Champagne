@@ -23,11 +23,12 @@ public final class Router {
   /**
     Creates a new `Router` instance.
 
+    - Parameter collection: Route collection.
     - Parameter container: Application container.
     - Parameter container: Router middleware.
   */
-  public init(container: Container, middleware: [Middleware]) {
-    self.collection = RouteCollection()
+  public init(collection: RouteCollection, container: Container, middleware: [Middleware]) {
+    self.collection = collection
     self.middleware = middleware
 
     fallback = BasicResponder { request in
