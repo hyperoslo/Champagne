@@ -32,9 +32,9 @@ public class Application {
     ErrorMiddleware()
   ]
 
-  /// Service providers
-  var serviceProviders: [ServiceProvider] = [
-    BootServicePorvider()
+  /// Service mappers.
+  var serviceMappers: [ServiceMapper] = [
+    BootServiceMapper()
   ]
 
   /**
@@ -60,12 +60,12 @@ public class Application {
 
     container.register { config }
 
-    for serviceProvider in serviceProviders {
-      try serviceProvider.registerServices(on: container)
+    for serviceMapper in serviceMappers {
+      serviceMapper.addServices(to: container)
     }
 
     // Boot kernel
-    try kernel.registerServices(on: container)
+    kernel.addServices(to: container)
     middleware.append(contentsOf: kernel.middleware)
 
     // Mount bubbles

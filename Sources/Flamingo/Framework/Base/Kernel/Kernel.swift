@@ -1,4 +1,4 @@
-public protocol Kernel: class, ServiceProvider {
+public protocol Kernel: class, ServiceMapper {
 
   /// Kernel configuration.
   static var scheme: KernelScheme { get }
@@ -28,5 +28,5 @@ extension Kernel {
 
    - Parameter container: Application container.
   */
-  public func registerServices(on container: Container) throws {}
+  public func addServices(to container: Container) {}
 }

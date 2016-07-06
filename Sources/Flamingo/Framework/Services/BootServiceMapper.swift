@@ -1,12 +1,11 @@
-struct BootServicePorvider: ServiceProvider {
+struct BootServiceMapper: ServiceMapper {
 
   /**
-   Registers services on application container.
+   Registers services in application container.
 
    - Parameter container: Application container.
-   - Throws: Container error.
   */
-  func registerServices(on container: Container) throws {
+  func addServices(to container: Container) {
     if let config = container.resolve(Config.self) {
       container.register {
         return AssetProvider(config: config)
