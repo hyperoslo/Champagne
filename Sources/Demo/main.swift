@@ -1,16 +1,14 @@
 import Flamingo
 
-Config.viewsDirectory = "Sources/Development/Views"
-Config.publicDirectory = "Sources/Development/Public"
+let kernel = AppKernel()
 
-Flamingo.application.router.draw { map in
-  map.use(controller: MainController.self)
-  map.resources("birds", only: [.index, .show], controller: BirdController.self)
+do {
+  let application = try Application(
+    kernel: kernel,
+    config: Config(root: "Sources/Development")
+  )
 
-  map.namespace("api") { map in
-    map.resources("birds", only: [.index, .show], controller: BirdController.self)
-    map.namespace("test", controller: MainController.self)
-  }
+  try application.start()
+} catch {
+  print(error)
 }
-
-try Flamingo.application.start()
