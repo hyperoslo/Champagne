@@ -10,10 +10,16 @@ public protocol Kernel: class, ServiceProvider {
   var mods: [Mod.Type] { get }
 }
 
-public extension Kernel {
+extension Kernel {
+
+  var frameworkMods: [Mod.Type] {
+    return [
+      StencilMod.self
+    ]
+  }
 
   /// Application-specific middleware.
-  var middleware: [Middleware] {
+  public var middleware: [Middleware] {
     return []
   }
 
@@ -22,5 +28,5 @@ public extension Kernel {
 
    - Parameter container: Application container.
   */
-  func registerServices(on container: Container) throws {}
+  public func registerServices(on container: Container) throws {}
 }
