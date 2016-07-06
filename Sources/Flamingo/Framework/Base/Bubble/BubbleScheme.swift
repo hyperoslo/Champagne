@@ -1,4 +1,4 @@
-public struct ModScheme {
+public struct BubbleScheme {
 
   ///
   public let name: String
@@ -55,7 +55,7 @@ public struct ModScheme {
     ///
     public init(name: String) {
 
-      self.root = "Mods/\(name)Mod"
+      self.root = "Bubbles/\(name)Bubble"
     }
   }
 }

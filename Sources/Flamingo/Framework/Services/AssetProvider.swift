@@ -23,11 +23,11 @@ public class AssetProvider {
       path = kernalPath
     }
 
-    if let scheme = modScheme(with: string) {
-      let modPath = Path(scheme.dir.assets + "/" + string)
+    if let scheme = bubbleScheme(with: string) {
+      let bubblePath = Path(scheme.dir.assets + "/" + string)
 
-      if modPath.exists {
-        path = modPath
+      if bubblePath.exists {
+        path = bubblePath
       }
     }
 
@@ -50,11 +50,11 @@ public class AssetProvider {
       path = kernalPath
     }
 
-    if let scheme = modScheme(with: string) {
-      let modPath = Path(scheme.dir.web + "/" + string)
+    if let scheme = bubbleScheme(with: string) {
+      let bubblePath = Path(scheme.dir.web + "/" + string)
 
-      if modPath.exists {
-        path = modPath
+      if bubblePath.exists {
+        path = bubblePath
       }
     }
 
@@ -63,9 +63,9 @@ public class AssetProvider {
 
   /**
   */
-  func modScheme(with string: String) -> ModScheme? {
+  func bubbleScheme(with string: String) -> BubbleScheme? {
     guard let name = string.split(separator: "/").first,
-      scheme = config.modSchemes.filter({ $0.routePrefix == name }).first
+      scheme = config.bubbleSchemes.filter({ $0.routePrefix == name }).first
       else { return nil }
 
     return scheme

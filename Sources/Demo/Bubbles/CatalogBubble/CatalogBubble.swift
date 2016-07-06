@@ -1,8 +1,8 @@
 import Flamingo
 
-class CatalogMod: Mod {
+class CatalogBubble: Bubble {
 
-  static var scheme = ModScheme(name: "Catalog", routePrefix: "catalog")
+  static var scheme = BubbleScheme(name: "Catalog", routePrefix: "catalog")
   let container: Container
 
   required init(container: Container) {

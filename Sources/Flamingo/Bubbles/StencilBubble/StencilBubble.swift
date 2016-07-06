@@ -1,6 +1,6 @@
-public class StencilMod: Mod {
+public class StencilBubble: Bubble {
 
-  public static var scheme = ModScheme(name: "Stencil")
+  public static var scheme = BubbleScheme(name: "Stencil")
   public let container: Container
 
   /**

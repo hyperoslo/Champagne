@@ -4,10 +4,10 @@ class AppKernel: Kernel {
 
   static var scheme = KernelScheme(name: "App")
 
-  var mods: [Mod.Type] {
+  var bubbles: [Bubble.Type] {
     return [
-      AppMod.self,
-      CatalogMod.self
+      AppBubble.self,
+      CatalogBubble.self
     ]
   }
 }

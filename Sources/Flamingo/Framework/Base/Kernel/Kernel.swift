@@ -6,15 +6,15 @@ public protocol Kernel: class, ServiceProvider {
   /// Application-specific middleware.
   var middleware: [Middleware] { get }
 
-  /// Application modes.
-  var mods: [Mod.Type] { get }
+  /// Application bubbles.
+  var bubbles: [Bubble.Type] { get }
 }
 
 extension Kernel {
 
-  var frameworkMods: [Mod.Type] {
+  var frameworkBubbles: [Bubble.Type] {
     return [
-      StencilMod.self
+      StencilBubble.self
     ]
   }
 

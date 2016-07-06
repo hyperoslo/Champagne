@@ -3,7 +3,7 @@
 */
 public class Controller: ResponseFactory {
 
-  public let modScheme: ModScheme
+  public let bubbleScheme: BubbleScheme
 
   /// Application container.
   public let container: Container
@@ -16,10 +16,10 @@ public class Controller: ResponseFactory {
 
   // MARK: - Initialization
 
-  public required init(modScheme: ModScheme, container: Container) {
-    self.modScheme = modScheme
+  public required init(bubbleScheme: BubbleScheme, container: Container) {
+    self.bubbleScheme = bubbleScheme
     self.container = container
-    self.templatePrefix = modScheme.dir.views
+    self.templatePrefix = bubbleScheme.dir.views
     self.templateEngine = container.resolve(TemplateEngine.self)
   }
 

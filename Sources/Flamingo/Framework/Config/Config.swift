@@ -17,8 +17,8 @@ public class Config {
 
   public var server: Server.Type = WebServer.self
 
-  /// Mod schemes.
-  var modSchemes = [ModScheme]()
+  /// Bubble schemes.
+  var bubbleSchemes = [BubbleScheme]()
 
   /// Kernel scheme.
   var kernelScheme = KernelScheme(name: "App")

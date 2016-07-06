@@ -1,9 +1,9 @@
-public protocol Mod: class, ContainerAware, RouteMapper {
+public protocol Bubble: class, ContainerAware, RouteMapper {
 
-  /// Mod configuration.
-  static var scheme: ModScheme { get }
+  /// Bubble configuration.
+  static var scheme: BubbleScheme { get }
 
-  /// Mod-specific middleware.
+  /// Bubble-specific middleware.
   var middleware: [Middleware] { get }
 
   /**
@@ -14,7 +14,7 @@ public protocol Mod: class, ContainerAware, RouteMapper {
   func mount(on kernel: Kernel)
 }
 
-public extension Mod {
+public extension Bubble {
 
   var middleware: [Middleware] {
     return []
@@ -39,6 +39,6 @@ public extension Mod {
     - Returns: A new controller of the given type.
   */
   func controller<T: Controller>(_ type: T.Type) -> T {
-    return T.init(modScheme: self.dynamicType.scheme, container: container)
+    return T.init(bubbleScheme: self.dynamicType.scheme, container: container)
   }
 }

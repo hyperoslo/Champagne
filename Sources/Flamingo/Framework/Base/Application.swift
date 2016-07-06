@@ -17,8 +17,8 @@ public class Application {
   /// Application kernel.
   public let kernel: Kernel
 
-  /// Application mods.
-  public var mods = [Mod]()
+  /// Application bubbles.
+  public var bubbles = [Bubble]()
 
   /// Application router.
   let router: Router
@@ -50,10 +50,10 @@ public class Application {
     self.config = config
 
     // Setup config
-    let modTypes = kernel.frameworkMods + kernel.mods
+    let bubbleTypes = kernel.frameworkBubbles + kernel.bubbles
 
     config.kernelScheme = kernel.dynamicType.scheme
-    config.modSchemes = modTypes.map({ $0.scheme })
+    config.bubbleSchemes = bubbleTypes.map({ $0.scheme })
 
     // Configure container
     container = Container()
@@ -68,17 +68,17 @@ public class Application {
     try kernel.registerServices(on: container)
     middleware.append(contentsOf: kernel.middleware)
 
-    // Mount mods
+    // Mount bubbles
     let routeCollection = RouteCollection()
 
-    for modType in modTypes {
-      let mod = modType.init(container: container)
+    for bubbleType in bubbleTypes {
+      let bubble = bubbleType.init(container: container)
 
-      middleware.append(contentsOf: mod.middleware)
-      mod.mount(on: kernel)
-      routeCollection.namespace(modType.scheme.routePrefix, build: mod.draw)
+      middleware.append(contentsOf: bubble.middleware)
+      bubble.mount(on: kernel)
+      routeCollection.namespace(bubbleType.scheme.routePrefix, build: bubble.draw)
 
-      mods.append(mod)
+      bubbles.append(bubble)
     }
 
     router = Router(
