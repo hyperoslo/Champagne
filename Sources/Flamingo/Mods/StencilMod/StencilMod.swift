@@ -1,10 +1,10 @@
 public class StencilMod: Mod {
 
-  public var scheme = ModScheme(name: "Stencil")
+  public static var scheme = ModScheme(name: "Stencil")
   public let container: Container
 
   public required init(container: Container) {
-    self.container = Container()
+    self.container = container
   }
 
   public func mount(on kernel: Kernel) {
