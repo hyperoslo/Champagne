@@ -1,13 +1,13 @@
 public protocol Kernel: class, ServiceProvider {
 
   /// Kernel configuration.
-  var scheme: KernelScheme { get }
+  static var scheme: KernelScheme { get }
 
   /// Application-specific middleware.
   var middleware: [Middleware] { get }
 
   /// Application modes.
-  var mods: [Mod] { get }
+  var mods: [Mod.Type] { get }
 }
 
 public extension Kernel {
