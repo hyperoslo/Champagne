@@ -12,11 +12,14 @@ public class Application {
   /// Current application version.
   public static let version = "0.3.0"
 
+  /// Application container.
+  let container: Container
+
   /// Application kernel.
   public let kernel: Kernel
 
-  /// Application container.
-  let container: Container
+  /// Application mods.
+  public var mods = [Mod]()
 
   /// Application router.
   let router: Router
@@ -47,10 +50,10 @@ public class Application {
     self.kernel = kernel
 
     // Setup config
-    let mods = kernel.mods
+    let modTypes = kernel.mods
 
-    config.kernelScheme = kernel.scheme
-    config.modSchemes = mods.map({ $0.scheme })
+    config.kernelScheme = kernel.dynamicType.scheme
+    config.modSchemes = modTypes.map({ $0.scheme })
 
     // Configure container
     container = Container()
@@ -66,16 +69,23 @@ public class Application {
     middleware.append(contentsOf: kernel.middleware)
 
     // Mount mods
-    for mod in mods {
+    let routeCollection = RouteCollection()
+
+    for modType in modTypes {
+      let mod = modType.init(container: container)
+
       middleware.append(contentsOf: mod.middleware)
-    }
-
-    router = Router(container: container, middleware: middleware)
-
-    for mod in mods {
       mod.mount(on: kernel)
-      router.collection.namespace(mod.scheme.routePrefix, build: mod.draw)
+      routeCollection.namespace(modType.scheme.routePrefix, build: mod.draw)
+
+      mods.append(mod)
     }
+
+    router = Router(
+      collection: routeCollection,
+      container: container,
+      middleware: middleware
+    )
   }
 
   // MARK: - Server
