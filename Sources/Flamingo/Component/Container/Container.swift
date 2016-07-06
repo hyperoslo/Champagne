@@ -34,23 +34,11 @@ public class Container {
     factories[key] = { factory($0) }
   }
 
-  public func register<T: Any, U: Any>(_ serviceType: T.Type, tag: String? = nil, with targetType: U.Type) throws {
-    guard let _ = targetType as? T.Type else { throw Error.InvalidRegisteredType }
-
-    let key = Key(type: serviceType, tag: tag)
-    types[key] = targetType
-  }
-
   // MARK: - Resolve
 
   public func resolve<T: Any>(_ serviceType: T.Type, tag: String? = nil) -> T? {
     let key = Key(type: serviceType, tag: tag)
     return factories[key]?() as? T
-  }
-
-  public func resolve<T: Any>(typeOf serviceType: T.Type, tag: String? = nil) -> T.Type? {
-    let key = Key(type: serviceType, tag: tag)
-    return types[key] as? T.Type
   }
 }
 
