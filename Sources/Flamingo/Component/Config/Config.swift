@@ -15,6 +15,8 @@ public class Config {
   /// Application environment.
   public var environment: Environment = Environment("development")
 
+  public var server: Server.Type = WebServer.self
+
   /// Mod schemes.
   var modSchemes = [ModScheme]()
 
