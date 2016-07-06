@@ -7,7 +7,7 @@ class AppKernel: Kernel {
   var mods: [Mod.Type] {
     return [
       AppMod.self,
-      BirdMod.self
+      CatalogMod.self
     ]
   }
 }

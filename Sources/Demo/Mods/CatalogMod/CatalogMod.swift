@@ -1,8 +1,8 @@
 import Flamingo
 
-class BirdMod: Mod {
+class CatalogMod: Mod {
 
-  static var scheme = ModScheme(name: "Bird", routePrefix: "birds")
+  static var scheme = ModScheme(name: "Catalog", routePrefix: "catalog")
   let container: Container
 
   required init(container: Container) {
@@ -10,7 +10,7 @@ class BirdMod: Mod {
   }
 
   func draw(map: RouteCollection) {
-    map.resources("catalog", only: [.index, .show]) {
+    map.resources("birds", only: [.index, .show]) {
       self.controller(BirdController.self)
     }
   }
