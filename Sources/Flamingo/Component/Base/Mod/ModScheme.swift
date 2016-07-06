@@ -11,7 +11,7 @@ public struct ModScheme {
 
   /**
   */
-  public init(name: String, routePrefix: String? = nil) {
+  public init(name: String, routePrefix: String = "") {
     self.name = name
     dir = Directory(name: name)
 
@@ -61,7 +61,7 @@ public struct ModScheme {
     ///
     public init(name: String) {
 
-      self.root = "Modes/\(name)Mod"
+      self.root = "Mods/\(name)Mod"
     }
   }
 }
