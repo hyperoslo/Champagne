@@ -10,7 +10,7 @@ class BirdMod: Mod {
   }
 
   func draw(map: RouteCollection) {
-    map.resources("birds", only: [.index, .show]) {
+    map.resources("catalog", only: [.index, .show]) {
       self.controller(BirdController.self)
     }
   }
