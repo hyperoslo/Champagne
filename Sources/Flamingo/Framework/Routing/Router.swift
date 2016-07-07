@@ -52,7 +52,7 @@ public final class Router {
     - Returns: The route or nil if not found.
   */
   public func match(_ request: Request) -> Route? {
-    guard let path = request.path,
+    guard let path = request.uri.path,
       result = routes
         .map({ (route: $0, matcher: RouteMatcher($0.path)) })
         .filter({ $0.matcher.matches(path) }).first
