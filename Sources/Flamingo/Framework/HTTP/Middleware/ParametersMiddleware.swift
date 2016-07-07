@@ -59,23 +59,14 @@ public class ParametersMiddleware: Middleware {
       return request.method
     }
 
-    let method: Method
+    var resolvedMethod: Method
 
-    switch methodParameter.uppercased() {
-    case "HEAD":
-      method = .head
-    case "PATCH":
-      method = .patch
-    case "PUT":
-      method = .put
-    case "DELETE":
-      method = .delete
-    case "OPTIONS":
-      method = .options
-    default:
-      method = request.method
+    if let method = Method(rawValue: methodParameter) {
+      resolvedMethod = method
+    } else {
+      resolvedMethod = request.method
     }
 
-    return method
+    return resolvedMethod
   }
 }
