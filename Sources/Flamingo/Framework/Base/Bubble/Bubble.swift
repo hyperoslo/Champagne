@@ -1,3 +1,10 @@
+/**
+  A `Bubble` is your bundle/component that helps to organize the project
+  code and spit functionality into separate feature-based modules.
+
+  Bubbles used in your application must be returned by the `bubbles` computed
+  property of the `Kernel` implementation class.
+*/
 public protocol Bubble: class, ContainerAware, RouteMapper {
 
   /// Bubble configuration.
@@ -16,6 +23,7 @@ public protocol Bubble: class, ContainerAware, RouteMapper {
 
 public extension Bubble {
 
+  /// Bubble-specific middleware.
   var middleware: [Middleware] {
     return []
   }

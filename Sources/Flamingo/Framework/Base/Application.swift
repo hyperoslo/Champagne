@@ -27,12 +27,7 @@ public class Application {
   var running = false
 
   // Application middleware.
-  var middleware: [Middleware] = [
-    QueryParametersMiddleware(),
-    BodyParametersMiddleware(),
-    MethodMiddleware(),
-    ErrorMiddleware()
-  ]
+  var middleware = [Middleware]()
 
   /// Service mappers.
   var serviceMappers: [ServiceMapper] = [
@@ -68,6 +63,7 @@ public class Application {
 
     // Boot kernel
     kernel.addServices(to: container)
+    middleware = kernel.frameworkMiddleware
     middleware.append(contentsOf: kernel.middleware)
 
     // Mount bubbles

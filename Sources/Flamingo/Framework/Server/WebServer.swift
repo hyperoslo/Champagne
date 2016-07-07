@@ -3,7 +3,8 @@ import HTTPParser
 import HTTPSerializer
 
 /**
-  Default S4-compatible HTTP web server
+  Default S4-compatible HTTP web server.
+  Based on https://github.com/VeniceX/HTTPServer
 */
 public struct WebServer: Server {
   /// Server.

@@ -1,5 +1,8 @@
 import PathKit
 
+/**
+  Helper class to resolve assets path.
+*/
 public class AssetProvider {
 
   /// Project scheme.
@@ -8,12 +11,19 @@ public class AssetProvider {
   // MARK: - Initialization
 
   /**
+    Creates a new instance of `AssetProvider`.
+
+    Parameter config: Application config.
   */
   public init(config: Config) {
     self.config = config
   }
 
   /**
+    Resolves absolute path for the given relative asset path.
+
+    Parameter asset: Relative asset path.
+    Returns: Absolute asset path.
   */
   public func absolutePathFor(asset string: String) -> Path? {
     var path: Path?
@@ -35,6 +45,10 @@ public class AssetProvider {
   }
 
   /**
+    Resolves absolute path for the given relative web reqource path.
+
+    Parameter asset: Relative web resource path.
+    Returns: Absolute web resource path.
   */
   public func absolutePathFor(web string: String) -> Path? {
     var path: Path?
@@ -62,6 +76,10 @@ public class AssetProvider {
   }
 
   /**
+    Resolves a `BubbleScheme` based on the given route path.
+
+    Parameter string: Route path.
+    Returns: Resolved `BubbleScheme` if found.
   */
   func bubbleScheme(with string: String) -> BubbleScheme? {
     guard let name = string.split(separator: "/").first,

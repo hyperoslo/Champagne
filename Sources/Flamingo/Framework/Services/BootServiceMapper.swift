@@ -1,3 +1,6 @@
+/**
+  Registers services during application loading.
+*/
 struct BootServiceMapper: ServiceMapper {
 
   /**

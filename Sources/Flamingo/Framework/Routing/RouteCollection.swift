@@ -3,6 +3,7 @@
 */
 public class RouteCollection: RouteGetBuilding, RoutePostBuilding,
   RoutePutBuilding, RoutePatchBuilding, RouteDeleteBuilding, RouteOptionsBuilding {
+
   /// Root path.
   public let path: String
 

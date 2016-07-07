@@ -1,3 +1,9 @@
+/**
+  A `Bubble` is an entry point of your application used for basic setup and
+  configuration. Here you can enable bubbles, add global middleware and
+  register services in the container, etc.
+*/
+
 public protocol Kernel: class, ServiceMapper {
 
   /// Kernel configuration.
@@ -12,9 +18,20 @@ public protocol Kernel: class, ServiceMapper {
 
 extension Kernel {
 
+  /// Default bubbles.
   var frameworkBubbles: [Bubble.Type] {
     return [
       StencilBubble.self
+    ]
+  }
+
+  // Default middleware.
+  var frameworkMiddleware: [Middleware] {
+    return [
+      QueryParametersMiddleware(),
+      BodyParametersMiddleware(),
+      MethodMiddleware(),
+      ErrorMiddleware()
     ]
   }
 
@@ -24,7 +41,7 @@ extension Kernel {
   }
 
   /**
-   Registers services on application container.
+   Registers services in the application container.
 
    - Parameter container: Application container.
   */
