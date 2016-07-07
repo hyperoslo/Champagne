@@ -39,29 +39,3 @@ extension Request {
       : connection.lowercased().index(of: "close") != nil
   }
 }
-
-/**
-  Message extensions.
-*/
-public extension Message {
-
-  /// Converts body data to string.
-  var bodyString: String? {
-    var bufferBody = body
-    return try? bufferBody.becomeBuffer().description
-  }
-}
-
-extension Headers: CustomStringConvertible {
-
-  /// String representation
-  public var description: String {
-    var string = ""
-
-    headers.forEach {
-      string += "\($0): \($1)\n"
-    }
-
-    return string
-  }
-}
