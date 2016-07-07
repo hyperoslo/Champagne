@@ -13,7 +13,7 @@ extension Request {
     return uri.query
   }
 
-  /// URL parameters.
+  /// Request parameters.
   public var parameters: [String: String] {
     get {
       guard let parameters = storage["parameters"] as? [String: String] else {
@@ -24,21 +24,6 @@ extension Request {
     }
     set(parameters) {
       storage["parameters"] = parameters
-    }
-  }
-
-  /// Path parameters.
-  public var pathParameters: [String: String] {
-    get {
-      guard let parameters = storage["path-parameters"] as? [String: String] else {
-        return [:]
-      }
-
-      return parameters
-    }
-
-    set(pathParameters) {
-      storage["path-parameters"] = pathParameters
     }
   }
 

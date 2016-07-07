@@ -17,7 +17,7 @@ class BirdController: Controller, ResourceFactory {
   }
 
   func show(request: Request) throws -> Response {
-    guard let id = request.pathParameters["id"],
+    guard let id = request.parameters["id"],
       bird = birds.filter({ $0.id == id }).first
       else { return Response(status: .notFound) }
 

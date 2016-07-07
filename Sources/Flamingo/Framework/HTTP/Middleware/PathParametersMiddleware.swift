@@ -9,7 +9,7 @@ public struct PathParametersMiddleware: Middleware {
     var request = request
 
     parameters.forEach {
-      request.pathParameters[$0] = $1
+      request.parameters[$0] = $1
     }
 
     return try next.respond(to: request)
