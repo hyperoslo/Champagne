@@ -1,3 +1,7 @@
+/**
+	Global imports.
+*/
+
 #if os(Linux)
 	@_exported import Glibc
 #else

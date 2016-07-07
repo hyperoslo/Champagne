@@ -1,3 +1,4 @@
+/// Method extensions.
 public extension Method {
 
   /**

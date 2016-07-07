@@ -1,6 +1,6 @@
 import Flamingo
 
-class BirdController: Controller, ResourceFactory {
+class BirdController: Controller, ResourceResponseFactory {
 
   let birds: [Bird] = [
     Bird(id: "1", name: "Swift", family: "Apodidae"),

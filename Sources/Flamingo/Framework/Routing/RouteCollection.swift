@@ -177,7 +177,7 @@ extension RouteCollection {
 
   /**
     Creates standard Index, New, Show, Edit, Create, Destroy and Update routes
-    using the respond method from a supplied `ResourceFactory`.
+    using the respond method from a supplied `ResourceResponseFactory`.
 
     - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
@@ -185,11 +185,11 @@ extension RouteCollection {
     - Parameter except: Excluded CRUD actions.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  public func resources<T: ResourceFactory>(_ path: String,
-                                                 middleware: [Middleware] = [],
-                                                 only: [ResourceAction]? = nil,
-                                                 except: [ResourceAction]? = nil,
-                                                 factory: () -> T) {
+  public func resources<T: ResourceResponseFactory>(_ path: String,
+                                                middleware: [Middleware] = [],
+                                                      only: [ResourceAction]? = nil,
+                                                    except: [ResourceAction]? = nil,
+                                                   factory: () -> T) {
     var actions: [ResourceAction] = [
       .index, .new, .show, .edit,
       .create, .destroy, .update
@@ -210,17 +210,17 @@ extension RouteCollection {
 
   /**
     Creates standard Index, New, Show, Edit, Create, Destroy and Update routes
-    using the respond method from a supplied `ResourceFactory`.
+    using the respond method from a supplied `ResourceResponseFactory`.
 
     - Parameter action: Resource action.
     - Parameter path: Path associated with resource controller.
     - Parameter middleware: Route-specific middleware.
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
-  func addResourceAction<T: ResourceFactory>(_ action: ResourceAction,
-                                                  on path: String,
-                                                  middleware: [Middleware] = [],
-                                                  factory: () -> T) {
+  func addResourceAction<T: ResourceResponseFactory>(_ action: ResourceAction,
+                                                      on path: String,
+                                                   middleware: [Middleware] = [],
+                                                      factory: () -> T) {
     switch action {
     case .index:
       get(path, middleware: middleware, respond: factory().index)

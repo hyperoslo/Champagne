@@ -11,8 +11,8 @@ public class QueryParametersMiddleware: Middleware {
     - Parameter request: The request.
     - Parameter next: The next responser.
 
-    - Throws: `ErrorType` when response fails.
     - Returns: The response.
+    - Throws: `ErrorType` when response fails.
   */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
     guard request.method == Method.get else {

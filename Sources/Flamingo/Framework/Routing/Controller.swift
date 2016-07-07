@@ -1,7 +1,7 @@
 /**
   Main controller protocol every controller must conform to.
 */
-public class Controller: ResponseFactory {
+public class Controller: RenderResponseFactory {
 
   public let bubbleScheme: BubbleScheme
 
@@ -16,6 +16,12 @@ public class Controller: ResponseFactory {
 
   // MARK: - Initialization
 
+  /**
+    Creates a new instance of `Controller`.
+
+    - Parameter bubbleScheme: Bubble configuration.
+    - Parameter container: Application container.
+  */
   public required init(bubbleScheme: BubbleScheme, container: Container) {
     self.bubbleScheme = bubbleScheme
     self.container = container

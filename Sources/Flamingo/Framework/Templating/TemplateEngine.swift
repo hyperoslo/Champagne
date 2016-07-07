@@ -2,6 +2,10 @@
   A basic protocol for every template engine.
 */
 public protocol TemplateEngine {
+
+  /// Root path.
+  var root: String { get }
+
   /**
     Creates a new `Self` instance.
 

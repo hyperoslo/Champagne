@@ -1,5 +1,5 @@
 /**
-  Application configuration
+  Application configuration.
 */
 public class Config {
 
@@ -23,17 +23,26 @@ public class Config {
   /// Kernel scheme.
   var kernelScheme = KernelScheme(name: "App")
 
-  ///
+  /// Path to the public web directory.
   public var webDir: String {
     return absolutize(path: "Web")
   }
 
   /**
+    Creates a new `Config` instance.
+
+    - Parameter root: Application root directory.
   */
   public init(root: String = "/") {
     self.root = root
   }
 
+  /**
+    Builds absolute path based on the given relative path.
+
+    - Parameter path: Relative path.
+    - Returns: AAbsolute path.
+  */
   public func absolutize(path: String) -> String {
     return "\(root)/\(path)"
   }

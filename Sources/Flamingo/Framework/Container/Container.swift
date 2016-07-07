@@ -3,10 +3,7 @@
 */
 public class Container {
 
-  enum Error: ErrorProtocol {
-    case InvalidRegisteredType
-  }
-
+  /// Container key.
   struct Key {
     let type: Any.Type
     let tag: String?
@@ -19,16 +16,29 @@ public class Container {
 
   typealias Factory = () -> Any
 
-  private(set) var types = [Key: Any.Type]()
+  /// Dictionary of factories.
   private(set) var factories = [Key: Factory]()
 
   // MARK: - Register
 
+  /**
+    Registers an instance of the specified type, optionally with the given tag.
+
+    - Parameter tag: Service tag (name).
+    - Parameter factory: Factory that creates a new instance of the specified type.
+  */
   public func register<T: Any>(tag: String? = nil, factory: () -> T) {
     let key = Key(type: T.self, tag: tag)
     factories[key] = { factory($0) }
   }
 
+  /**
+    Registers an instance of the specified type, optionally with the given tag.
+
+    - Parameter serviceType: Service type.
+    - Parameter tag: Service tag (name).
+    - Parameter factory: Factory that creates a new instance of the specified type.
+  */
   public func register<T: Any>(_ serviceType: T.Type, tag: String? = nil, factory: () -> T) {
     let key = Key(type: serviceType, tag: tag)
     factories[key] = { factory($0) }
@@ -36,6 +46,14 @@ public class Container {
 
   // MARK: - Resolve
 
+  /**
+    Resolves an instance of the specified type.
+
+    - Parameter serviceType: Service type to resplve.
+    - Parameter tag: Service tag (name).
+
+    - Returns: An instance of the specified type if found.
+  */
   public func resolve<T: Any>(_ serviceType: T.Type, tag: String? = nil) -> T? {
     let key = Key(type: serviceType, tag: tag)
     return factories[key]?() as? T
@@ -46,6 +64,7 @@ public class Container {
 
 extension Container.Key: Hashable {
 
+  /// Hash value.
   var hashValue: Int {
     return String(type).hashValue ^ (tag?.hashValue ?? 0)
   }

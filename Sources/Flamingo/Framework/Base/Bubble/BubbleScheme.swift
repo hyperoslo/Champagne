@@ -15,8 +15,8 @@ public struct BubbleScheme {
   /**
     Creates a new instance of `BubbleScheme`.
 
-    Parameter name: Bubble name.
-    Parameter routePrefix: Route prefix, empty by default.
+    - Parameter name: Bubble name.
+    - Parameter routePrefix: Route prefix, empty by default.
   */
   public init(name: String, routePrefix: String = "") {
     self.name = name
@@ -64,7 +64,7 @@ public struct BubbleScheme {
     /**
       Creates a new instance of `Directory`.
 
-      Parameter name: Bubble name.
+      - Parameter name: Bubble name.
     */
     public init(name: String) {
 

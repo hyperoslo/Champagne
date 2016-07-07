@@ -1,7 +1,6 @@
 /**
-  Route extensions.
+  The storage of action responders.
 */
-
 public final class Route {
 
   /// Default route fallback

@@ -12,8 +12,8 @@ public class MethodMiddleware: Middleware {
     - Parameter request: The request.
     - Parameter next: The next responser.
 
-    - Throws: `ErrorType` when response fails.
     - Returns: The response.
+    - Throws: `ErrorType` when response fails.
   */
   public func respond(to request: Request, chainingTo next: Responder) throws -> Response {
     guard let value = request.parameters["_method"]

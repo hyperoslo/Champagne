@@ -16,7 +16,7 @@ public protocol Bubble: class, ContainerAware, RouteMapper {
   /**
     The place to register sevices in the application container.
 
-    Parameter kernel: Application kernel.
+    - Parameter kernel: Application kernel.
   */
   func mount(on kernel: Kernel)
 }

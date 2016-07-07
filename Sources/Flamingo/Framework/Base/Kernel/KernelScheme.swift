@@ -12,7 +12,7 @@ public struct KernelScheme {
   /**
     Creates a new instance of `KernelScheme`.
 
-    Parameter name: Kernel name.
+    - Parameter name: Kernel name.
   */
   public init(name: String) {
     self.name = name
@@ -40,7 +40,7 @@ public struct KernelScheme {
     /**
       Creates a new instance of `Directory`.
 
-      Parameter name: Kernel name.
+      - Parameter name: Kernel name.
     */
     public init(name: String) {
       self.root = name

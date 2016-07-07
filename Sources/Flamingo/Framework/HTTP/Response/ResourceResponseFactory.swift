@@ -1,7 +1,7 @@
 /**
-  Controller with a set of standard CRUD methods.
+  A set of standard CRUD methods.
 */
-public protocol ResourceFactory {
+public protocol ResourceResponseFactory {
 
   /**
     `GET /items`
@@ -83,7 +83,7 @@ public protocol ResourceFactory {
 
 // MARK: - Default implementations
 
-public extension ResourceFactory {
+public extension ResourceResponseFactory {
 
   /**
     `GET /items`
