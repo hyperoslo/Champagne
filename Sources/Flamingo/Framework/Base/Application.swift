@@ -28,7 +28,9 @@ public class Application {
 
   // Application middleware.
   var middleware: [Middleware] = [
-    ParametersMiddleware(),
+    QueryParametersMiddleware(),
+    BodyParametersMiddleware(),
+    MethodMiddleware(),
     ErrorMiddleware()
   ]
 
