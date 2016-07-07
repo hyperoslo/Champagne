@@ -1,6 +1,6 @@
 @testable import Flamingo
 
-class TestResourceController: Controller ResourceResponseFactory {
+class TestResourceController: Controller, ResourceResponseFactory {
 
   func index(request: Request) throws -> Response {
     return render(template: "index")

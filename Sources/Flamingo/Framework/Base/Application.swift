@@ -42,7 +42,7 @@ public class Application {
 
     - Throws: Initialization error.
   */
-  public init(kernel: Kernel, config: Config = Config()) throws {
+  public init(kernel: Kernel, config: Config = Config()) {
     self.kernel = kernel
     self.config = config
 

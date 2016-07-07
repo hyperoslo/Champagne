@@ -3,7 +3,7 @@ import Flamingo
 let kernel = AppKernel()
 
 do {
-  let application = try Application(
+  let application = Application(
     kernel: kernel,
     config: Config(root: "Sources/Demo")
   )
