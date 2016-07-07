@@ -2,9 +2,9 @@ import XCTest
 import PathKit
 @testable import Flamingo
 
-class ApplicationControllerTests: XCTestCase {
+class ControllerTests: XCTestCase {
 
-  static var allTests: [(String, (ApplicationControllerTests) -> () throws -> Void)] {
+  static var allTests: [(String, (ControllerTests) -> () throws -> Void)] {
     return [
       ("testRenderTemplate", testRenderTemplate),
       ("testRender", testRender),
@@ -15,7 +15,7 @@ class ApplicationControllerTests: XCTestCase {
     ]
   }
 
-  let controller = TestResourceController()
+  let resource = TestResource()
 
   override func setUp() {
     super.setUp()
@@ -26,7 +26,7 @@ class ApplicationControllerTests: XCTestCase {
 
   func testRenderTemplate() {
     let context: [String: Any] = ["title": "Flamingo"]
-    let response = controller.render(template: "index", context: context)
+    let response = resource.render(template: "index", context: context)
     let html = "<!DOCTYPE html>\n<title>Flamingo</title>\n"
 
     XCTAssertEqual(response.status, Status.ok)
@@ -44,7 +44,7 @@ class ApplicationControllerTests: XCTestCase {
       body: Data("")
     )
 
-    let response = try? controller.index(request: request)
+    let response = try? resource.index(request: request)
     let html = "<!DOCTYPE html>\n<title>Flamingo</title>\n"
 
     XCTAssertEqual(response?.status, Status.ok)
@@ -57,7 +57,7 @@ class ApplicationControllerTests: XCTestCase {
 
   func testRenderJson() {
     let context = JSON.object(["title": "Flamingo", "count": 1])
-    let response = controller.render(json: context)
+    let response = resource.render(json: context)
     let string = "{\"count\":1,\"title\":\"Flamingo\"}"
 
     XCTAssertEqual(response.status, Status.ok)
@@ -70,7 +70,7 @@ class ApplicationControllerTests: XCTestCase {
 
   func testRenderData() {
     let string = "string"
-    let response = controller.render(data: string, mime: .text)
+    let response = resource.render(data: string, mime: .text)
 
     XCTAssertEqual(response.status, Status.ok)
     XCTAssertEqual(response.bodyString, string)
@@ -92,9 +92,9 @@ class ApplicationControllerTests: XCTestCase {
 
     request.headers["Accept"] = MimeType.json.rawValue
 
-    let response = controller.respond(to: request, [
-      .html: { self.controller.render(template: "index") },
-      .json: { self.controller.render(json: context) }
+    let response = resource.respond(to: request, [
+      .html: { self.resource.render(template: "index") },
+      .json: { self.resource.render(json: context) }
     ])
 
     XCTAssertEqual(response.status, Status.ok)
@@ -106,7 +106,7 @@ class ApplicationControllerTests: XCTestCase {
   }
 
   func testRedirect() {
-    let response = controller.redirect(to: "index")
+    let response = resource.redirect(to: "index")
 
     XCTAssertEqual(response.status, Status.found)
     XCTAssertEqual(response.headers["Location"], "index")

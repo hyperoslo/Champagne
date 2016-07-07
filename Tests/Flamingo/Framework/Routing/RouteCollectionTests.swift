@@ -1,9 +1,9 @@
 import XCTest
 @testable import Flamingo
 
-class RouteContainerTests: XCTestCase, TestResponding {
+class RouteCollectionTests: XCTestCase, TestResponding {
 
-  static var allTests: [(String, (RouteContainerTests) -> () throws -> Void)] {
+  static var allTests: [(String, (RouteCollectionTests) -> () throws -> Void)] {
     return [
       ("testInit", testInit),
       ("testAdd", testAdd),
@@ -43,7 +43,7 @@ class RouteContainerTests: XCTestCase, TestResponding {
     Response(status: .notFound, body: Data(""))
   }
 
-  lazy var container: RouteContainer = RouteContainer(path: self.rootPath)
+  lazy var container: RouteCollection = RouteCollection(path: self.rootPath)
 
   override func setUp() {
     super.setUp()
@@ -210,7 +210,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   func testNamespaceWithController() {
     let namespace = "group"
 
-    container.namespace(namespace, controller: TestRoutingController.self)
+    container.namespace(namespace) {
+      return TestResource()
+    }
 
     XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)")?.path, "/\(namespace)")
     XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)/info")?.path, "/\(namespace)/info")
@@ -225,7 +227,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   func testResources() {
     let name = "resource"
 
-    container.resources(name, controller: TestResourceController.self)
+    container.resources(name) {
+      return TestResource()
+    }
 
     XCTAssertEqual(container.routes.count, 4)
     XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
@@ -241,7 +245,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   func testResourcesWithOnly() {
     let name = "resource"
 
-    container.resources(name, only: [.index, .show], controller: TestResourceController.self)
+    container.resources(name, only: [.index, .show]) {
+      return TestResource()
+    }
 
     XCTAssertEqual(container.routes.count, 2)
     XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
@@ -253,7 +259,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   func testResourcesWithExcept() {
     let name = "resource"
 
-    container.resources(name, except: [.index, .show], controller: TestResourceController.self)
+    container.resources(name, except: [.index, .show]) {
+      return TestResource()
+    }
 
     XCTAssertEqual(container.routes.count, 4)
     XCTAssertEqual(container.routeFor(relativePath: name)?.path, "/\(name)")
@@ -268,7 +276,7 @@ class RouteContainerTests: XCTestCase, TestResponding {
 
   func testAddResourceAction() {
     let name = "resource"
-    let factory = { return TestResourceController() }
+    let factory = { return TestResource() }
 
     container.addResourceAction(.index, on: name, factory: factory)
     XCTAssertEqual(container.routes.count, 1)
@@ -306,7 +314,9 @@ class RouteContainerTests: XCTestCase, TestResponding {
   }
 
   func testUse() {
-    container.use(controller: TestRoutingController.self)
+    container.use {
+      TestRouteMapper()
+    }
 
     XCTAssertEqual(container.routes.count, 2)
     XCTAssertEqual(container.routeFor(relativePath: "/")?.path, "/")

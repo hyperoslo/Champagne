@@ -1,10 +1,10 @@
 @testable import Flamingo
 
-class TestRoutingController: RoutingController {
+class TestRouteMapper: Routemapper {
 
   required init() {}
 
-  func draw(map: RouteContainer) {
+  func draw(map: RouteCollection) {
     map.root(respond: index)
     map.get("info", respond: info)
   }

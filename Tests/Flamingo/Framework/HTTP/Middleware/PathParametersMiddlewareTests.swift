@@ -32,7 +32,7 @@ class PathParametersMiddlewareTests: XCTestCase {
     )
 
     let responder: Responder = BasicResponder { request in
-      XCTAssertEqual(request.pathParameters, self.parameters)
+      XCTAssertEqual(request.parameters, self.parameters)
       return Response(status: .ok)
     }
 

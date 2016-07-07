@@ -6,7 +6,7 @@ class ApplicationTests: XCTestCase {
   static var allTests: [(String, (ApplicationTests) -> () throws -> Void)] {
     return [
       ("testMiddleware", testMiddleware),
-      ("testInit", testMiddleware)
+      ("testInit", testInit)
     ]
   }
 

@@ -7,8 +7,6 @@ class ResponseTests: XCTestCase {
     return [
       ("testInit", testInit),
       ("testInitWithHeaders", testInitWithHeaders),
-      ("testStatusCode", testStatusCode),
-      ("testReasonPhrase", testReasonPhrase),
       ("testStatusLine", testStatusLine),
       ("testDidUpgrade", testDidUpgrade),
       ("testBodyString", testBodyString),
@@ -34,7 +32,7 @@ class ResponseTests: XCTestCase {
 
   func testInit() {
     XCTAssertEqual(response.status, status)
-    XCTAssertEqual(response.headers["Server"], "Flamingo \(Application.version)")
+    XCTAssertEqual(response.headers["Server"], "Champagne \(Application.version)")
     XCTAssertEqual(response.headers["Content-Type"], "\(mime.rawValue); charset=utf8")
     XCTAssertEqual(response.bodyString, "test")
   }

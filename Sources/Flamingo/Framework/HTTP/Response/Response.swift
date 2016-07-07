@@ -47,7 +47,7 @@ extension Response {
   */
   public init(status: Status, headers: Headers = [:], body: DataConvertible) {
     var headers = headers
-    headers["Server"] = "Flamingo \(Application.version)"
+    headers["Server"] = "Champagne \(Application.version)"
     self.init(status: status, headers: headers, body: body.data)
   }
 }
