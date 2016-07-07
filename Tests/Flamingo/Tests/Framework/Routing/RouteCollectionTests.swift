@@ -211,7 +211,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let namespace = "group"
 
     container.namespace(namespace) {
-      return TestResource()
+      return ResourceController(container: Globals.application.container)
     }
 
     XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)")?.path, "/\(namespace)")
@@ -246,7 +246,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let name = "resource"
 
     container.resources(name, only: [.index, .show]) {
-      return TestResource()
+      return ResourceController(container: Globals.application.container)
     }
 
     XCTAssertEqual(container.routes.count, 2)
@@ -260,7 +260,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let name = "resource"
 
     container.resources(name, except: [.index, .show]) {
-      return TestResource()
+      return ResourceController(container: Globals.application.container)
     }
 
     XCTAssertEqual(container.routes.count, 4)
@@ -276,7 +276,9 @@ class RouteCollectionTests: XCTestCase, TestResponding {
 
   func testAddResourceAction() {
     let name = "resource"
-    let factory = { return TestResource() }
+    let factory = {
+      return ResourceController(container: Globals.application.container)
+    }
 
     container.addResourceAction(.index, on: name, factory: factory)
     XCTAssertEqual(container.routes.count, 1)
@@ -315,7 +317,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
 
   func testUse() {
     container.use {
-      TestRouteMapper()
+      MainController(container: Globals.application.container)
     }
 
     XCTAssertEqual(container.routes.count, 2)

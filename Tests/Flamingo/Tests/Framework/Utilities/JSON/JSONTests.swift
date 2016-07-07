@@ -64,7 +64,7 @@ class JSONTests: XCTestCase {
   }
 
   func testInitWithJson() {
-    let input = JSON("test")
+    let input = JSON.string("test")
 
     do {
       let json = try JSON(json: input)
@@ -81,7 +81,7 @@ class JSONTests: XCTestCase {
   }
 
   func testJson() {
-    let json = JSON("test")
+    let json = JSON.string("test")
     XCTAssertEqual(json.json, json)
   }
 }

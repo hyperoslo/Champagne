@@ -1,11 +1,9 @@
 @testable import Flamingo
 
-class TestResource: ResourceResponseFactory {
-
-  init() {}
+class TestResourceController: Controller ResourceResponseFactory {
 
   func index(request: Request) throws -> Response {
-    return render(context: ["title": "Champagne"])
+    return render(template: "index")
   }
 
   func show(request: Request) throws -> Response {

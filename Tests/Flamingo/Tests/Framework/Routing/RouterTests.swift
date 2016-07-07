@@ -39,54 +39,54 @@ class RouterTests: XCTestCase, TestResponding {
   func testInit() {
     XCTAssertEqual(router.path, rootPath)
     XCTAssertEqual(router.middleware.count, 2)
-    XCTAssertEqual(router.container.path, rootPath)
-    XCTAssertTrue(router.container.routes.isEmpty)
+    XCTAssertEqual(router.collection.path, rootPath)
+    XCTAssertTrue(router.collection.routes.isEmpty)
   }
 
   func testDraw() {
-    router.container.get("index", responder: responder)
-    XCTAssertEqual(router.container.routes.count, 1)
+    router.collection.get("index", responder: responder)
+    XCTAssertEqual(router.collection.routes.count, 1)
 
     router.draw { map in
-      XCTAssertTrue(self.router.container.routes.isEmpty)
+      XCTAssertTrue(self.router.collection.routes.isEmpty)
 
       map.get("test", responder: self.responder)
       map.post("test", responder: self.responder)
       map.fallback(responder: self.failResponder)
     }
 
-    XCTAssertEqual(router.container.routeFor(relativePath: "test")?.path, "/test")
-    XCTAssertEqual(router.container.routes.count, 2)
-    XCTAssertEqual(router.container.routes.first?.actions.count, 2)
-    XCTAssertEqual(router.container.routes.last?.actions.count, 0)
+    XCTAssertEqual(router.collection.routeFor(relativePath: "test")?.path, "/test")
+    XCTAssertEqual(router.collection.routes.count, 2)
+    XCTAssertEqual(router.collection.routes.first?.actions.count, 2)
+    XCTAssertEqual(router.collection.routes.last?.actions.count, 0)
 
-    respond(to: router.container.routes.first?.actions[.get], with: .ok)
-    respond(to: router.container.routes.first?.actions[.post], with: .ok)
-    respond(to: router.container.routes.last?.fallback, with: .notFound)
+    respond(to: router.collection.routes.first?.actions[.get], with: .ok)
+    respond(to: router.collection.routes.first?.actions[.post], with: .ok)
+    respond(to: router.collection.routes.last?.fallback, with: .notFound)
   }
 
   func testCompose() {
-    router.container.get("index", responder: responder)
-    XCTAssertEqual(router.container.routes.count, 1)
+    router.collection.get("index", responder: responder)
+    XCTAssertEqual(router.collection.routes.count, 1)
 
     router.compose { map in
-      XCTAssertFalse(self.router.container.routes.isEmpty)
+      XCTAssertFalse(self.router.collection.routes.isEmpty)
 
       map.get("test", responder: self.responder)
       map.post("test", responder: self.responder)
       map.fallback(responder: self.failResponder)
     }
 
-    XCTAssertEqual(router.container.routeFor(relativePath: "test")?.path, "/test")
-    XCTAssertEqual(router.container.routes.count, 3)
-    XCTAssertEqual(router.container.routes.first?.actions.count, 1)
-    XCTAssertEqual(router.container.routes[1].actions.count, 2)
-    XCTAssertEqual(router.container.routes.last?.actions.count, 0)
+    XCTAssertEqual(router.collection.routeFor(relativePath: "test")?.path, "/test")
+    XCTAssertEqual(router.collection.routes.count, 3)
+    XCTAssertEqual(router.collection.routes.first?.actions.count, 1)
+    XCTAssertEqual(router.collection.routes[1].actions.count, 2)
+    XCTAssertEqual(router.collection.routes.last?.actions.count, 0)
 
-    respond(to: router.container.routes.first?.actions[.get], with: .ok)
-    respond(to: router.container.routes[1].actions[.get], with: .ok)
-    respond(to: router.container.routes[1].actions[.post], with: .ok)
-    respond(to: router.container.routes.last?.fallback, with: .notFound)
+    respond(to: router.collection.routes.first?.actions[.get], with: .ok)
+    respond(to: router.collection.routes[1].actions[.get], with: .ok)
+    respond(to: router.collection.routes[1].actions[.post], with: .ok)
+    respond(to: router.collection.routes.last?.fallback, with: .notFound)
   }
 
   func testMatch() {

@@ -14,11 +14,11 @@ class FileResponderTests: XCTestCase {
     ]
   }
 
-  let responder = FileResponder()
+  let responder = FileResponder!
 
   override func setUp() {
     super.setUp()
-    Config.publicDirectory = (Path(#file).parent().parent() + "Fixtures").description
+    responder = FileResponder(assetProvider: AssetProvider(config: Globals.config))
   }
 
   // MARK: - Tests
