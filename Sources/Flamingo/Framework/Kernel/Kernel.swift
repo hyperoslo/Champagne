@@ -35,6 +35,13 @@ extension Kernel {
     ]
   }
 
+  /// Application service mappers.
+  var serviceMappers: [ServiceMapper] {
+    return [
+      BootServiceMapper()
+    ]
+  }
+
   /// Application-specific middleware.
   public var middleware: [Middleware] {
     return []

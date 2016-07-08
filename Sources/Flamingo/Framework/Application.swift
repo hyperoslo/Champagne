@@ -26,14 +26,6 @@ public class Application {
   /// Flag that indicates if server is running.
   var running = false
 
-  // Application middleware.
-  var middleware = [Middleware]()
-
-  /// Service mappers.
-  var serviceMappers: [ServiceMapper] = [
-    BootServiceMapper()
-  ]
-
   /**
     Creates a new instance of `Application`.
 
@@ -57,13 +49,13 @@ public class Application {
 
     container.register { config }
 
-    for serviceMapper in serviceMappers {
+    for serviceMapper in kernel.serviceMappers {
       serviceMapper.addServices(to: container)
     }
 
     // Boot kernel
     kernel.addServices(to: container)
-    middleware = kernel.frameworkMiddleware
+    var middleware = kernel.frameworkMiddleware
     middleware.append(contentsOf: kernel.middleware)
 
     // Mount bubbles

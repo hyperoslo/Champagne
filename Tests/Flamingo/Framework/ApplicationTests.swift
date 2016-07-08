@@ -19,10 +19,5 @@ class ApplicationTests: XCTestCase {
   // MARK: - Tests
 
   func testInit() {
-    XCTAssertEqual(application.middleware.count, 4)
-    XCTAssertTrue(application.middleware[0] is QueryParametersMiddleware)
-    XCTAssertTrue(application.middleware[1] is BodyParametersMiddleware)
-    XCTAssertTrue(application.middleware[2] is MethodMiddleware)
-    XCTAssertTrue(application.middleware[3] is ErrorMiddleware)
   }
 }

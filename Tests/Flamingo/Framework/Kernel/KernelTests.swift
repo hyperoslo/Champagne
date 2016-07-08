@@ -30,4 +30,9 @@ class KernelTests: XCTestCase {
     XCTAssertTrue(kernel.frameworkMiddleware[2] is MethodMiddleware)
     XCTAssertTrue(kernel.frameworkMiddleware[3] is ErrorMiddleware)
   }
+
+  func testService() {
+    XCTAssertEqual(kernel.serviceMappers.count, 1)
+    XCTAssertTrue(kernel.serviceMappers[0] is BootServiceMapper)
+  }
 }
