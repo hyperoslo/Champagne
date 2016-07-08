@@ -6,11 +6,12 @@ class ControllerTests: XCTestCase {
 
   static var allTests: [(String, (ControllerTests) -> () throws -> Void)] {
     return [
+      ("testInit", testInit),
       ("testRender", testRender),
     ]
   }
 
-  var resource: ResourceController!
+  var controller: ResourceController!
   let application = Globals.application
 
   var bubble: Bubble {
@@ -19,10 +20,14 @@ class ControllerTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    resource = bubble.controller(ResourceController.self)
+    controller = bubble.controller(ResourceController.self)
   }
 
   // MARK: - Tests
+
+  func testInit() {
+    XCTAssertEqual(controller.templatePrefix, controller.bubbleScheme.dir.views)
+  }
 
   func testRender() {
     let request = Request(
@@ -31,7 +36,7 @@ class ControllerTests: XCTestCase {
       body: Data("")
     )
 
-    let response = try? resource.index(request: request)
+    let response = try? controller.index(request: request)
     let html = "<!DOCTYPE html>\n<title>Champagne</title>\n"
 
     XCTAssertEqual(response?.status, Status.ok)

@@ -27,14 +27,15 @@ public class AssetProvider {
   */
   public func absolutePathFor(asset string: String) -> Path? {
     var path: Path?
-    let kernalPath = Path(config.kernelScheme.dir.assets + "/" + string)
+    let kernalPath = Path(
+      config.absolutize(path: config.kernelScheme.dir.assets + "/" + string))
 
     if kernalPath.exists {
       path = kernalPath
     }
 
-    if let scheme = bubbleScheme(with: string) {
-      let bubblePath = Path(scheme.dir.assets + "/" + string)
+    for scheme in bubbleSchemes(with: string) {
+      let bubblePath = Path(config.absolutize(path: scheme.dir.assets + "/" + string))
 
       if bubblePath.exists {
         path = bubblePath
@@ -58,14 +59,15 @@ public class AssetProvider {
       path = webPath
     }
 
-    let kernalPath = Path(config.kernelScheme.dir.web + "/" + string)
+    let kernalPath = Path(
+      config.absolutize(path: config.kernelScheme.dir.web + "/" + string))
 
     if kernalPath.exists {
       path = kernalPath
     }
 
-    if let scheme = bubbleScheme(with: string) {
-      let bubblePath = Path(scheme.dir.web + "/" + string)
+    for scheme in bubbleSchemes(with: string) {
+      let bubblePath = Path(config.absolutize(path: scheme.dir.web + "/" + string))
 
       if bubblePath.exists {
         path = bubblePath
@@ -81,11 +83,15 @@ public class AssetProvider {
     Parameter string: Route path.
     Returns: Resolved `BubbleScheme` if found.
   */
-  func bubbleScheme(with string: String) -> BubbleScheme? {
-    guard let name = string.split(separator: "/").first,
-      scheme = config.bubbleSchemes.filter({ $0.routePrefix == name }).first
-      else { return nil }
+  func bubbleSchemes(with string: String) -> [BubbleScheme] {
+    guard var name = string.split(separator: "/").first else {
+      return []
+    }
 
-    return scheme
+    if name == string {
+      name = ""
+    }
+
+    return config.bubbleSchemes.filter({ $0.routePrefix == name })
   }
 }

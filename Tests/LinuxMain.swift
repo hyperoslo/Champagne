@@ -43,7 +43,6 @@ XCTMain([
   // HTTP/Response
   testCase(FileResponderTests.allTests),
   testCase(RenderResponseFactoryTests.allTests),
-  testCase(ResourceResponseFactoryTests.allTests),
   testCase(ResponseTests.allTests),
   testCase(StatusErrorTests.allTests),
 
