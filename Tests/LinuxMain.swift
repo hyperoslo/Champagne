@@ -1,7 +1,7 @@
 #if os(Linux)
 
 import XCTest
-@testable import FlamingoTestSuite
+@testable import ChampagneTestSuite
 
 XCTMain([
   // MARK: - StencilBubble
