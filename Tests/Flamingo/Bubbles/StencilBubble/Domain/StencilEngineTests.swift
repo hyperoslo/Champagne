@@ -28,9 +28,17 @@ class StencilEngineTests: XCTestCase {
   }
 
   func testRenderWhenTemplateExists() {
-    // let response = try! engine.render(template: "index", context: context)
-    // let html = "<!DOCTYPE html>\n<title>Champagne</title>\n"
-    //
-    // XCTAssertEqual(response, html)
+    do {
+      let response = try engine.render(
+        template: "Bubbles/AppBubble/Assets/Views/index",
+        context: context
+      )
+      
+      let html = "<!DOCTYPE html>\n<title>Champagne</title>\n"
+
+      XCTAssertEqual(response, html)
+    } catch {
+      XCTFail("StencilEngine throws an error.")
+    }
   }
 }
