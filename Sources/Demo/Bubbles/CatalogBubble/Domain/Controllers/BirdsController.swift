@@ -1,10 +1,10 @@
 import Champagne
 
-class BirdController: Controller, ResourceResponseFactory {
+class BirdsController: Controller, ResourceResponseFactory {
 
   let birds: [Bird] = [
     Bird(id: "1", name: "Swift", family: "Apodidae"),
-    Bird(id: "2", name: "Champagne", family: "Phoenicopteridae")
+    Bird(id: "2", name: "Flamingo", family: "Phoenicopteridae")
   ]
 
   func index(request: Request) throws -> Response {

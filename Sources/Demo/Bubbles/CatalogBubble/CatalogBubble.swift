@@ -11,7 +11,7 @@ class CatalogBubble: Bubble {
 
   func draw(map: RouteCollection) {
     map.resources("birds", only: [.index, .show]) {
-      self.controller(BirdController.self)
+      self.controller(BirdsController.self)
     }
   }
 }
