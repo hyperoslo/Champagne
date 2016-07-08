@@ -1,4 +1,4 @@
-![Champagne](https://github.com/hyperoslo/Champagne/blob/master/Resources/ChampagneCover.png)
+![Champagne](https://github.com/hyperoslo/Champagne/blob/master/Art/ChampagneCover.png)
 
 The Champagne Web Framework.
 
