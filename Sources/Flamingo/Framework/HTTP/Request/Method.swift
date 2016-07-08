@@ -6,14 +6,14 @@ public extension Method {
   */
   init?(rawValue: String) {
     switch rawValue.uppercased() {
-    case "HEAD":
-      self = .head
     case "PATCH":
       self = .patch
     case "PUT":
       self = .put
     case "DELETE":
       self = .delete
+    case "HEAD":
+      self = .head
     case "OPTIONS":
       self = .options
     default:
