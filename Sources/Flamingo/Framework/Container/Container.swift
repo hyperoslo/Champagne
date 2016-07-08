@@ -72,6 +72,6 @@ extension Container.Key: Hashable {
 
 // MARK: - Equatable
 
-func ==(lhs: Container.Key, rhs: Container.Key) -> Bool {
+func == (lhs: Container.Key, rhs: Container.Key) -> Bool {
   return lhs.type == rhs.type && lhs.tag == rhs.tag
 }

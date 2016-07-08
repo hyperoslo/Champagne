@@ -3,6 +3,8 @@ public extension Method {
 
   /**
     Creates a new `Method` from the raw value string.
+
+    - Parameter rawValue: String raw value.
   */
   init?(rawValue: String) {
     switch rawValue.uppercased() {

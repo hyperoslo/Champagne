@@ -25,7 +25,7 @@ public final class Router {
 
     - Parameter collection: Route collection.
     - Parameter fallback: Router fallback.
-    - Parameter container: Router middleware.
+    - Parameter middleware: Router middleware.
   */
   public init(collection: RouteCollection,
                 fallback: Responder,

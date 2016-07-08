@@ -33,7 +33,7 @@ class StencilEngineTests: XCTestCase {
         template: "Bubbles/AppBubble/Assets/Views/index",
         context: context
       )
-      
+
       let html = "<!DOCTYPE html>\n<title>Champagne</title>\n"
 
       XCTAssertEqual(response, html)

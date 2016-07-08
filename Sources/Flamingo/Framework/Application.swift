@@ -31,8 +31,6 @@ public class Application {
 
     - Parameter kernel: Application kernel.
     - Parameter config: Application config.
-
-    - Throws: Initialization error.
   */
   public init(kernel: Kernel, config: Config = Config()) {
     self.kernel = kernel

@@ -12,6 +12,8 @@ public struct StencilEngine: TemplateEngine {
 
   /**
     Creates a new view renderer instance.
+
+    - Parameter root: Root path.
   */
   public init(root: String) {
     self.root = root

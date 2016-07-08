@@ -30,6 +30,8 @@ public extension Bubble {
 
   /**
     The place to register sevices in the application container.
+
+    - Parameter kernel: Application kernel.
   */
   func mount(on kernel: Kernel) {}
 
