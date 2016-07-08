@@ -1,7 +1,5 @@
 ![Champagne](https://github.com/hyperoslo/Champagne/blob/master/Art/ChampagneCover.png)
 
-The Champagne Web Framework.
-
 [![CI Status](http://img.shields.io/travis/hyperoslo/Champagne.svg?style=flat)](https://travis-ci.org/hyperoslo/Champagne)
 ![Linux](https://img.shields.io/badge/os-linux-green.svg?style=flat)
 ![Mac OS X](https://img.shields.io/badge/os-Mac%20OS%20X-green.svg?style=flat)
