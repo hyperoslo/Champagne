@@ -48,12 +48,9 @@ class RouterTests: XCTestCase, TestResponding {
   }
 
   func testDraw() {
-    router.collection.get("index", responder: responder)
-    XCTAssertEqual(router.collection.routes.count, 1)
-
     router.draw { map in
       XCTAssertTrue(self.router.collection.routes.isEmpty)
-    
+
       map.get("test", responder: self.responder)
       map.post("test", responder: self.responder)
       map.fallback(responder: self.failResponder)
