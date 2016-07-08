@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+	<div class="wrapper">
+		<section id="content">
+			<a class="logo" href="http://hyper.no">
+				<img class="logo" src="images/logo.svg"/>
+			</a>
+			<h1>Champagne</h1>
+		</section>
+	</div>
+
+	<footer class="main">
+		<p>Powered by <a href="https://swift.org/">Swift</a>. Built by <a href="http://hyper.no">Hyper Interaktiv AS</a>.</p>
+	</footer>
+</body>
+</html>

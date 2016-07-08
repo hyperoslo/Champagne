@@ -1,19 +1,16 @@
 import PackageDescription
 
 let package = Package(
-  name: "Flamingo",
+  name: "Champagne",
   targets: [
     Target(
-      name: "Development",
+      name: "Demo",
       dependencies: [
-        .Target(name: "Flamingo")
+        .Target(name: "Champagne")
       ]
     ),
     Target(
-      name: "Flamingo",
-      dependencies: [
-        .Target(name: "libc")
-      ]
+      name: "Champagne"
     ),
   ],
   dependencies: [

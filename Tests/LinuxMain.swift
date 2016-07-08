@@ -1,29 +1,70 @@
 #if os(Linux)
 
 import XCTest
-@testable import FlamingoTestSuite
+@testable import ChampagneTestSuite
 
 XCTMain([
-  testCase(ApplicationControllerTests.allTests),
+  // MARK: - StencilBubble
+  testCase(StencilEngineTests.allTests),
+  testCase(StencilBubbleTests.allTests),
+
+  // MARK: - Framework
+
   testCase(ApplicationTests.allTests),
+
+  // Bubble
+  testCase(BubbleSchemeTests.allTests),
+
+  // Config
+  testCase(ConfigTests.allTests),
   testCase(EnvironmentTests.allTests),
-  testCase(StatusErrorTests.allTests),
-  testCase(JSONTests.allTests),
+  testCase(EnvTests.allTests),
+
+  // Container
+  testCase(ContainerTests.allTests),
+
+  // HTTP/Middleware
+  testCase(BodyParametersMiddlewareTests.allTests),
   testCase(ErrorMiddlewareTests.allTests),
-  testCase(ParametersMiddlewareTests.allTests),
+  testCase(MethodMiddlewareTests.allTests),
   testCase(PathParametersMiddlewareTests.allTests),
+  testCase(QueryParametersMiddlewareTests.allTests),
+
+  // HTTP/Request
+  testCase(MethodTests.allTests),
+  testCase(QueryParameterParserTests.allTests),
   testCase(RequestTests.allTests),
-  testCase(MimeTypeTests.allTests),
+
+  // Kernel
+  testCase(KernelSchemeTests.allTests),
+  testCase(KernelTests.allTests),
+
+  // HTTP/Response
   testCase(FileResponderTests.allTests),
+  testCase(RenderResponseFactoryTests.allTests),
   testCase(ResponseTests.allTests),
+  testCase(StatusErrorTests.allTests),
+
+  // HTTP
+  testCase(HeadersTests.allTests),
+  testCase(MessageTests.allTests),
+  testCase(MimeTypeTests.allTests),
+
+  // Routing
+  testCase(ControllerTests.allTests),
   testCase(RouteBuildingTests.allTests),
-  testCase(RouteContainerTests.allTests),
+  testCase(RouteCollectionTests.allTests),
   testCase(RouteMatcherTests.allTests),
   testCase(RouterTests.allTests),
   testCase(RouteTests.allTests),
+
+  // Services
+  testCase(AssetProviderTests.allTests),
+  testCase(BootServiceMapperTests.allTests),
+
+  // Utilities
   testCase(DictionaryExtensionsTests.allTests),
-  testCase(EnvTests.allTests),
-  testCase(StencilRendererTests.allTests)
+  testCase(JSONTests.allTests),
 ])
 
 #endif
