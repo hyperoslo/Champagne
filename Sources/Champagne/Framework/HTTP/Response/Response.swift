@@ -31,7 +31,6 @@ extension Response {
   */
   init(status: Status, mime: MimeType, body: DataRepresentable) {
     let headers: Headers = [
-      "Server": "Champagne \(Application.version)",
       "Content-Type": "\(mime.rawValue); charset=utf8"
     ]
 
@@ -46,8 +45,6 @@ extension Response {
     - Parameter body: Body data.
   */
   public init(status: Status, headers: Headers = [:], body: DataConvertible) {
-    var headers = headers
-    headers["Server"] = "Champagne \(Application.version)"
     self.init(status: status, headers: headers, body: body.data)
   }
 }
