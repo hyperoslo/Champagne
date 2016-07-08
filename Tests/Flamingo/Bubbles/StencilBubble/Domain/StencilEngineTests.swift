@@ -24,7 +24,7 @@ class StencilEngineTests: XCTestCase {
   // MARK: - Tests
 
   func testInit() {
-    XCTAssertEqual(engine.root, "/")
+    XCTAssertEqual(engine.root, application.config.root)
   }
 
   func testRenderWhenTemplateExists() {

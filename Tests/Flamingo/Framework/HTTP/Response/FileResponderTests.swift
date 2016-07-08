@@ -7,7 +7,6 @@ class FileResponderTests: XCTestCase {
   static var allTests: [(String, (FileResponderTests) -> () throws -> Void)] {
     return [
       ("testRespondToRoot", testRespondToRoot),
-      ("testRespondWhenPublicPathIsNotDirectory", testRespondWhenPublicPathIsNotDirectory),
       ("testRespondWhenPublicPathNotExist", testRespondWhenPublicPathNotExist),
       ("testRespondWhenFileNotExist", testRespondWhenFileNotExist),
       ("testRespondWhenFileExists", testRespondWhenFileExists)
@@ -15,17 +14,24 @@ class FileResponderTests: XCTestCase {
   }
 
   var responder: FileResponder!
-  let application = Globals.application
+
 
   override func setUp() {
     super.setUp()
-    let assetProvider = AssetProvider(config: application.config)
+    resetPath()
+  }
+
+  func resetPath(_ path: String = Globals.root) {
+    let config = Config(root: path)
+    let assetProvider = AssetProvider(config: config)
     responder = FileResponder(assetProvider: assetProvider)
   }
 
   // MARK: - Tests
 
   func testRespondToRoot() {
+    resetPath()
+
     let request = Request(
       method: Method.get,
       uri: URI(path: "/")
@@ -39,21 +45,9 @@ class FileResponderTests: XCTestCase {
     }
   }
 
-  func testRespondWhenPublicPathIsNotDirectory() {
-    let request = Request(
-      method: Method.get,
-      uri: URI(path: "/file.txt")
-    )
-
-    do {
-      try responder.respond(to: request)
-      XCTFail("FileResponder does not throw an error.")
-    } catch {
-      XCTAssertEqual((error as? StatusError)?.status, Status.notFound)
-    }
-  }
-
   func testRespondWhenPublicPathNotExist() {
+    resetPath(Globals.root + "/Apps")
+
     let request = Request(
       method: Method.get,
       uri: URI(path: "/file.txt")
@@ -68,6 +62,8 @@ class FileResponderTests: XCTestCase {
   }
 
   func testRespondWhenFileNotExist() {
+    resetPath()
+
     let request = Request(
       method: Method.get,
       uri: URI(path: "/test.js")
@@ -82,6 +78,8 @@ class FileResponderTests: XCTestCase {
   }
 
   func testRespondWhenFileExists() {
+    resetPath()
+
     let request = Request(
       method: Method.get,
       uri: URI(path: "/file.txt")

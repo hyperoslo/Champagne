@@ -15,7 +15,7 @@ class HeadersTests: XCTestCase {
     super.setUp()
 
     headers = [
-      "Server": "Flamingo \(Application.version)",
+      "Server": "Champagne \(Application.version)",
       "Content-Type": "application/json"
     ]
   }
@@ -23,7 +23,7 @@ class HeadersTests: XCTestCase {
   // MARK: - Tests
 
   func testDescription() {
-    let result = "Server: Flamingo \(Application.version)\nContent-Type: application/json"
+    let result = "Server: Champagne \(Application.version)\nContent-Type: application/json\n"
     XCTAssertEqual(headers.description, result)
   }
 }

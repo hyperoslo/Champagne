@@ -46,7 +46,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
   let application = Globals.application
 
   var bubble: Bubble {
-    return application.bubbles.first!
+    return application.bubbles[1]
   }
 
   lazy var container: RouteCollection = RouteCollection(path: self.rootPath)

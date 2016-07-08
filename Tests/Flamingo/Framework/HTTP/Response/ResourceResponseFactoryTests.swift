@@ -1,9 +1,9 @@
 import XCTest
 @testable import Flamingo
 
-class ResourceResponseFactoryTests0: XCTestCase {
+class ResourceResponseFactoryTests: XCTestCase {
 
-  static var allTests: [(String, (ResourceResponseFactoryTests0) -> () throws -> Void)] {
+  static var allTests: [(String, (ResourceResponseFactoryTests) -> () throws -> Void)] {
     return [
       ("testInit", testInit)
     ]

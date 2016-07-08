@@ -3,7 +3,7 @@
 class ResourceController: Controller, ResourceResponseFactory {
 
   func index(request: Request) throws -> Response {
-    return render(template: "index")
+    return render(context: ["title": "Champagne"])
   }
 
   func show(request: Request) throws -> Response {

@@ -34,11 +34,13 @@ class MethodMiddlewareTests: XCTestCase {
   }
 
   func testRespondToPostRequest() {
-    let request = Request(
+    var request = Request(
       method: Method.post,
       uri: URI(path: "/"),
       body: Data("_method=put")
     )
+
+    request.parameters["_method"] = "put"
 
     let responder: Responder = BasicResponder { request in
       XCTAssertEqual(request.method, Method.put)

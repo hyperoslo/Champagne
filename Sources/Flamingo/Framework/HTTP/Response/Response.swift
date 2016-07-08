@@ -31,7 +31,7 @@ extension Response {
   */
   init(status: Status, mime: MimeType, body: DataRepresentable) {
     let headers: Headers = [
-      "Server": "Flamingo \(Application.version)",
+      "Server": "Champagne \(Application.version)",
       "Content-Type": "\(mime.rawValue); charset=utf8"
     ]
 

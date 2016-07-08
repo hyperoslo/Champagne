@@ -27,12 +27,12 @@ class RouterTests: XCTestCase, TestResponding {
   }
 
   let collection = RouteCollection(path: "")
-  let container = Container()
+  let application = Globals.application
   var fallback: Responder!
 
   override func setUp() {
     super.setUp()
-    fallback = FallbackResponder(container: container)
+    fallback = FallbackResponder(container: application.container)
     router = Router(
       collection: collection,
       fallback: fallback,
