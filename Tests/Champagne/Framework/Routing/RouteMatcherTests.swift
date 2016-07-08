@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 class RouteMatcherTests: XCTestCase {
 

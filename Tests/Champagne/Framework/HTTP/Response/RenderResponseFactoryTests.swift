@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 class RenderResponseFactoryTests: XCTestCase {
 
@@ -28,9 +28,9 @@ class RenderResponseFactoryTests: XCTestCase {
   // MARK: - Tests
 
   func testRenderTemplate() {
-    let context: [String: Any] = ["title": "Flamingo"]
+    let context: [String: Any] = ["title": "Champagne"]
     let response = factory.render(template: "index", context: context)
-    let html = "<!DOCTYPE html>\n<title>Flamingo</title>\n"
+    let html = "<!DOCTYPE html>\n<title>Champagne</title>\n"
 
     XCTAssertEqual(response.status, Status.ok)
     XCTAssertEqual(response.bodyString, html)
@@ -41,9 +41,9 @@ class RenderResponseFactoryTests: XCTestCase {
   }
 
   func testRenderJson() {
-    let context = JSON.object(["title": "Flamingo", "count": 1])
+    let context = JSON.object(["title": "Champagne", "count": 1])
     let response = factory.render(json: context)
-    let string = "{\"count\":1,\"title\":\"Flamingo\"}"
+    let string = "{\"count\":1,\"title\":\"Champagne\"}"
 
     XCTAssertEqual(response.status, Status.ok)
     XCTAssertEqual(response.bodyString, string)
@@ -72,8 +72,8 @@ class RenderResponseFactoryTests: XCTestCase {
       body: Data("")
     )
 
-    let context = JSON.object(["title": "Flamingo", "count": 1])
-    let string = "{\"count\":1,\"title\":\"Flamingo\"}"
+    let context = JSON.object(["title": "Champagne", "count": 1])
+    let string = "{\"count\":1,\"title\":\"Champagne\"}"
 
     request.headers["Accept"] = MimeType.json.rawValue
 

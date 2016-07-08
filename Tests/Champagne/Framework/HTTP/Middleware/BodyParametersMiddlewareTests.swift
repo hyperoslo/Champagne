@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 class BodyParametersMiddlewareTests: XCTestCase {
 
@@ -37,13 +37,13 @@ class BodyParametersMiddlewareTests: XCTestCase {
     let request = Request(
       method: Method.post,
       uri: URI(path: "/"),
-      body: Data("theme=dark&bird=flamingo")
+      body: Data("theme=dark&bird=Champagne")
     )
 
     let responder: Responder = BasicResponder { request in
       XCTAssertEqual(request.parameters.count, 2)
       XCTAssertEqual(request.parameters["theme"], "dark")
-      XCTAssertEqual(request.parameters["bird"], "flamingo")
+      XCTAssertEqual(request.parameters["bird"], "Champagne")
 
       return Response(status: .ok)
     }

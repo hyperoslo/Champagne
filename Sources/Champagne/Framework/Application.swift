@@ -1,7 +1,7 @@
 import Foundation
 
 /**
-  Flamingo application.
+  Champagne application.
 */
 public class Application {
 

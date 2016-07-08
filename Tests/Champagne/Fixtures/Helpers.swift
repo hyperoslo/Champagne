@@ -1,5 +1,5 @@
 import PathKit
-@testable import Flamingo
+@testable import Champagne
 
 struct TestError: ErrorProtocol {}
 

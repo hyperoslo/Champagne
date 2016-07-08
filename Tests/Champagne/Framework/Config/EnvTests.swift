@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 class EnvTests: XCTestCase {
 
@@ -11,7 +11,7 @@ class EnvTests: XCTestCase {
     ]
   }
 
-  let key = "FLAMINGO_ENV"
+  let key = "Champagne_ENV"
 
   override func setUp() {
     super.setUp()

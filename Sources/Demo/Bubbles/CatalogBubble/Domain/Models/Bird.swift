@@ -1,4 +1,4 @@
-import Flamingo
+import Champagne
 
 struct Bird {
   let id: String

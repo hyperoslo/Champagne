@@ -1,6 +1,6 @@
 import XCTest
 import PathKit
-@testable import Flamingo
+@testable import Champagne
 
 class ControllerTests: XCTestCase {
 

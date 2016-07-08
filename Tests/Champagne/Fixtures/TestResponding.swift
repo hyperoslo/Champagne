@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 protocol TestResponding {
   func respond(to responder: Responder?, with status: Status)

@@ -1,4 +1,4 @@
-@testable import Flamingo
+@testable import Champagne
 
 class ResourceController: Controller, ResourceResponseFactory {
 

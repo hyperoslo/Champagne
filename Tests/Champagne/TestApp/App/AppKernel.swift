@@ -1,4 +1,4 @@
-import Flamingo
+import Champagne
 
 class AppKernel: Kernel {
 

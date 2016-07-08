@@ -1,7 +1,7 @@
 import XCTest
 import PathKit
 import String
-@testable import Flamingo
+@testable import Champagne
 
 class StencilEngineTests: XCTestCase {
 

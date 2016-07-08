@@ -1,5 +1,5 @@
 import XCTest
-@testable import Flamingo
+@testable import Champagne
 
 class QueryParametersMiddlewareTests: XCTestCase {
 
@@ -40,7 +40,7 @@ class QueryParametersMiddlewareTests: XCTestCase {
     let request = Request(
       method: Method.post,
       uri: URI(path: "/"),
-      body: Data("theme=dark&bird=flamingo")
+      body: Data("theme=dark&bird=Champagne")
     )
 
     let responder: Responder = BasicResponder { request in
