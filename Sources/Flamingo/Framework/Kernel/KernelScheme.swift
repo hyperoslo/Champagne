@@ -34,7 +34,7 @@ public struct KernelScheme {
 
     /// Web (public) directory relative path.
     public var web: String {
-      return "\(assets)/Web"
+      return "\(root)/Web"
     }
 
     /**

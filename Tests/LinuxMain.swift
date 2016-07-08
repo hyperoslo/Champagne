@@ -10,12 +10,11 @@ XCTMain([
 
   // MARK: - Framework
 
-  // Base
+  testCase(ApplicationTests.allTests),
+
+  // Bubble
   testCase(BubbleSchemeTests.allTests),
   testCase(BubbleTests.allTests),
-  testCase(KernelSchemeTests.allTests),
-  testCase(KernelTests.allTests),
-  testCase(ApplicationTests.allTests),
 
   // Config
   testCase(ConfigTests.allTests),
@@ -36,6 +35,10 @@ XCTMain([
   testCase(MethodTests.allTests),
   testCase(QueryParameterParserTests.allTests),
   testCase(RequestTests.allTests),
+
+  // Kernel
+  testCase(KernelSchemeTests.allTests),
+  testCase(KernelTests.allTests),
 
   // HTTP/Response
   testCase(FileResponderTests.allTests),
