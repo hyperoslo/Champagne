@@ -14,7 +14,6 @@ XCTMain([
 
   // Bubble
   testCase(BubbleSchemeTests.allTests),
-  testCase(BubbleTests.allTests),
 
   // Config
   testCase(ConfigTests.allTests),
