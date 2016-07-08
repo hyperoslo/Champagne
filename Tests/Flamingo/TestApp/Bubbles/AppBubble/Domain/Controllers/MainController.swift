@@ -1,6 +1,6 @@
 @testable import Flamingo
 
-class TestRouteMapper: Controller, RouteMapper {
+class MainController: Controller, RouteMapper {
 
   func draw(map: RouteCollection) {
     map.root(respond: index)

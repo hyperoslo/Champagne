@@ -31,7 +31,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
   let path2 = "test2"
 
   let middleware: [Middleware] = [
-    ParametersMiddleware(),
+    QueryParametersMiddleware(),
     ErrorMiddleware()
   ]
 
@@ -41,6 +41,12 @@ class RouteCollectionTests: XCTestCase, TestResponding {
 
   let failResponder = BasicResponder { _ in
     Response(status: .notFound, body: Data(""))
+  }
+
+  let application = Globals.application
+
+  var bubble: Bubble {
+    return application.bubbles.first!
   }
 
   lazy var container: RouteCollection = RouteCollection(path: self.rootPath)
@@ -211,7 +217,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let namespace = "group"
 
     container.namespace(namespace) {
-      return ResourceController(container: Globals.application.container)
+      return self.bubble.controller(MainController.self)
     }
 
     XCTAssertEqual(container.routeFor(absolutePath: "/\(namespace)")?.path, "/\(namespace)")
@@ -228,7 +234,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let name = "resource"
 
     container.resources(name) {
-      return TestResource()
+      return self.bubble.controller(ResourceController.self)
     }
 
     XCTAssertEqual(container.routes.count, 4)
@@ -246,7 +252,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let name = "resource"
 
     container.resources(name, only: [.index, .show]) {
-      return ResourceController(container: Globals.application.container)
+      return self.bubble.controller(ResourceController.self)
     }
 
     XCTAssertEqual(container.routes.count, 2)
@@ -260,7 +266,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
     let name = "resource"
 
     container.resources(name, except: [.index, .show]) {
-      return ResourceController(container: Globals.application.container)
+      return self.bubble.controller(ResourceController.self)
     }
 
     XCTAssertEqual(container.routes.count, 4)
@@ -277,7 +283,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
   func testAddResourceAction() {
     let name = "resource"
     let factory = {
-      return ResourceController(container: Globals.application.container)
+      return self.bubble.controller(ResourceController.self)
     }
 
     container.addResourceAction(.index, on: name, factory: factory)
@@ -317,7 +323,7 @@ class RouteCollectionTests: XCTestCase, TestResponding {
 
   func testUse() {
     container.use {
-      MainController(container: Globals.application.container)
+      self.bubble.controller(MainController.self)
     }
 
     XCTAssertEqual(container.routes.count, 2)

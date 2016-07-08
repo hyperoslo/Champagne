@@ -13,6 +13,10 @@ struct BootServiceMapper: ServiceMapper {
       container.register {
         return AssetProvider(config: config)
       }
+
+      container.register(Responder.self, tag: "fallback") {
+        return FallbackResponder(container: container)
+      }
     }
   }
 }

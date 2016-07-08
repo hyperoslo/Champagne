@@ -15,11 +15,16 @@ class ControllerTests: XCTestCase {
     ]
   }
 
-  let resource = TestResource()
+  var resource: ResourceController!
+  let application = Globals.application
+
+  var bubble: Bubble {
+    return application.bubbles.first!
+  }
 
   override func setUp() {
     super.setUp()
-    Config.viewsDirectory = (Path(#file).parent().parent() + "Fixtures/Views").description
+    resource = bubble.controller(ResourceController.self)
   }
 
   // MARK: - Tests

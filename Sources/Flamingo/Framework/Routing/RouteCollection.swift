@@ -164,8 +164,8 @@ public extension RouteCollection {
     - Parameter factory: Closure to instantiate a new instance of controller.
   */
   func namespace<T: RouteMapper>(_ path: String,
-                                         middleware: [Middleware] = [],
-                                         factory: () -> T) {
+                             middleware: [Middleware] = [],
+                                factory: () -> T) {
     let builder = factory()
     namespace(path, middleware: middleware, build: builder.draw)
   }

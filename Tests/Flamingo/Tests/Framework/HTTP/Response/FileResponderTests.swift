@@ -14,13 +14,11 @@ class FileResponderTests: XCTestCase {
     ]
   }
 
-  var responder: FileResponder!
-  let application = Globals.application
+  let responder = FileResponder!
 
   override func setUp() {
     super.setUp()
-    let assetProvider = AssetProvider(config: application.config)
-    responder = FileResponder(assetProvider: assetProvider)
+    responder = FileResponder(assetProvider: AssetProvider(config: Globals.config))
   }
 
   // MARK: - Tests

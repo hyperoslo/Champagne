@@ -47,22 +47,18 @@ class ResponseTests: XCTestCase {
     )
 
     XCTAssertEqual(response.status, status)
-    XCTAssertEqual(response.headers["Server"], "Flamingo \(Application.version)")
+    XCTAssertEqual(response.headers["Server"], "Champagne \(Application.version)")
     XCTAssertEqual(response.headers["Content-Type"], contentType)
     XCTAssertEqual(response.bodyString, "test")
   }
 
   func testStatusCode() {
-    XCTAssertEqual(response.statusCode, response.status.statusCode)
-  }
-
-  func testReasonPhrase() {
-    XCTAssertEqual(response.reasonPhrase, response.status.reasonPhrase)
+    XCTAssertEqual(response.status.statusCode, response.status.statusCode)
   }
 
   func testStatusLine() {
-    let result = "HTTP/1.1 " + response.statusCode.description
-      + " " + response.reasonPhrase + "\n"
+    let result = "HTTP/1.1 " + response.status.statusCode.description
+      + " " + response.status.reasonPhrase + "\n"
     XCTAssertEqual(response.statusLine, result)
   }
 

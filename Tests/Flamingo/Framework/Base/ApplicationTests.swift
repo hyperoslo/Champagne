@@ -14,7 +14,7 @@ class ApplicationTests: XCTestCase {
   // MARK: - Tests
 
   func testInit() {
-    application = Application()
+    application = Globals.application
 
     XCTAssertEqual(application.middleware.count, 4)
     XCTAssertTrue(application.middleware[0] is QueryParametersMiddleware)

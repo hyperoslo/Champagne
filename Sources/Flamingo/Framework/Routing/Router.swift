@@ -24,26 +24,27 @@ public final class Router {
     Creates a new `Router` instance.
 
     - Parameter collection: Route collection.
-    - Parameter container: Application container.
+    - Parameter fallback: Router fallback.
     - Parameter container: Router middleware.
   */
-  public init(collection: RouteCollection, container: Container, middleware: [Middleware]) {
+  public init(collection: RouteCollection,
+                fallback: Responder,
+              middleware: [Middleware] = []) {
     self.collection = collection
     self.middleware = middleware
-
-    fallback = BasicResponder { request in
-      guard let assetProvider = container.resolve(AssetProvider.self) else {
-        throw StatusError(Status.internalServerError)
-      }
-
-      return try ErrorMiddleware().respond(
-        to: request,
-        chainingTo: FileResponder(assetProvider: assetProvider)
-      )
-    }
+    self.fallback = fallback
   }
 
   // MARK: - Routing
+
+  /**
+    Builds and register new routes.
+
+    - Parameter build: Building closure.
+  */
+  public func draw(build: (collection: RouteCollection) -> Void) {
+    build(collection: collection)
+  }
 
   /**
     Matches request to the route.

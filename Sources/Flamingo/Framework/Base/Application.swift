@@ -79,9 +79,17 @@ public class Application {
       bubbles.append(bubble)
     }
 
+    let fallback: Responder
+
+    if let responder = container.resolve(Responder.self, tag: "fallback") {
+      fallback = responder
+    } else {
+      fallback = FallbackResponder(container: container)
+    }
+
     router = Router(
       collection: routeCollection,
-      container: container,
+      fallback: fallback,
       middleware: middleware
     )
   }
